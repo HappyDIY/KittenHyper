@@ -1,0 +1,1293 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/KittenHyper/img/fluid.png">
+  <link rel="icon" href="/KittenHyper/img/HyperOS.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Ranshen_Cervine">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="HyperOS 官改内容作者: Ranshen_Cervine ，本文采用CC BY-NC-SA 4.0 许可协议，转载请注明出处。 本教程为移植的进阶版本，解锁 HyperOS 功能和获取到相关定制化。涉及到修改的内容会详细说明，请在修改前明确需求，权衡利弊后修改。 system&#x2F;build.prop 1. 关闭部分log sys.miui.ndcd&#x3D;off 功能名称: ND">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HyperOS 官改内容">
+<meta property="og:url" content="https://kittenhyper.gitee.io/2024/02/02/HyperOS%20%E5%AE%98%E6%94%B9%E5%86%85%E5%AE%B9/index.html">
+<meta property="og:site_name" content="KittenHyper">
+<meta property="og:description" content="HyperOS 官改内容作者: Ranshen_Cervine ，本文采用CC BY-NC-SA 4.0 许可协议，转载请注明出处。 本教程为移植的进阶版本，解锁 HyperOS 功能和获取到相关定制化。涉及到修改的内容会详细说明，请在修改前明确需求，权衡利弊后修改。 system&#x2F;build.prop 1. 关闭部分log sys.miui.ndcd&#x3D;off 功能名称: ND">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-02T15:54:00.000Z">
+<meta property="article:modified_time" content="2024-02-05T19:13:45.858Z">
+<meta property="article:author" content="Ranshen_Cervine">
+<meta property="article:tag" content="HyperOS">
+<meta property="article:tag" content="官改">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>HyperOS 官改内容 - KittenHyper</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/KittenHyper/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/KittenHyper/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/KittenHyper/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kittenhyper.gitee.io","root":"/KittenHyper/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/KittenHyper/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/KittenHyper/js/utils.js" ></script>
+  <script  src="/KittenHyper/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/KittenHyper/">
+      <strong>KittenHyper</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/KittenHyper/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="HyperOS 官改内容"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-02 23:54" pubdate>
+          2024年2月2日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          79 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">HyperOS 官改内容</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="HyperOS-官改内容"><a href="#HyperOS-官改内容" class="headerlink" title="HyperOS 官改内容"></a>HyperOS 官改内容</h2><p>作者: Ranshen_Cervine ，本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本教程为移植的进阶版本，解锁 HyperOS 功能和获取到相关定制化。涉及到修改的内容会详细说明，请在修改前明确需求，权衡利弊后修改。</p>
+<h3 id="system-build-prop"><a href="#system-build-prop" class="headerlink" title="system&#x2F;build.prop"></a>system&#x2F;build.prop</h3><hr>
+<h4 id="1-关闭部分log"><a href="#1-关闭部分log" class="headerlink" title="1. 关闭部分log"></a>1. 关闭部分log</h4><ol>
+<li><strong>sys.miui.ndcd&#x3D;off</strong><ul>
+<li><strong>功能名称</strong>: NDCD（Network Diagnostic Connection Daemon）</li>
+<li><strong>功能描述</strong>: NDCD 是 MIUI 中的一个网络诊断服务，用于收集网络性能数据，以便于分析和改进网络连接。</li>
+<li><strong>影响</strong>: 设置为 <code>off</code> 会关闭这项服务，意味着设备不会收集和发送网络性能数据。这有助于保护用户隐私，但也影响小米对网络问题的诊断和改进。</li>
+</ul>
+</li>
+<li><strong>wifi.supplicant_scan_interval&#x3D;200</strong><ul>
+<li><strong>功能名称</strong>: Wi-Fi 扫描间隔</li>
+<li><strong>功能描述</strong>: 此设置控制 Wi-Fi 扫描的频率。Wi-Fi 扫描用于发现和连接到附近的 Wi-Fi 网络。</li>
+<li><strong>影响</strong>: 将扫描间隔设置为200毫秒会使设备更频繁地扫描Wi-Fi网络，提高网络连接的响应速度，但也增加电池消耗。如果设置得更高，比如500毫秒，将减少扫描次数，降低电池消耗，但网络连接的响应速度变慢。</li>
+</ul>
+</li>
+<li><strong>persist.sys.force_sw_gles&#x3D;0</strong><ul>
+<li><strong>功能名称</strong>: OpenGL ES 软件渲染</li>
+<li><strong>功能描述</strong>: OpenGL ES 是用于渲染2D和3D图形的软件接口。此设置决定是否强制使用软件（而非硬件）进行图形渲染。</li>
+<li><strong>影响</strong>: 设置为0使用硬件加速，可以提高图形性能，特别是在游戏和高负载应用中。设置为1强制使用软件渲染，可能减少性能，但在某些特定情况下可以增加兼容性。</li>
+</ul>
+</li>
+<li><strong>persist.wpa_supplicant.debug&#x3D;false</strong><ul>
+<li><strong>功能名称</strong>: WPA Supplicant 调试</li>
+<li><strong>功能描述</strong>: WPA Supplicant 是管理Wi-Fi安全的后台服务。此设置控制是否启用调试模式。</li>
+<li><strong>影响</strong>: 设置为 <code>false</code> 关闭调试模式，减少系统日志的数量，可以提高性能并减少存储空间的使用。如果设置为 <code>true</code>，会生成更多的日志信息，这对于调试网络问题很有用，但可能消耗更多资源。</li>
+</ul>
+</li>
+<li><strong>ro.media.enc.jpeg.quality&#x3D;80</strong><ul>
+<li><strong>功能名称</strong>: JPEG 压缩质量</li>
+<li><strong>功能描述</strong>: 此设置决定系统生成 JPEG 图片时的默认压缩质量。</li>
+<li><strong>影响</strong>: 设置为80意味着图片以80%的质量保存。增加这个值可以提高图片质量，但也会增加文件大小。减少这个值会减小文件大小，但会降低图片质量。</li>
+</ul>
+</li>
+<li><strong>debug.sqlite.journalmode&#x3D;OFF</strong><ul>
+<li><strong>功能名称</strong>: SQLite 日志模式</li>
+<li><strong>功能描述</strong>: SQLite 是一个轻量级的数据库系统，用于存储应用数据。日志模式决定了数据库如何记录事务。</li>
+<li><strong>影响</strong>: 设置为 <code>OFF</code> 关闭日志记录，可以提高数据库操作的性能，但在断电或系统崩溃的情况下可能导致数据库损坏。其他模式如 <code>DELETE</code>、<code>TRUNCATE</code> 或 <code>WAL</code> 可以提供不同级别的数据完整性保护和性能。</li>
+</ul>
+</li>
+<li><strong>miui.usb.dialog&#x3D;0</strong><ul>
+<li><strong>功能名称</strong>: MIUI USB 对话框</li>
+<li><strong>功能描述</strong>: 控制当设备连接到 USB 时是否显示对话框。</li>
+<li><strong>影响</strong>: 设置为0不显示对话框，用户可能不会注意到设备已连接到USB。设置为1会显示对话框，提醒用户选择如何使用USB连接（例如，只充电或文件传输）。</li>
+</ul>
+</li>
+<li><strong>persist.sys.aries.power_profile&#x3D;low</strong><ul>
+<li><strong>功能名称</strong>: 功耗配置文件</li>
+<li><strong>功能描述</strong>: 控制设备的功耗模式，以调整性能和电池使用。</li>
+<li><strong>影响</strong>: 设置为 <code>low</code> 可能会减少设备的性能，以延长电池寿命。如果设置为 <code>high</code> 或其他值，可能会提高性能，但同时消耗更多电池。</li>
+</ul>
+</li>
+<li><strong>ro.kernel.android.checkjni&#x3D;0</strong> 和 <strong>ro.kernel.checkjni&#x3D;0</strong><ul>
+<li><strong>功能名称</strong>: JNI 错误检查</li>
+<li><strong>功能描述</strong>: JNI（Java Native Interface）允许Java代码与本地代码交互。这些设置控制是否对JNI调用进行额外的错误检查。</li>
+<li><strong>影响</strong>: 设置为0关闭错误检查，可以提高性能，但也可能导致JNI相关的问题更难发现和调试。在开发和测试阶段，设置为1有助于发现和修正错误。</li>
+</ul>
+</li>
+<li><strong>vendor.bluetooth.startbtlogger&#x3D;false</strong><ul>
+<li><strong>功能名称</strong>: 蓝牙日志记录</li>
+<li><strong>功能描述</strong>: 控制是否记录蓝牙相关的日志信息。</li>
+<li><strong>影响</strong>: 设置为 <code>false</code> 关闭蓝牙日志记录，可以提高性能并减少存储空间的使用。设置为 <code>true</code> 可能有助于调试蓝牙相关的问题，但会增加系统负担。</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-屏幕帧率"><a href="#2-屏幕帧率" class="headerlink" title="2. 屏幕帧率"></a>2. 屏幕帧率</h4><ol>
+<li><strong>persist.sys.smartfps&#x3D;0</strong><ul>
+<li><strong>功能名称</strong>: 智能帧率调整</li>
+<li><strong>功能描述</strong>: 这个设置与系统调整显示帧率以匹配应用需求和节省电池能量的功能有关。</li>
+<li><strong>影响</strong>: 将其设置为0意味着禁用智能帧率调整功能。这会导致显示帧率不会根据内容动态调整，可能在所有情况下都保持最大帧率，这可以提高视觉流畅度，但可能增加电池消耗。</li>
+</ul>
+</li>
+<li><strong>ro.vendor.fps.switch.default&#x3D;false</strong><ul>
+<li><strong>功能名称</strong>: 默认帧率切换</li>
+<li><strong>功能描述</strong>: 这个设置与设备默认的帧率切换策略有关，用于控制在不同场景下是否自动切换帧率。</li>
+<li><strong>影响</strong>: 设置为 <code>false</code> 可能意味着设备不会默认地自动切换帧率。这会导致设备始终运行在一个固定的帧率下，无论应用需求如何。</li>
+</ul>
+</li>
+<li><strong>ro.surface_flinger.use_content_detection_for_refresh_rate&#x3D;false</strong><ul>
+<li><strong>功能名称</strong>: 内容检测帧率调整</li>
+<li><strong>功能描述</strong>: Surface Flinger 是Android中负责组合应用和系统图层以生成最终屏幕图像的组件。这个设置控制Surface Flinger是否根据内容动态调整屏幕刷新率。</li>
+<li><strong>影响</strong>: 设置为 <code>false</code> 表示Surface Flinger不会基于内容来动态调整刷新率。这可能导致屏幕刷新率不会根据显示内容的需求而变化，可能在所有情况下都保持一个固定的刷新率。</li>
+</ul>
+</li>
+<li><strong>ro.vendor.smart_dfps.enable&#x3D;false</strong><ul>
+<li><strong>功能名称</strong>: 智能动态帧率调整</li>
+<li><strong>功能描述</strong>: DFPS（Dynamic Frames Per Second）是动态帧率调整的简称。这个设置与智能动态调整帧率的功能有关。</li>
+<li><strong>影响</strong>: 设置为 <code>false</code> 表示禁用智能动态帧率调整功能。这可能导致设备不会根据当前的屏幕内容或其他因素动态调整帧率。</li>
+</ul>
+</li>
+<li><strong>ro.vendor.fps.switch.thermal&#x3D;false</strong><ul>
+<li><strong>功能名称</strong>: 热控帧率切换</li>
+<li><strong>功能描述</strong>: 这个设置与根据设备的热状态调整帧率有关，用于控制在设备过热时是否降低帧率来减少功耗和热量产生。</li>
+<li><strong>影响</strong>: 设置为 <code>false</code> 表示不会基于热状态动态调整帧率。这在设备过热时保持高帧率，但可能会导致设备更快过热。</li>
+</ul>
+</li>
+<li><strong>ro.vendor.dfps.enable&#x3D;false</strong><ul>
+<li><strong>功能名称</strong>: 动态帧率调整</li>
+<li><strong>功能描述</strong>: 与 <code>ro.vendor.smart_dfps.enable</code> 类似，这个设置也与动态帧率调整有关，但可能涉及不同的系统组件或策略。</li>
+<li><strong>影响</strong>: 设置为 <code>false</code> 可能表示禁用动态帧率调整功能。这可能导致设备不会根据内容或其他条件动态调整帧率，可能在所有情况下都保持一个固定的帧率。</li>
+</ul>
+</li>
+</ol>
+<h4 id="3-视频支持"><a href="#3-视频支持" class="headerlink" title="3. 视频支持"></a>3. 视频支持</h4><ul>
+<li><strong>这些设置涉及到设备在音频和视频处理方面的高级功能，包括AI增强、稳定化、帧率转换、后处理和风格化等，需要底层支持。</strong></li>
+</ul>
+<ol>
+<li><strong>ro.vendor.audio.aiasst.support&#x3D;true</strong><ul>
+<li><strong>功能名称</strong>: 音频人工智能助手支持</li>
+<li><strong>功能描述</strong>: 这个设置指示设备是否支持音频人工智能助手功能，可能涉及语音识别、音频优化或其他智能音频处理功能。</li>
+<li><strong>影响</strong>: 设置为 <code>true</code> 表示启用音频AI助手。这可能提高音频处理的智能化水平，比如提供更好的噪音抑制、语音识别或音频增强。</li>
+</ul>
+</li>
+<li><strong>ro.vendor.video_box.version&#x3D;2</strong><ul>
+<li><strong>功能名称</strong>: 视频盒版本</li>
+<li><strong>功能描述</strong>: 这个设置指定了设备上视频处理软件的版本号。</li>
+<li><strong>影响</strong>: 版本号通常与特定的功能和性能改进相关联。更高的版本号可能意味着更多的功能和&#x2F;或性能优化。</li>
+</ul>
+</li>
+<li><strong>debug.config.media.video.aie.support&#x3D;true</strong><ul>
+<li><strong>功能名称</strong>: 媒体视频人工智能增强支持</li>
+<li><strong>功能描述</strong>: 类似于音频AI助手，这个设置控制是否启用视频人工智能增强功能，比如通过AI改进视频质量或提供智能视频编辑功能。</li>
+<li><strong>影响</strong>: 设置为 <code>true</code> 表示启用视频AI增强功能，可能提升视频处理的智能化和用户体验。</li>
+</ul>
+</li>
+<li><strong>debug.config.media.video.ais.support&#x3D;true</strong><ul>
+<li><strong>功能名称</strong>: 媒体视频AI稳定化支持</li>
+<li><strong>功能描述</strong>: 这个设置指示设备是否支持利用AI进行视频稳定化处理，以减少摄像过程中的抖动和模糊。</li>
+<li><strong>影响</strong>: 设置为 <code>true</code> 启用视频AI稳定化功能，可能改善视频拍摄的稳定性和质量。</li>
+</ul>
+</li>
+<li><strong>debug.media.video.frc&#x3D;false</strong><ul>
+<li><strong>功能名称</strong>: 视频帧率转换（FRC）</li>
+<li><strong>功能描述</strong>: FRC是一种技术，用于在视频播放时增加帧数，从而使视频播放更加平滑。</li>
+<li><strong>影响</strong>: 设置为 <code>false</code> 表示禁用FRC。这使得视频播放时不进行额外的帧插入，保持原始帧率。</li>
+</ul>
+</li>
+<li><strong>debug.media.video.vpp&#x3D;false</strong><ul>
+<li><strong>功能名称</strong>: 视频后处理（VPP）</li>
+<li><strong>功能描述</strong>: VPP包括一系列用于改善视频播放质量的技术，如去块效应、去噪声等。</li>
+<li><strong>影响</strong>: 设置为 <code>false</code> 表示禁用VPP。这使得视频播放时不进行额外的图像质量优化处理。</li>
+</ul>
+</li>
+<li><strong>debug.media.video.style&#x3D;false</strong><ul>
+<li><strong>功能名称</strong>: 视频风格化</li>
+<li><strong>功能描述</strong>: 这个设置与视频内容的风格化处理有关，比如应用特定的视觉效果或滤镜。</li>
+<li><strong>影响</strong>: 设置为 <code>false</code> 表示禁用视频风格化功能。这使得视频播放时保持原始风格，不应用额外的视觉效果。</li>
+</ul>
+</li>
+<li><strong>ro.vendor.media.video.frc.support&#x3D;true</strong><ul>
+<li><strong>功能名称</strong>: 厂商支持的视频帧率转换（FRC）</li>
+<li><strong>功能描述</strong>: 与上述的 <code>debug.media.video.frc</code> 类似，但这个设置是厂商级别的，表明设备硬件或定制软件是否支持FRC功能。</li>
+<li><strong>影响</strong>: 设置为 <code>true</code> 表示硬件或厂商定制软件支持FRC，可以提供平滑的视频播放体验。</li>
+</ul>
+</li>
+<li><strong>ro.vendor.media.video.vpp.support&#x3D;true</strong><ul>
+<li><strong>功能名称</strong>: 厂商支持的视频后处理（VPP）</li>
+<li><strong>功能描述</strong>: 类似于 <code>debug.media.video.vpp</code>，这个设置表明硬件或厂商定制软件是否支持VPP功能。</li>
+<li><strong>影响</strong>: 设置为 <code>true</code> 表示支持VPP，可以在视频播放时提供额外的图像质量优化。</li>
+</ul>
+</li>
+<li><strong>ro.vendor.media.video.style.support&#x3D;false</strong><ul>
+<li><strong>功能名称</strong>: 厂商支持的视频风格化</li>
+<li><strong>功能描述</strong>: 类似于 <code>debug.media.video.style</code>，这个设置表明硬件或厂商定制软件是否支持视频风格化功能。</li>
+<li><strong>影响</strong>: 设置为 <code>false</code> 表示不支持视频风格化，视频播放时不会应用额外的风格化处理。</li>
+</ul>
+</li>
+</ol>
+<h4 id="4-系统相关设置"><a href="#4-系统相关设置" class="headerlink" title="4. 系统相关设置"></a>4. 系统相关设置</h4><ul>
+<li>更改以下设置时需要谨慎，这些设置控制了从图形渲染到网络配置的多个方面，对设备的性能、电池寿命和用户体验有很大的影响。</li>
+</ul>
+<ol>
+<li><p><strong>persist.sys.composition.type&#x3D;mdp 和 debug.composition.type&#x3D;mdp</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 组合器类型设置</li>
+<li><strong>功能描述</strong>: 这些设置指定系统用于渲染和组合图层的硬件或软件组合器类型。MDP（Mobile Display Processor）是一种硬件组合器。</li>
+<li><strong>影响</strong>: 设置为MDP意味着系统优先使用硬件组合器进行图像处理和渲染，这可能提高渲染性能和效率。</li>
+</ul>
+</li>
+<li><p><strong>debug.sf.gpu_comp_tiling&#x3D;1</strong></p>
+<ul>
+<li><strong>功能名称</strong>: GPU组合平铺</li>
+<li><strong>功能描述</strong>: 这个设置与在GPU进行图像组合时使用平铺技术有关，平铺技术可以提高处理效率。</li>
+<li><strong>影响</strong>: 设置为1启用GPU平铺技术，提高渲染效率。</li>
+</ul>
+</li>
+<li><p><strong>debug.sf.enable_gl_backpressure&#x3D;1</strong></p>
+<ul>
+<li><strong>功能名称</strong>: OpenGL回压控制</li>
+<li><strong>功能描述</strong>: 这个设置控制系统是否对OpenGL渲染任务施加回压（backpressure），以防止过度渲染和资源浪费。</li>
+<li><strong>影响</strong>: 设置为1启用回压控制，帮助避免资源浪费并提高性能。</li>
+</ul>
+</li>
+<li><p><strong>debug.sf.latch_unsignaled&#x3D;1</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 未信号化纹理锁定</li>
+<li><strong>功能描述</strong>: 这个设置与在渲染未完成时锁定纹理相关，防止未准备好的内容被提前渲染。</li>
+<li><strong>影响</strong>: 设置为1启用这种保护机制，确保只有准备好的内容被渲染。</li>
+</ul>
+</li>
+<li><p><strong>debug.sf.disable_backpressure&#x3D;1</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 禁用回压</li>
+<li><strong>功能描述</strong>: 与 <code>debug.sf.enable_gl_backpressure</code> 相反，这个设置控制是否禁用OpenGL渲染的回压。</li>
+<li><strong>影响</strong>: 设置为1禁用回压，会导致更快的渲染速度，但也增加资源消耗。</li>
+</ul>
+</li>
+<li><p><strong>windowsmgr.max_events_per_sec&#x3D;1000</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 窗口管理器事件限制</li>
+<li><strong>功能描述</strong>: 这个设置限制了窗口管理器每秒可以处理的最大事件数。</li>
+<li><strong>影响</strong>: 设置较高的值（如1000）可以提高用户界面的响应性，但也增加CPU负载。</li>
+</ul>
+</li>
+<li><p><strong>debug.sqlite.wal.poolsize&#x3D;7</strong></p>
+<ul>
+<li><strong>功能名称</strong>: SQLite WAL连接池大小</li>
+<li><strong>功能描述</strong>: WAL（Write-Ahead Logging）是SQLite的一种日志模式，提高数据库写入性能。这个设置控制WAL模式下的连接池大小。</li>
+<li><strong>影响</strong>: 设置更大的池大小可以提高数据库并发写入性能，但也可能增加内存使用。</li>
+</ul>
+</li>
+<li><p><strong>debug.sqlite.wal.syncmode&#x3D;OFF 和 debug.sqlite.journalmode&#x3D;OFF</strong></p>
+<ul>
+<li><strong>功能名称</strong>: SQLite WAL同步模式和日志模式</li>
+<li><strong>功能描述</strong>: 这些设置控制SQLite数据库的同步和日志行为。</li>
+<li><strong>影响</strong>: 关闭同步模式和日志模式可以提高数据库性能，但在系统崩溃的情况下会降低数据一致性。</li>
+</ul>
+</li>
+<li><p><strong>debug.gralloc.enable_fb_ubwc&#x3D;1</strong></p>
+<ul>
+<li><strong>功能名称</strong>: Gralloc UBWC支持</li>
+<li><strong>功能描述</strong>: Gralloc是Android中用于图像内存分配的库。UBWC（Universal Bandwidth Compression）是一种内存带宽压缩技术。</li>
+<li><strong>影响</strong>: 启用UBWC可能提高图像处理的效率，减少内存带宽消耗。</li>
+</ul>
+</li>
+<li><p><strong>persist.vendor.audio.spkr.cal.duration&#x3D;100</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 音频扬声器校准时长</li>
+<li><strong>功能描述</strong>: 这个设置指定了扬声器校准过程的时长。</li>
+<li><strong>影响</strong>: 设置特定的校准时长可能影响音频质量和扬声器性能。</li>
+</ul>
+</li>
+<li><p><strong>persist.vendor.camera.imglib.ea_bypass&#x3D;1</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 相机图像库早期访问绕过</li>
+<li><strong>功能描述</strong>: 这个设置与相机图像处理流程中的早期访问（early access）环节有关。</li>
+<li><strong>影响</strong>: 设置为1可能可以绕过某些图像处理步骤，加快相机响应速度，但也可能影响图像质量。</li>
+</ul>
+</li>
+<li><p><strong>persist.vendor.camera.llnoise&#x3D;0</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 低光噪声抑制</li>
+<li><strong>功能描述</strong>: 这个设置与相机在低光环境下的噪声抑制功能有关。</li>
+<li><strong>影响</strong>: 设置为0可能禁用低光噪声抑制，可以在低光环境下提高相机响应速度，但也可能增加噪声。</li>
+</ul>
+</li>
+<li><p><strong>af.resampler.quality&#x3D;7</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 音频重采样质量</li>
+<li><strong>功能描述</strong>: 这个设置控制音频数据在重采样过程中的处理质量。</li>
+<li><strong>影响</strong>: 更高的质量设置（如7）可能提高音频质量，但也可能增加处理开销。</li>
+</ul>
+</li>
+<li><p><strong>ro.data.large_tcp_window_size&#x3D;true</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 大TCP窗口尺寸</li>
+<li><strong>功能描述</strong>: 这个设置控制是否启用更大的TCP窗口尺寸，可以提高网络性能。</li>
+<li><strong>影响</strong>: 启用大窗口尺寸可以提高网络传输速度，特别是在高延迟的网络上。</li>
+</ul>
+</li>
+<li><p><strong>pm.sleep_mode&#x3D;1</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 睡眠模式</li>
+<li><strong>功能描述</strong>: 这个设置与设备的睡眠（低功耗）状态配置有关。</li>
+<li><strong>影响</strong>: 不同的设置值可能影响设备的电源消耗和唤醒行为。</li>
+</ul>
+</li>
+<li><p><strong>ro.ril.disable.power.collapse&#x3D;0</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 禁用电源折叠</li>
+<li><strong>功能描述</strong>: 这个设置与移动网络硬件的电源管理有关。</li>
+<li><strong>影响</strong>: 设置为0可能允许电源折叠，有助于节省电能，但也可能影响网络连接的稳定性。</li>
+</ul>
+</li>
+<li><p><strong>ro.vendor.net.enable_sla&#x3D;1</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 网络SLA（服务水平协议）支持</li>
+<li><strong>功能描述</strong>: 这个设置可能与网络服务的质量保证或优化有关。</li>
+<li><strong>影响</strong>: 启用SLA支持可能提高网络服务质量，确保更稳定或更高效的网络连接。</li>
+</ul>
+</li>
+<li><p><strong>persist.sys.allow_sys_app_update&#x3D;true</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 允许系统应用更新</li>
+<li><strong>功能描述</strong>: <code>persist.sys.allow_sys_app_update</code> 这个设置指定了系统是否允许更新预装的系统应用。系统应用通常是与操作系统一起预装在设备上的应用，通常有不同于用户安装的普通应用的更新策略。</li>
+<li><strong>影响</strong>: 设置为 <code>true</code> 表示系统允许对预装的系统应用进行更新。这意味着，即使应用是作为操作系统的一部分预装的，也可以通过正常的应用更新机制接收和安装更新。这可以确保系统应用能够接收到安全更新、性能改进和新功能，但也可能带来更频繁的更新和潜在的系统稳定性风险。如果设置为 <code>false</code>，则系统应用将不会接收更新，这可能会提高系统的稳定性，但同时也意味着系统应用可能无法及时接收重要的更新和修复。</li>
+</ul>
+</li>
+<li><p><strong>debug.sf.hw&#x3D;1</strong></p>
+<ul>
+<li><p><strong>功能名称</strong>: 硬件加速渲染</p>
+</li>
+<li><p><strong>功能描述</strong>: <code>debug.sf.hw</code> 是一个用于控制 Android 的 SurfaceFlinger 服务的设置，SurfaceFlinger 负责合成屏幕上显示的所有视图和动画。当这个设置为 1 时，它会启用硬件加速渲染，意味着 SurfaceFlinger 将尽可能使用 GPU（图形处理单元）来渲染界面元素和动画，而不是使用 CPU。</p>
+</li>
+<li><p><strong>影响</strong>: 设置为 <code>1</code> 表明启用硬件加速。这通常可以提高 UI 渲染的性能和流畅度，因为 GPU 在处理图形任务时比 CPU 更高效。这可以使界面动画更加平滑，响应更快，提高整体的用户体验。但是，它也可能增加 GPU 的功耗，特别是在渲染复杂界面或运行图形密集型应用时。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ro.telephony.call_ring.delay&#x3D;0</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 电话呼入铃声延迟</li>
+<li><strong>功能描述</strong>: <code>ro.telephony.call_ring.delay</code> 设置用于控制设备在收到呼入电话时，铃声响起之前的延迟时间。这个值的单位通常是毫秒。</li>
+<li><strong>影响</strong>: 设置为 <code>0</code> 意味着没有延迟，即电话一旦收到呼入请求，铃声立即响起。这可以确保用户能够尽快得知有呼入电话。有时候，为了同步铃声与震动或者确保不立即打断用户，系统或用户可能会设置一个小的延迟。但在这个设置为 <code>0</code> 的情况下，目标是最快地提醒用户有呼入电话。</li>
+</ul>
+</li>
+<li><p><strong>windowsmgr.max_events_per_sec&#x3D;150</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 窗口管理器最大事件处理率</li>
+<li><strong>功能描述</strong>: <code>windowsmgr.max_events_per_sec</code> 设置用于控制窗口管理器每秒可以处理的最大事件数。事件可以是触摸、滑动、按键等用户输入事件。</li>
+<li><strong>影响</strong>: 设置为 <code>150</code> 表示窗口管理器每秒最多可以处理 150 个事件。这个设置影响用户界面的响应性。较高的值可以提高界面的反应速度，使得滑动和触摸等操作感觉更加流畅，但如果设置得过高，可能会对系统性能产生负面影响，特别是在资源有限的设备上。相反，较低的值可能会使界面感觉不够灵敏。</li>
+</ul>
+</li>
+<li><p><strong>debug.performance.tuning&#x3D;1</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 性能调优调试</li>
+<li><strong>功能描述</strong>: 此设置可能与启用系统级的性能调优相关。具体细节可能因设备和操作系统版本不同而有所差异，但通常，开启此选项会激活一些调试选项或特性，旨在优化设备性能。</li>
+<li><strong>影响</strong>: 设置为 <code>1</code> 表明性能调优调试功能被激活。这可能导致系统调整某些参数或行为以提升性能，例如提高 CPU 或 GPU 的频率、调整内存管理策略等。然而，这也可能导致增加电量消耗或降低设备的稳定性。通常，这个选项被开发者用于测试和优化应用。</li>
+</ul>
+</li>
+<li><p><strong>video.accelerate.hw&#x3D;1</strong></p>
+<ul>
+<li><strong>功能名称</strong>: 视频硬件加速</li>
+<li><strong>功能描述</strong>: 此设置指示系统在播放视频时是否启用硬件加速。硬件加速是指使用专门的硬件（如 GPU）来处理视频解码和播放，而不完全依赖于 CPU。</li>
+<li><strong>影响</strong>: 设置为 <code>1</code> 表示启用视频硬件加速。这通常可以显著提高视频播放的性能和效率，减少卡顿和延迟，同时降低 CPU 负载，从而可能减少电量消耗。然而，某些视频格式或编解码器可能不支持硬件加速，或者在特定硬件上的支持有限。</li>
+</ul>
+</li>
+</ol>
+<h4 id="5-扬声器优化"><a href="#5-扬声器优化" class="headerlink" title="5. 扬声器优化"></a>5. 扬声器优化</h4><ol>
+<li><strong>ro.vendor.audio.spk.clean&#x3D;true</strong><ul>
+<li><strong>功能名称</strong>: 扬声器清晰音频输出</li>
+<li><strong>功能描述</strong>: 这个设置可能指示设备的音频处理系统启用了特定的算法或设置，以确保扬声器输出的音质是清晰的，尤其是在高音量下。</li>
+<li><strong>影响</strong>: 设置为 <code>true</code> 表明扬声器输出被优化以减少失真和噪音，确保即使在高音量下也能提供清晰的音频输出。这可能涉及动态范围控制、失真抑制或其他音频处理技术。</li>
+</ul>
+</li>
+<li><strong>ro.vendor.audio.spk.stereo&#x3D;true</strong><ul>
+<li><strong>功能名称</strong>: 扬声器立体声输出</li>
+<li><strong>功能描述</strong>: 这个设置表明设备支持通过扬声器提供立体声音频输出。立体声可以提供更丰富、更沉浸的听觉体验，因为它使用两个或更多的声道来创建声音的空间感。</li>
+<li><strong>影响</strong>: 设置为 <code>true</code> 表示设备的扬声器系统被配置为提供立体声输出。这意味着音频播放时，用户可以体验到更丰富的声场和更好的声音定位。这对于提高音乐、电影和游戏的听觉体验特别有用。</li>
+</ul>
+</li>
+</ol>
+<h4 id="6-硬件加速渲染库"><a href="#6-硬件加速渲染库" class="headerlink" title="6. 硬件加速渲染库"></a>6. 硬件加速渲染库</h4><ol>
+<li><strong>ro.hwui.texture_cache_size&#x3D;72</strong><ul>
+<li><strong>功能名称</strong>: 纹理缓存大小</li>
+<li><strong>功能描述</strong>: 控制 HWUI 纹理缓存的最大大小（以 MB 为单位）。</li>
+<li><strong>影响</strong>: 较大的缓存可以减少纹理加载时间，提高渲染性能，但也会占用更多的内存。这个设置控制缓存用于存储常用图形和纹理的内存量。</li>
+</ul>
+</li>
+<li><strong>ro.hwui.layer_cache_size&#x3D;48</strong><ul>
+<li><strong>功能名称</strong>: 图层缓存大小</li>
+<li><strong>功能描述</strong>: 控制 HWUI 图层缓存的最大大小（以 MB 为单位）。</li>
+<li><strong>影响</strong>: 图层缓存用于存储视图层次结构中的复合图层。较大的缓存可以提高层次结构渲染的性能，但同样会增加内存使用。</li>
+</ul>
+</li>
+<li><strong>ro.hwui.r_buffer_cache_size&#x3D;8</strong><ul>
+<li><strong>功能名称</strong>: 渲染缓冲区缓存大小</li>
+<li><strong>功能描述</strong>: 控制渲染缓冲区缓存的大小（以 MB 为单位）。</li>
+<li><strong>影响</strong>: 渲染缓冲区用于存储渲染操作的中间结果。较大的缓存可以加速渲染过程，特别是对于复杂的视图。</li>
+</ul>
+</li>
+<li><strong>ro.hwui.path_cache_size&#x3D;32</strong><ul>
+<li><strong>功能名称</strong>: 路径缓存大小</li>
+<li><strong>功能描述</strong>: 控制路径缓存的最大大小（以 MB 为单位）。</li>
+<li><strong>影响</strong>: 路径缓存用于存储路径绘制操作的预计算数据。增加路径缓存可以提高绘制复杂路径的性能。</li>
+</ul>
+</li>
+<li><strong>ro.hwui.gradient_cache_size&#x3D;1</strong><ul>
+<li><strong>功能名称</strong>: 渐变缓存大小</li>
+<li><strong>功能描述</strong>: 控制渐变缓存的最大大小（以 MB 为单位）。</li>
+<li><strong>影响</strong>: 渐变缓存用于存储渐变和其他复杂颜色转换的预计算数据。更大的渐变缓存可以提高渐变渲染的性能。</li>
+</ul>
+</li>
+<li><strong>ro.hwui.drop_shadow_cache_size&#x3D;6</strong><ul>
+<li><strong>功能名称</strong>: 阴影缓存大小</li>
+<li><strong>功能描述</strong>: 控制阴影缓存的最大大小（以 MB 为单位）。</li>
+<li><strong>影响</strong>: 阴影缓存用于存储视图和元素的阴影效果。增加阴影缓存可以提高阴影效果的渲染性能。</li>
+</ul>
+</li>
+<li><strong>ro.hwui.texture_cache_flushrate&#x3D;0.4</strong><ul>
+<li><strong>功能名称</strong>: 纹理缓存刷新率</li>
+<li><strong>功能描述</strong>: 控制纹理缓存的刷新率。</li>
+<li><strong>影响</strong>: 这个设置定义了缓存清理的频率。较低的值会导致缓存更频繁地被清理，释放内存，但可能增加因重载纹理而导致的性能开销。</li>
+</ul>
+</li>
+<li><strong>ro.hwui.text_small_cache_width&#x3D;1024</strong> 和 <strong>ro.hwui.text_small_cache_height&#x3D;1024</strong><ul>
+<li><strong>功能名称</strong>: 小文字缓存尺寸</li>
+<li><strong>功能描述</strong>: 定义小文字缓存的宽度和高度（以像素为单位）。</li>
+<li><strong>影响</strong>: 这些设置控制存储小文字的缓存区域的大小。较大的缓存可以提高小文本渲染的性能，但会占用更多内存。</li>
+</ul>
+</li>
+<li><strong>ro.hwui.text_large_cache_width&#x3D;2048</strong> 和 <strong>ro.hwui.text_large_cache_height&#x3D;4096</strong><ul>
+<li><strong>功能名称</strong>: 大文字缓存尺寸</li>
+<li><strong>功能描述</strong>: 定义大文字缓存的宽度和高度（以像素为单位）。</li>
+<li><strong>影响</strong>: 这些设置控制存储大文本的缓存区域的大小。较大的缓存可以提高大文本渲染的性能，但同样会占用更多内存。</li>
+</ul>
+</li>
+</ol>
+<h4 id="7-录像优化"><a href="#7-录像优化" class="headerlink" title="7. 录像优化"></a>7. 录像优化</h4><ol>
+<li><strong>ro.media.capture.maxres&#x3D;8m</strong><ul>
+<li><strong>功能名称</strong>: 最大捕获分辨率</li>
+<li><strong>功能描述</strong>: 这个设置指定了设备照相机捕获图像的最大分辨率。</li>
+<li><strong>影响</strong>: 设置为8m（即800万像素）意味着最大捕获分辨率被限制在800万像素。这可能影响拍摄高分辨率照片的能力，限制照片的细节和放大能力。</li>
+</ul>
+</li>
+<li><strong>ro.media.capture.fast.fps&#x3D;4</strong><ul>
+<li><strong>功能名称</strong>: 快速捕获帧率</li>
+<li><strong>功能描述</strong>: 这个设置控制快速视频捕获（比如快速摄影）的帧率。</li>
+<li><strong>影响</strong>: 设置为4 fps（每秒帧数）可能用于特定的快速捕获模式，如延时摄影，其中帧率较低。</li>
+</ul>
+</li>
+<li><strong>ro.media.capture.slow.fps&#x3D;120</strong><ul>
+<li><strong>功能名称</strong>: 慢动作捕获帧率</li>
+<li><strong>功能描述</strong>: 这个设置指定了慢动作视频捕获的帧率。</li>
+<li><strong>影响</strong>: 设置为120 fps意味着慢动作视频将以每秒120帧的速度捕获。这可以提供平滑的慢动作效果，但也可能需要较大的存储空间和处理能力。</li>
+</ul>
+</li>
+<li><strong>ro.media.panorama.defres&#x3D;3264x1840</strong><ul>
+<li><strong>功能名称</strong>: 全景默认分辨率</li>
+<li><strong>功能描述</strong>: 这个设置指定了全景照片模式的默认分辨率。</li>
+<li><strong>影响</strong>: 设置为3264x1840像素意味着全景照片将以这个分辨率捕获。这个分辨率决定了全景照片的详细程度和总体质量。</li>
+</ul>
+</li>
+<li><strong>ro.media.panorama.frameres&#x3D;1280x720</strong><ul>
+<li><strong>功能名称</strong>: 全景帧分辨率</li>
+<li><strong>功能描述</strong>: 这个设置指定了拼接全景照片时每帧的分辨率。</li>
+<li><strong>影响</strong>: 设置为1280x720像素意味着用于拼接全景照片的每帧图像将以此分辨率捕获。这个分辨率可能影响全景拍摄的处理速度和最终图像的质量。</li>
+</ul>
+</li>
+<li><strong>ro.camcorder.videoModes&#x3D;true</strong><ul>
+<li><strong>功能名称</strong>: 摄像机视频模式</li>
+<li><strong>功能描述</strong>: 这个设置可能指示设备支持多种视频录制模式。</li>
+<li><strong>影响</strong>: 设置为 <code>true</code> 表明设备可能支持多种视频捕获模式，如标准、慢动作和快速捕获。这提供了用户在录制视频时的多样化选项。</li>
+</ul>
+</li>
+</ol>
+<h4 id="8-TCP-IP-网络堆栈配置"><a href="#8-TCP-IP-网络堆栈配置" class="headerlink" title="8. TCP&#x2F;IP 网络堆栈配置"></a>8. TCP&#x2F;IP 网络堆栈配置</h4><ol>
+<li><strong>net.ipv4.tcp_ecn&#x3D;0</strong><ul>
+<li><strong>功能名称</strong>: TCP 显式拥塞通知 (ECN)</li>
+<li><strong>功能描述</strong>: ECN 允许网络节点在发生拥塞之前通知发送者减少其传输速率。</li>
+<li><strong>影响</strong>: 设置为0禁用 ECN。这意味着即使网络设备支持 ECN，TCP 连接也不会尝试使用它来避免拥塞。</li>
+</ul>
+</li>
+<li><strong>net.ipv4.route.flush&#x3D;1</strong><ul>
+<li><strong>功能名称</strong>: 路由表刷新</li>
+<li><strong>功能描述</strong>: 控制 Linux 内核路由表的刷新操作。</li>
+<li><strong>影响</strong>: 设置为1会清除路由缓存。这通常用于网络配置更改后，确保数据包根据最新的路由信息发送。</li>
+</ul>
+</li>
+<li><strong>net.ipv4.tcp_rfc1337&#x3D;1</strong><ul>
+<li><strong>功能名称</strong>: 遵守 RFC 1337</li>
+<li><strong>功能描述</strong>: RFC 1337 是一个关于 TCP TIME-WAIT 状态处理的标准。</li>
+<li><strong>影响</strong>: 设置为1表示遵守 RFC 1337，防止 “TIME-WAIT” 攻击，提高系统稳定性。</li>
+</ul>
+</li>
+<li><strong>net.ipv4.ip_no_pmtu_disc&#x3D;0</strong><ul>
+<li><strong>功能名称</strong>: 禁用路径 MTU 发现</li>
+<li><strong>功能描述</strong>: 路径 MTU 发现用于确定最优的数据包大小，避免在传输路径中发生分片。</li>
+<li><strong>影响</strong>: 设置为0启用路径 MTU 发现，有助于优化数据包大小，提高网络效率。</li>
+</ul>
+</li>
+<li><strong>net.ipv4.tcp_sack&#x3D;1</strong><ul>
+<li><strong>功能名称</strong>: TCP 选择确认 (SACK)</li>
+<li><strong>功能描述</strong>: SACK 允许接收者告知发送者哪些数据被成功接收，有助于高效处理丢包情况。</li>
+<li><strong>影响</strong>: 设置为1启用 SACK，可以提高在丢包环境下的 TCP 性能。</li>
+</ul>
+</li>
+<li><strong>net.ipv4.tcp_fack&#x3D;1</strong><ul>
+<li><strong>功能名称</strong>: TCP 前向确认 (FACK)</li>
+<li><strong>功能描述</strong>: FACK 是一种改进的 SACK 机制，用于更高效的丢包恢复。</li>
+<li><strong>影响</strong>: 设置为1启用 FACK，可以进一步提高丢包恢复的效率。</li>
+</ul>
+</li>
+<li><strong>net.ipv4.tcp_window_scaling&#x3D;1</strong><ul>
+<li><strong>功能名称</strong>: TCP 窗口缩放</li>
+<li><strong>功能描述</strong>: 窗口缩放用于支持大于 64KB 的 TCP 窗口，有助于提高高延迟和高带宽网络的性能。</li>
+<li><strong>影响</strong>: 设置为1启用窗口缩放，允许 TCP 窗口大小超过 64KB，提高在高速网络上的传输性能。</li>
+</ul>
+</li>
+<li><strong>net.ipv4.tcp_timestamps&#x3D;1</strong><ul>
+<li><strong>功能名称</strong>: TCP 时间戳</li>
+<li><strong>功能描述</strong>: 时间戳用于更精确的 RTT (往返时间) 测量和避免旧的数据包干扰连接。</li>
+<li><strong>影响</strong>: 设置为1启用时间戳，可以提高 TCP 性能和可靠性。</li>
+</ul>
+</li>
+<li><strong>net.ipv4.tcp_rmem</strong> 和 <strong>net.ipv4.tcp_wmem</strong><ul>
+<li><strong>功能名称</strong>: TCP 读&#x2F;写缓冲区大小</li>
+<li><strong>功能描述</strong>: 这些设置控制 TCP 读缓冲区和写缓冲区的最小、默认和最大大小（以字节为单位）。</li>
+<li><strong>影响</strong>: 适当调整这些值可以优化 TCP 性能，特别是在特定的网络条件下。</li>
+</ul>
+</li>
+<li><strong>net.ipv4.tcp_mem</strong><ul>
+<li><strong>功能名称</strong>: TCP 内存缓冲区大小</li>
+<li><strong>功能描述</strong>: 控制 TCP 堆栈可以使用的内存总量。</li>
+<li><strong>影响</strong>: 设置合理的值可以优化系统资源使用和网络性能。</li>
+</ul>
+</li>
+<li><strong>net.ipv4.tcp_no_metrics_save&#x3D;1</strong><ul>
+<li><strong>功能名称</strong>: 禁止 TCP 度量保存</li>
+<li><strong>功能描述</strong>: 此设置控制是否在 TCP 连接关闭后保存关于连接的某些度量。</li>
+<li><strong>影响</strong>: 设置为1禁止保存度量，可以在某些情况下节省资源，但可能导致连接建立时缺乏优化信息。</li>
+</ul>
+</li>
+</ol>
+<h4 id="9-无线电和网络"><a href="#9-无线电和网络" class="headerlink" title="9. 无线电和网络"></a>9. 无线电和网络</h4><ol>
+<li><strong>ro.ril.hsxpa&#x3D;2</strong><ul>
+<li><strong>功能名称</strong>: HSPA (High Speed Packet Access) 配置</li>
+<li><strong>功能描述</strong>: 这个设置用于配置 HSUPA (High Speed Uplink Packet Access) 和 HSDPA (High Speed Downlink Packet Access) 的使用。</li>
+<li><strong>影响</strong>: 设置为 <code>2</code> 可能表示同时启用 HSUPA 和 HSDPA，允许更高的数据上传和下载速率。</li>
+</ul>
+</li>
+<li><strong>ro.ril.gprsclass&#x3D;12</strong><ul>
+<li><strong>功能名称</strong>: GPRS 类别</li>
+<li><strong>功能描述</strong>: 这个设置指定了设备支持的 GPRS (General Packet Radio Service) 网络类别。</li>
+<li><strong>影响</strong>: 设置为 <code>12</code> 指示设备支持 GPRS Class 12，影响数据传输速度和网络连接的性能。</li>
+</ul>
+</li>
+<li><strong>ro.ril.hep&#x3D;1</strong><ul>
+<li><strong>功能名称</strong>: 启用高效率包 (High Efficiency Packet)</li>
+<li><strong>功能描述</strong>: 这个设置可能与在网络通信中使用高效率数据包有关。</li>
+<li><strong>影响</strong>: 设置为 <code>1</code> 表示启用高效率包，可能提高网络数据传输的效率。</li>
+</ul>
+</li>
+<li><strong>ro.ril.hsdpa.category&#x3D;10</strong><ul>
+<li><strong>功能名称</strong>: HSDPA 类别</li>
+<li><strong>功能描述</strong>: 这个设置指定了设备支持的 HSDPA 类别。</li>
+<li><strong>影响</strong>: 类别 <code>10</code> 指示设备支持最高 14.4 Mbps 的下行速率。</li>
+</ul>
+</li>
+<li><strong>ro.ril.enable.3g.prefix&#x3D;1</strong><ul>
+<li><strong>功能名称</strong>: 启用 3G 前缀</li>
+<li><strong>功能描述</strong>: 这个设置可能与在特定网络模式下启用 3G 连接有关。</li>
+<li><strong>影响</strong>: 设置为 <code>1</code> 表示在支持的情况下优先使用 3G 网络。</li>
+</ul>
+</li>
+<li><strong>ro.ril.htcmaskw1.bitmask&#x3D;4294967295 和 ro.ril.htcmaskw1&#x3D;14449</strong><ul>
+<li><strong>功能名称</strong>: 设备掩码配置</li>
+<li><strong>功能描述</strong>: 这些设置通常用于高级网络配置，指定了设备在网络连接时使用的掩码。</li>
+<li><strong>影响</strong>: 这些值用于定义网络连接的具体行为或设备的网络能力。</li>
+</ul>
+</li>
+<li><strong>ro.ril.def.agps.mode&#x3D;2 和 ro.ril.def.agps.feature&#x3D;1</strong><ul>
+<li><strong>功能名称</strong>: AGPS (辅助 GPS) 配置</li>
+<li><strong>功能描述</strong>: 这些设置用于配置设备的 AGPS 功能，改善 GPS 定位速度和精度。</li>
+<li><strong>影响</strong>: 特定的值定义了 AGPS 的工作模式和特性，影响定位服务的性能。</li>
+</ul>
+</li>
+<li><strong>ro.ril.enable.sdr&#x3D;1</strong><ul>
+<li><strong>功能名称</strong>: 启用软件定义无线电 (SDR)</li>
+<li><strong>功能描述</strong>: 这个设置可能与启用 SDR 相关，SDR 允许软件执行原本由硬件完成的无线电功能。</li>
+<li><strong>影响</strong>: 设置为 <code>1</code> 表示启用 SDR，可能提高无线电功能的灵活性和性能。</li>
+</ul>
+</li>
+<li><strong>ro.ril.enable.gea3&#x3D;1</strong><ul>
+<li><strong>功能名称</strong>: 启用 GEA3 加密</li>
+<li><strong>功能描述</strong>: GEA3 是一种用于 GSM 和 GPRS 网络的加密算法。</li>
+<li><strong>影响</strong>: 设置为 <code>1</code> 表示启用 GEA3，提高数据传输的安全性。</li>
+</ul>
+</li>
+<li><strong>ro.ril.enable.fd.plmn.prefix&#x3D;23402,23410,23411</strong><ul>
+<li><strong>功能名称</strong>: 启用快速休眠 PLMN 前缀</li>
+<li><strong>功能描述</strong>: 这个设置指定了启用快速休眠模式的网络运营商前缀。</li>
+<li><strong>影响</strong>: 当设备连接到这些特定的网络时，可能会使用更激进的电源管理策略，以节省电量。</li>
+</ul>
+</li>
+<li><strong>ro.ril.enable.a52&#x3D;1 和 ro.ril.enable.a53&#x3D;1</strong><ul>
+<li><strong>功能名称</strong>: 启用 A5&#x2F;2 和 A5&#x2F;3 加密</li>
+<li><strong>功能描述</strong>: A5&#x2F;2 和 A5&#x2F;3 是 GSM 网络的加密算法。</li>
+<li><strong>影响</strong>: 设置为 <code>1</code> 表示启用这些加密算法，提高语音和数据传输的安全性。</li>
+</ul>
+</li>
+<li><strong>ro.ril.enable.dtm&#x3D;1</strong><ul>
+<li><strong>功能名称</strong>: 启用双传输模式 (DTM)</li>
+<li><strong>功能描述</strong>: DTM 允许在 GSM 网络上同时进行语音和数据传输。</li>
+<li><strong>影响</strong>: 设置为 <code>1</code> 表示启用 DTM，可能在通话时提高数据服务的性能。</li>
+</ul>
+</li>
+</ol>
+<h4 id="10-ROM设置"><a href="#10-ROM设置" class="headerlink" title="10. ROM设置"></a>10. ROM设置</h4><ol>
+<li><strong>ro.product.locale.language&#x3D;zh-CN 和 ro.product.locale.region&#x3D;CN</strong><ul>
+<li><strong>功能名称</strong>: 产品区域语言和区域设置</li>
+<li><strong>功能描述</strong>: 这些设置指定设备的默认语言和地区。</li>
+<li><strong>影响</strong>: 设置为 <code>zh-CN</code> 和 <code>CN</code> 表明设备的默认语言为简体中文，地区为中国。这会影响设备的界面语言、日期时间格式以及一些地区特定的服务和设置。</li>
+</ul>
+</li>
+<li><strong>ro.miui.region&#x3D;CN 和 ro.miui.cust_variant&#x3D;cn</strong><ul>
+<li><strong>功能名称</strong>: MIUI 区域和定制变体</li>
+<li><strong>功能描述</strong>: 这些设置用于配置 MIUI（小米定制的 Android 版本）的区域设置和定制变体。</li>
+<li><strong>影响</strong>: 设置为 <code>CN</code> 和 <code>cn</code> 表明设备针对中国区域的 MIUI 版本进行了优化和定制，可能包括地区特定的应用、服务和功能。</li>
+</ul>
+</li>
+<li><strong>ro.romid</strong><ul>
+<li><strong>功能名称</strong>: ROM 标识</li>
+<li><strong>功能描述</strong>: 这个设置可能是用于标识特定的 ROM 或固件版本。</li>
+<li><strong>影响</strong>: 不同的 ROM 可能有不同的特性和优化，这个标识用于区分不同的 ROM 版本。</li>
+</ul>
+</li>
+</ol>
+<h4 id="11-UI界面设置"><a href="#11-UI界面设置" class="headerlink" title="11. UI界面设置"></a>11. UI界面设置</h4><ol>
+<li><strong>persist.sys.background_blur_supported&#x3D;true</strong><ul>
+<li><strong>功能名称</strong>: 背景模糊支持</li>
+<li><strong>功能描述</strong>: 指示设备是否支持 UI 中的背景模糊效果。</li>
+<li><strong>影响</strong>: 设置为 <code>true</code> 表明设备支持在用户界面中使用背景模糊效果，如通知面板、应用抽屉背景等。</li>
+</ul>
+</li>
+<li><strong>persist.sys.background_blur_status_default&#x3D;true</strong><ul>
+<li><strong>功能名称</strong>: 默认背景模糊状态</li>
+<li><strong>功能描述</strong>: 控制默认情况下是否启用背景模糊效果。</li>
+<li><strong>影响</strong>: 设置为 <code>true</code> 表明背景模糊效果默认是启用的。</li>
+</ul>
+</li>
+<li><strong>persist.sys.background_blur_mode&#x3D;0</strong><ul>
+<li><strong>功能名称</strong>: 背景模糊模式</li>
+<li><strong>功能描述</strong>: 指定使用的背景模糊效果的模式或类型。</li>
+<li><strong>影响</strong>: 不同的值可能代表不同的模糊算法或强度。</li>
+</ul>
+</li>
+<li><strong>persist.sys.background_blur_version&#x3D;2</strong><ul>
+<li><strong>功能名称</strong>: 背景模糊版本</li>
+<li><strong>功能描述</strong>: 指示背景模糊功能的版本或实现。</li>
+<li><strong>影响</strong>: 版本不同可能意味着模糊效果的质量、性能或算法有所不同。</li>
+</ul>
+</li>
+<li><strong>debug.game.video.speed&#x3D;true 和 debug.game.video.support&#x3D;true</strong><ul>
+<li><strong>功能名称</strong>: 游戏视频调试</li>
+<li><strong>功能描述</strong>: 这些设置可能与游戏中的视频播放性能优化有关。</li>
+<li><strong>影响</strong>: 设置为 <code>true</code> 可能启用了针对游戏视频播放的特定调试或优化，以提高游戏中视频内容的播放速度和质量。</li>
+</ul>
+</li>
+<li><strong>persist.sys.support_view_smoothcorner&#x3D;true 和 persist.sys.support_window_smoothcorner&#x3D;true</strong><ul>
+<li><strong>功能名称</strong>: 支持视图和窗口的平滑角</li>
+<li><strong>功能描述</strong>: 这些设置指示系统是否支持在 UI 视图和窗口边缘显示平滑的圆角。</li>
+<li><strong>影响</strong>: 设置为 <code>true</code> 表明系统支持在视图和窗口边缘呈现平滑圆角，这可能是为了改善视觉美感和一致性。</li>
+</ul>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/KittenHyper/categories/HyperOS/" class="category-chain-item">HyperOS</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/KittenHyper/tags/HyperOS/" class="print-no-link">#HyperOS</a>
+      
+        <a href="/KittenHyper/tags/%E5%AE%98%E6%94%B9/" class="print-no-link">#官改</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>HyperOS 官改内容</div>
+      <div>https://kittenhyper.gitee.io/2024/02/02/HyperOS 官改内容/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Ranshen_Cervine</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年2月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/KittenHyper/2024/02/03/Android%20%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0%E4%BB%8B%E7%BB%8D/" title="Android 系统更新介绍">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Android 系统更新介绍</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/KittenHyper/2024/01/31/HyperOS%20%E7%A7%BB%E6%A4%8D%E6%95%99%E7%A8%8B/" title="HyperOS 移植内容">
+                        <span class="hidden-mobile">HyperOS 移植内容</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="nofollow noopener"><span>本博客所有文章除特别声明外，均采用 [CC BY-NC-SA 4.0] 许可协议，转载请注明出处。</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/KittenHyper/js/events.js" ></script>
+<script  src="/KittenHyper/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/KittenHyper/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/KittenHyper/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/KittenHyper/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
