@@ -24,7 +24,7 @@
 <meta property="og:description" content="HyperOS 移植教程作者: KittenHyper，本文采用CC BY-NC-SA 4.0许可协议，转载请注明出处。 本教程以线刷包为基础；Redmi Note 12 Turbo 欧版Hyper作为底包，Redmi K70 Pro 国行Hyper作为移植包    Redmi Note 12 Turbo 欧版HyperOS版本 Redmi K70 Pro 国行HyperOS版本    OS1.0">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-31T04:38:00.000Z">
-<meta property="article:modified_time" content="2024-02-06T15:36:21.403Z">
+<meta property="article:modified_time" content="2024-02-07T08:43:03.062Z">
 <meta property="article:author" content="Ranshen_Cervine">
 <meta property="article:tag" content="HyperOS">
 <meta property="article:tag" content="移植">
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          1.4k 字
         
       </span>
     
@@ -455,6 +455,10 @@
 <p>   将整个方法修改为</p>
 <figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs smali"><span class="hljs-keyword">.method</span><span class="hljs-keyword"> public</span><span class="hljs-keyword"> static</span> isBuildConsistent()Z<br><span class="hljs-keyword">   .registers</span> 1<br>  <span class="hljs-built_in"> const/4 </span>v0, 0x1<br>  <span class="hljs-built_in"> return </span>v0<span class="hljs-keyword"></span><br><span class="hljs-keyword">.end method</span><br></code></pre></td></tr></table></figure>
 
+<h4 id="9-精简大小"><a href="#9-精简大小" class="headerlink" title="9. 精简大小"></a>9. 精简大小</h4><ol>
+<li>解包 底包cust.img</li>
+<li>除文件夹外其余内容全部删除</li>
+</ol>
 <h3 id="2-打包教程"><a href="#2-打包教程" class="headerlink" title="2. 打包教程"></a>2. 打包教程</h3><hr>
 <h4 id="1-打包super-img"><a href="#1-打包super-img" class="headerlink" title="1. 打包super.img"></a>1. 打包super.img</h4><ol>
 <li><p>将前面解包的内容重新打包</p>
