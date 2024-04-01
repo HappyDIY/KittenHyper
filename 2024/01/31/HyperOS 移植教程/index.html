@@ -24,7 +24,7 @@
 <meta property="og:description" content="HyperOS 移植教程作者: KittenHyper，本文采用CC BY-NC-SA 4.0许可协议，转载请注明出处。 本教程以线刷包为基础；Redmi Note 12 Turbo 欧版Hyper作为底包，Redmi K70 Pro 国行Hyper作为移植包    Redmi Note 12 Turbo 欧版HyperOS版本 Redmi K70 Pro 国行HyperOS版本    OS1.0">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-31T04:38:00.000Z">
-<meta property="article:modified_time" content="2024-02-07T08:43:03.062Z">
+<meta property="article:modified_time" content="2024-04-01T07:50:54.437Z">
 <meta property="article:author" content="Ranshen_Cervine">
 <meta property="article:tag" content="HyperOS">
 <meta property="article:tag" content="移植">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.3k 字
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          12 分钟
+          11 分钟
         
       </span>
     
@@ -300,8 +300,7 @@
 </ol>
 <h4 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h4><ol>
 <li>super.img位于*&#x2F;images中</li>
-<li>将你的工程目录添加到杀毒软件的排查列表中，一些涉及底层的安卓文件可能会使杀毒软件误报</li>
-<li>你需要有访问谷歌的能力，以便于配置ADB、Fastboot环境</li>
+<li>将工程目录添加到杀毒软件的排查列表中，一些涉及底层的安卓文件可能会使杀毒软件误报</li>
 </ol>
 <h3 id="1-修复教程"><a href="#1-修复教程" class="headerlink" title="1. 修复教程"></a>1. 修复教程</h3><hr>
 <h4 id="1-修复移植8Gen3机型的包卡第一屏"><a href="#1-修复移植8Gen3机型的包卡第一屏" class="headerlink" title="1. 修复移植8Gen3机型的包卡第一屏"></a>1. 修复移植8Gen3机型的包卡第一屏</h4><ol>
@@ -312,12 +311,9 @@
 <li>将 底包&#x2F;system_ext&#x2F;apex 复制到 移植包&#x2F;system_ext&#x2F;apex</li>
 </ol>
 <h4 id="2-修复屏幕圆角、状态栏、刷新率选项、息屏显示等"><a href="#2-修复屏幕圆角、状态栏、刷新率选项、息屏显示等" class="headerlink" title="2. 修复屏幕圆角、状态栏、刷新率选项、息屏显示等"></a>2. 修复屏幕圆角、状态栏、刷新率选项、息屏显示等</h4><ol>
-<li><p>解包 底包product.img</p>
-</li>
-<li><p>解包 线刷包product.img</p>
-</li>
-<li><p>底包&#x2F;product&#x2F;etc&#x2F;device_features 找到</p>
-</li>
+<li>解包 底包product.img</li>
+<li>解包 线刷包product.img</li>
+<li>底包&#x2F;product&#x2F;etc&#x2F;device_features 找到</li>
 </ol>
 <table>
 <thead>
@@ -332,10 +328,7 @@
 <td align="left">marblein.xml</td>
 </tr>
 </tbody></table>
-<p>   复制到 移植包&#x2F;product&#x2F;etc&#x2F;device_features</p>
-<ol start="4">
-<li>底包&#x2F;product&#x2F;overlay 找到</li>
-</ol>
+<p>   复制到 移植包&#x2F;product&#x2F;etc&#x2F;device_features<br>4. 底包&#x2F;product&#x2F;overlay 找到</p>
 <table>
 <thead>
 <tr>
@@ -358,10 +351,7 @@
 <td>MiuiFrameworkResOverlay.apk</td>
 </tr>
 </tbody></table>
-<p>   替换掉 移植包&#x2F;product&#x2F;overlay 里相同的文件</p>
-<ol start="4">
-<li>底包&#x2F;product&#x2F;priv-app&#x2F;MIUIAod 替换掉 移植包&#x2F;product&#x2F;priv-app&#x2F;MIUIAod</li>
-</ol>
+<p>   替换掉 移植包&#x2F;product&#x2F;overlay 里相同的文件<br>5. 底包&#x2F;product&#x2F;priv-app&#x2F;MIUIAod 替换掉 移植包&#x2F;product&#x2F;priv-app&#x2F;MIUIAod</p>
 <h4 id="3-修复自动亮度、死机"><a href="#3-修复自动亮度、死机" class="headerlink" title="3. 修复自动亮度、死机"></a>3. 修复自动亮度、死机</h4><ol>
 <li>底包&#x2F;product&#x2F;etc&#x2F;displayconfig 替换掉 移植包&#x2F;product&#x2F;etc&#x2F;displayconfig</li>
 </ol>
@@ -374,21 +364,15 @@
 <li>替换到 移植包&#x2F;product&#x2F;priv-app</li>
 </ol>
 <h4 id="6-修复NFC-小米智能卡"><a href="#6-修复NFC-小米智能卡" class="headerlink" title="6. 修复NFC&#x2F;小米智能卡"></a>6. 修复NFC&#x2F;小米智能卡</h4><ol>
-<li><p>删除 移植包&#x2F;product&#x2F;pangu&#x2F;system&#x2F;app&#x2F;NQNfcNci 文件夹，复制 底包&#x2F;product&#x2F;pangu&#x2F;system&#x2F;app&#x2F;NQNfcNci 文件夹到 移植包&#x2F;product&#x2F;pangu&#x2F;system&#x2F;app</p>
-</li>
-<li><p>复制 移植包&#x2F;product&#x2F;pangu&#x2F;system 下所有文件到 移植包&#x2F;product</p>
-</li>
-<li><p>解包 底包vendor.img</p>
-</li>
-<li><p>打开 底包&#x2F;vendor&#x2F;build.prop</p>
-<p>将以下内容</p>
-</li>
+<li>删除 移植包&#x2F;product&#x2F;pangu&#x2F;system&#x2F;app&#x2F;NQNfcNci 文件夹，复制 底包&#x2F;product&#x2F;pangu&#x2F;system&#x2F;app&#x2F;NQNfcNci 文件夹到 移植包&#x2F;product&#x2F;pangu&#x2F;system&#x2F;app</li>
+<li>复制 移植包&#x2F;product&#x2F;pangu&#x2F;system 下所有文件到 移植包&#x2F;product</li>
+<li>解包 底包vendor.img</li>
+<li>打开 底包&#x2F;vendor&#x2F;build.prop</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs prop">ro.vendor.se.type=HCE,UICC<br></code></pre></td></tr></table></figure>
-
-<p>   改为</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-title">ro</span>.vendor.se.<span class="hljs-keyword">type</span>=<span class="hljs-type">HCE</span>,<span class="hljs-type">UICC</span>,eSE<br></code></pre></td></tr></table></figure>
-
+<ul>
+<li>将以下内容<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs prop">ro.vendor.se.type=HCE,UICC<br></code></pre></td></tr></table></figure></li>
+<li>改为<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-title">ro</span>.vendor.se.<span class="hljs-keyword">type</span>=<span class="hljs-type">HCE</span>,<span class="hljs-type">UICC</span>,eSE<br></code></pre></td></tr></table></figure></li>
+</ul>
 <h4 id="7-修复桌面卡死闪退"><a href="#7-修复桌面卡死闪退" class="headerlink" title="7. 修复桌面卡死闪退"></a>7. 修复桌面卡死闪退</h4><ol>
 <li>底包&#x2F;vendor 找到</li>
 </ol>
@@ -407,15 +391,11 @@
 </tbody></table>
 <p>   marble_build.prop 修改如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs prop"># begin sku build properties<br># autogenerated by build/make/tools/buildinfo_sku.sh<br>ro.vendor.build.fingerprint=POCO/marble_eea/marble:12/SKQ1.230401.001/V816.0.4.0.UMREUXM:user/release-keys<br>ro.product.vendor.brand=Redmi<br>ro.product.vendor.device=marble<br>ro.product.vendor.manufacturer=Xiaomi<br>ro.product.vendor.model=23049RAD8C<br>ro.product.vendor.cert=23049RAD8C<br>ro.product.vendor.name=marble<br>ro.product.vendor.marketname=Redmi Note 12 Turbo<br># end sku build properties<br>ro.product.board=marble<br></code></pre></td></tr></table></figure>
-
 <p>   marblein_build.prop 修改如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs prop"># begin sku build properties<br># autogenerated by build/make/tools/buildinfo_sku.sh<br>ro.vendor.build.fingerprint=POCO/marblein/marblein:12/SKQ1.230401.001/V816.0.4.0.UMREUXM:user/release-keys<br>ro.product.vendor.brand=Redmi<br>ro.product.vendor.device=marble<br>ro.product.vendor.manufacturer=Xiaomi<br>ro.product.vendor.model=23049RAD8C<br>ro.product.vendor.cert=23049RAD8C<br>ro.product.vendor.name=marble<br>ro.product.vendor.marketname=Redmi Note 12 Turbo<br># end sku build properties<br>ro.product.board=marble<br></code></pre></td></tr></table></figure>
-
 <ol start="2">
-<li><p>解包 底包odm.img</p>
-</li>
-<li><p>底包&#x2F;odm&#x2F;etc 找到</p>
-</li>
+<li>解包 底包odm.img</li>
+<li>底包&#x2F;odm&#x2F;etc 找到</li>
 </ol>
 <table>
 <thead>
@@ -432,16 +412,12 @@
 </tbody></table>
 <p>marble_build.prop修改如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs prop"># begin sku build properties<br># autogenerated by build/make/tools/buildinfo_sku.sh<br>ro.odm.build.fingerprint=POCO/marble_eea/marble:12/SKQ1.230401.001/V816.0.4.0.UMREUXM:user/release-keys<br>ro.product.odm.brand=Redmi<br>ro.product.odm.device=marble<br>ro.product.odm.manufacturer=Xiaomi<br>ro.product.odm.model=23049RAD8C<br>ro.product.odm.cert=23049RAD8C<br>ro.product.odm.name=marble<br>ro.product.odm.marketname=Redmi Note 12 Turbo<br># end sku build properties<br></code></pre></td></tr></table></figure>
-
 <p>marblein_build.prop修改如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs prop"># begin sku build properties<br># autogenerated by build/make/tools/buildinfo_sku.sh<br>ro.odm.build.fingerprint=POCO/marblein/marblein:12/SKQ1.230401.001/V816.0.4.0.UMREUXM:user/release-keys<br>ro.product.odm.brand=Redmi<br>ro.product.odm.device=marble<br>ro.product.odm.manufacturer=Xiaomi<br>ro.product.odm.model=23049RAD8C<br>ro.product.odm.cert=23049RAD8C<br>ro.product.odm.name=marble<br>ro.product.odm.marketname=Redmi Note 12 Turbo<br># end sku build properties<br></code></pre></td></tr></table></figure>
 
-
 <h4 id="8-修复开机后的安全性报错"><a href="#8-修复开机后的安全性报错" class="headerlink" title="8. 修复开机后的安全性报错"></a>8. 修复开机后的安全性报错</h4><ol>
-<li><p>解包 移植包system.img</p>
-</li>
-<li><p>移植包&#x2F;system&#x2F;system&#x2F;framework 找到</p>
-</li>
+<li>解包 移植包system.img</li>
+<li>移植包&#x2F;system&#x2F;system&#x2F;framework 找到</li>
 </ol>
 <table>
 <thead>
@@ -453,24 +429,20 @@
 <td>framework.jar</td>
 </tr>
 </tbody></table>
-<p>   打开 framework.jar 反编译 classes3.dex ，找到方法</p>
-<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs smali">isBuildConsistent()<br></code></pre></td></tr></table></figure>
-
-<p>   将整个方法修改为</p>
-<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs smali"><span class="hljs-keyword">.method</span><span class="hljs-keyword"> public</span><span class="hljs-keyword"> static</span> isBuildConsistent()Z<br><span class="hljs-keyword">   .registers</span> 1<br>  <span class="hljs-built_in"> const/4 </span>v0, 0x1<br>  <span class="hljs-built_in"> return </span>v0<span class="hljs-keyword"></span><br><span class="hljs-keyword">.end method</span><br></code></pre></td></tr></table></figure>
-
+<p>   打开 framework.jar 反编译 classes3.dex </p>
+<ul>
+<li>找到方法<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs smali">isBuildConsistent()<br></code></pre></td></tr></table></figure></li>
+<li>将整个方法修改为<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs smali"><span class="hljs-keyword">.method</span><span class="hljs-keyword"> public</span><span class="hljs-keyword"> static</span> isBuildConsistent()Z<br><span class="hljs-keyword">   .registers</span> 1<br>  <span class="hljs-built_in"> const/4 </span>v0, 0x1<br>  <span class="hljs-built_in"> return </span>v0<span class="hljs-keyword"></span><br><span class="hljs-keyword">.end method</span><br></code></pre></td></tr></table></figure></li>
+</ul>
 <h4 id="9-精简大小"><a href="#9-精简大小" class="headerlink" title="9. 精简大小"></a>9. 精简大小</h4><ol>
 <li>解包 底包cust.img</li>
 <li>除文件夹外其余内容全部删除</li>
 </ol>
 <h3 id="2-打包教程"><a href="#2-打包教程" class="headerlink" title="2. 打包教程"></a>2. 打包教程</h3><hr>
 <h4 id="1-打包super-img"><a href="#1-打包super-img" class="headerlink" title="1. 打包super.img"></a>1. 打包super.img</h4><ol>
-<li><p>将前面解包的内容重新打包</p>
-</li>
-<li><p>将打包后的 移植包system.img、system_ext.img、product.img、mi_ext.img 覆盖 底包system.img、system_ext.img、product.img、mi_ext.img</p>
-</li>
-<li><p>重新将修改后的底包打包，以 Redmi Note 12 Turbo 欧版HyperOS版本 OS1.0.4.0.UMREUXM 为例，super.img有如下内容</p>
-</li>
+<li>将前面解包的内容重新打包</li>
+<li>将打包后的 移植包system.img、system_ext.img、product.img、mi_ext.img 覆盖 底包system.img、system_ext.img、product.img、mi_ext.img</li>
+<li>重新将修改后的底包打包，以 Redmi Note 12 Turbo 欧版HyperOS版本 OS1.0.4.0.UMREUXM 为例，super.img有如下内容</li>
 </ol>
 <table>
 <thead>
@@ -504,40 +476,27 @@
 </tr>
 </tbody></table>
 <ol start="4">
-<li>打包时注意选择分区类型，Redmi Note 12 Turbo 的super.img分区类型为 A&#x2F;B。错误的打包分区可能导致无法进入第二屏</li>
+<li>打包时注意选择分区类型，Redmi Note 12 Turbo 的super.img分区类型为 V-AB。错误的打包分区可能导致无法进入第二屏</li>
 <li>将打包好的super.img放回 *&#x2F;images</li>
 </ol>
 <h4 id="2-修改官方刷机bat"><a href="#2-修改官方刷机bat" class="headerlink" title="2. 修改官方刷机bat"></a>2. 修改官方刷机bat</h4><ol>
-<li><p>删除flash_all_lock.bat和flash_all_lock.sh</p>
-</li>
-<li><p>编辑flash_all.bat，删除如下代码</p>
-</li>
+<li>删除flash_all_lock.bat和flash_all_lock.sh</li>
+<li>编辑flash_all.bat，删除如下代码<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bat">::check anti_version<br><span class="hljs-keyword">if</span> <span class="hljs-keyword">exist</span> &quot;%~dp0images\anti_version.txt&quot; (<span class="hljs-keyword">for</span> /f &quot;usebackq&quot; <span class="hljs-variable">%%a</span> <span class="hljs-keyword">in</span> (&quot;%~dp0images\anti_version.txt&quot;) <span class="hljs-keyword">do</span> (<span class="hljs-built_in">set</span> CURRENT_ANTI_VER=<span class="hljs-variable">%%a</span>))<br><span class="hljs-keyword">if</span> [<span class="hljs-variable">%CURRENT_ANTI_VER%</span>] <span class="hljs-keyword">EQU</span> [] <span class="hljs-built_in">set</span> CURRENT_ANTI_VER=<span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> /f &quot;tokens=<span class="hljs-number">2</span> delims=: &quot; <span class="hljs-variable">%%i</span> <span class="hljs-keyword">in</span> (&#x27;fastboot %* getvar anti <span class="hljs-number">2</span>^&gt;^&amp;<span class="hljs-number">1</span> ^| <span class="hljs-built_in">findstr</span> /r /c:&quot;anti:&quot;&#x27;) <span class="hljs-keyword">do</span> (<span class="hljs-built_in">set</span> version=<span class="hljs-variable">%%i</span>)<br><span class="hljs-keyword">if</span> [<span class="hljs-variable">%version%</span>] <span class="hljs-keyword">EQU</span> [] <span class="hljs-built_in">set</span> version=<span class="hljs-number">0</span><br><span class="hljs-built_in">set</span> anticheck=&quot;antirollback check pass&quot;<br><span class="hljs-keyword">if</span> <span class="hljs-variable">%version%</span> <span class="hljs-keyword">GTR</span> <span class="hljs-variable">%CURRENT_ANTI_VER%</span> <span class="hljs-built_in">set</span> anticheck=&quot;Current device antirollback version is greater than this pakcage&quot;<br><span class="hljs-built_in">echo</span> <span class="hljs-variable">%anticheck%</span> | <span class="hljs-built_in">findstr</span> /r /c:&quot;pass&quot; || @<span class="hljs-built_in">echo</span> &quot;Antirollback check error&quot; &amp;&amp; <span class="hljs-keyword">exit</span> /B <span class="hljs-number">1</span><br><br>fastboot %* getvar crc <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> | <span class="hljs-built_in">findstr</span> /r /c:&quot;^crc: <span class="hljs-number">1</span>&quot; &amp;&amp; <span class="hljs-keyword">if</span> <span class="hljs-variable">%errorlevel%</span> <span class="hljs-keyword">equ</span> <span class="hljs-number">0</span> (<br>fastboot %* flash crclist %~dp0images\crclist.txt || @<span class="hljs-built_in">echo</span> &quot;Flash crclist error&quot; &amp;&amp; <span class="hljs-keyword">exit</span> /B <span class="hljs-number">1</span><br>fastboot %* flash sparsecrclist %~dp0images\sparsecrclist.txt || @<span class="hljs-built_in">echo</span> &quot;Flash sparsecrclist error&quot; &amp;&amp; <span class="hljs-keyword">exit</span> /B <span class="hljs-number">1</span><br>)<br></code></pre></td></tr></table></figure></li>
+<li>找到如下代码<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bat">fastboot %* flash misc %~dp0images\misc.img || @<span class="hljs-built_in">echo</span> &quot;Flash misc error&quot; &amp;&amp; <span class="hljs-keyword">exit</span> /B <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure></li>
 </ol>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bat">fastboot %* getvar product <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> | <span class="hljs-built_in">findstr</span> /r /c:&quot;^product: *marble&quot; || <span class="hljs-built_in">echo</span> Missmatching image and device<br>fastboot %* getvar product <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> | <span class="hljs-built_in">findstr</span> /r /c:&quot;^product: *marble&quot; || <span class="hljs-keyword">exit</span> /B <span class="hljs-number">1</span><br><br>::check anti_version<br><span class="hljs-keyword">if</span> <span class="hljs-keyword">exist</span> &quot;%~dp0images\anti_version.txt&quot; (<span class="hljs-keyword">for</span> /f &quot;usebackq&quot; <span class="hljs-variable">%%a</span> <span class="hljs-keyword">in</span> (&quot;%~dp0images\anti_version.txt&quot;) <span class="hljs-keyword">do</span> (<span class="hljs-built_in">set</span> CURRENT_ANTI_VER=<span class="hljs-variable">%%a</span>))<br><span class="hljs-keyword">if</span> [<span class="hljs-variable">%CURRENT_ANTI_VER%</span>] <span class="hljs-keyword">EQU</span> [] <span class="hljs-built_in">set</span> CURRENT_ANTI_VER=<span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> /f &quot;tokens=<span class="hljs-number">2</span> delims=: &quot; <span class="hljs-variable">%%i</span> <span class="hljs-keyword">in</span> (&#x27;fastboot %* getvar anti <span class="hljs-number">2</span>^&gt;^&amp;<span class="hljs-number">1</span> ^| <span class="hljs-built_in">findstr</span> /r /c:&quot;anti:&quot;&#x27;) <span class="hljs-keyword">do</span> (<span class="hljs-built_in">set</span> version=<span class="hljs-variable">%%i</span>)<br><span class="hljs-keyword">if</span> [<span class="hljs-variable">%version%</span>] <span class="hljs-keyword">EQU</span> [] <span class="hljs-built_in">set</span> version=<span class="hljs-number">0</span><br><span class="hljs-built_in">set</span> anticheck=&quot;antirollback check pass&quot;<br><span class="hljs-keyword">if</span> <span class="hljs-variable">%version%</span> <span class="hljs-keyword">GTR</span> <span class="hljs-variable">%CURRENT_ANTI_VER%</span> <span class="hljs-built_in">set</span> anticheck=&quot;Current device antirollback version is greater than this pakcage&quot;<br><span class="hljs-built_in">echo</span> <span class="hljs-variable">%anticheck%</span> | <span class="hljs-built_in">findstr</span> /r /c:&quot;pass&quot; || @<span class="hljs-built_in">echo</span> &quot;Antirollback check error&quot; &amp;&amp; <span class="hljs-keyword">exit</span> /B <span class="hljs-number">1</span><br><br>fastboot %* getvar crc <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> | <span class="hljs-built_in">findstr</span> /r /c:&quot;^crc: <span class="hljs-number">1</span>&quot; &amp;&amp; <span class="hljs-keyword">if</span> <span class="hljs-variable">%errorlevel%</span> <span class="hljs-keyword">equ</span> <span class="hljs-number">0</span> (<br>fastboot %* flash crclist %~dp0images\crclist.txt || @<span class="hljs-built_in">echo</span> &quot;Flash crclist error&quot; &amp;&amp; <span class="hljs-keyword">exit</span> /B <span class="hljs-number">1</span><br>fastboot %* flash sparsecrclist %~dp0images\sparsecrclist.txt || @<span class="hljs-built_in">echo</span> &quot;Flash sparsecrclist error&quot; &amp;&amp; <span class="hljs-keyword">exit</span> /B <span class="hljs-number">1</span><br>)<br></code></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>找到如下代码</li>
-</ol>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bat">fastboot %* flash misc %~dp0images\misc.img || @<span class="hljs-built_in">echo</span> &quot;Flash misc error&quot; &amp;&amp; <span class="hljs-keyword">exit</span> /B <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
-
 <ul>
-<li>上述代码后添加</li>
+<li>上述代码后添加<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bat">fastboot %* --disable-verity --disable-verification flash vbmeta %~dp0images/vbmeta.img || @<span class="hljs-built_in">echo</span> &quot;Flash vbmeta error&quot; &amp;&amp; <span class="hljs-keyword">exit</span> <span class="hljs-number">1</span><br>fastboot %* --disable-verity --disable-verification flash vbmeta_system %~dp0images/vbmeta_system.img || @<span class="hljs-built_in">echo</span> &quot;Flash vbmeta_system error&quot; &amp;&amp; <span class="hljs-keyword">exit</span> <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure></li>
 </ul>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bat">fastboot %* --disable-verity --disable-verification flash vbmeta %~dp0images/vbmeta.img || @<span class="hljs-built_in">echo</span> &quot;Flash vbmeta error&quot; &amp;&amp; <span class="hljs-keyword">exit</span> <span class="hljs-number">1</span><br>fastboot %* --disable-verity --disable-verification flash vbmeta_system %~dp0images/vbmeta_system.img || @<span class="hljs-built_in">echo</span> &quot;Flash vbmeta_system error&quot; &amp;&amp; <span class="hljs-keyword">exit</span> <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
-
 <ol start="4">
 <li>编辑flash_all_except_storage.bat，步骤与编辑flash_all.bat相同</li>
 </ol>
 <h4 id="3-安装驱动"><a href="#3-安装驱动" class="headerlink" title="3. 安装驱动"></a>3. 安装驱动</h4><ol>
 <li>下载MiFlash</li>
 <li>安装来自Android、Microsoft、Nvidia、Qualcomm的驱动</li>
-<li>移植包不推荐使用MiFlash刷机</li>
 </ol>
 <h4 id="4-配置环境"><a href="#4-配置环境" class="headerlink" title="4. 配置环境"></a>4. 配置环境</h4><ol>
-<li><p>下载ADB和Fastboot</p>
-</li>
-<li><p>将下载的内容解压后放置到flash_all.bat、flash_all_except_storage.bat相同目录</p>
-</li>
+<li>下载 ADB 和 Fastboot</li>
+<li>将下载的内容解压后放置到 flash_all.bat、flash_all_except_storage.bat 相同目录</li>
 </ol>
 
                 
@@ -631,9 +590,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/KittenHyper/2024/02/03/Android%20%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0%E4%BB%8B%E7%BB%8D/" title="Android 系统更新介绍">
+                      <a href="/KittenHyper/2024/02/03/Android%20%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0%E4%BB%8B%E7%BB%8D/" title="Android 更新后操作">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Android 系统更新介绍</span>
+                        <span class="hidden-mobile">Android 更新后操作</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
