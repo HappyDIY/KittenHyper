@@ -24,7 +24,7 @@
 <meta property="og:description" content="Dex2OAT 介绍作者: Ranshen_Cervine ，本文采用CC BY-NC-SA 4.0许可协议，转载请注明出处。 Dex2OAT 是Android操作系统中的一个过程，负责将应用程序的DEX（Dalvik Executable）文件转换成OAT（Android Runtime, ART的优化后的应用程序格式）格式。这个过程主要发生在应用安装时或系统更新时，是Android Runti">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-01T08:12:00.000Z">
-<meta property="article:modified_time" content="2024-04-01T15:24:48.048Z">
+<meta property="article:modified_time" content="2024-04-03T06:19:32.621Z">
 <meta property="article:author" content="Ranshen_Cervine">
 <meta property="article:tag" content="Dex2OAT">
 <meta name="twitter:card" content="summary_large_image">
@@ -279,7 +279,9 @@
                 
                 <h2 id="Dex2OAT-介绍"><a href="#Dex2OAT-介绍" class="headerlink" title="Dex2OAT 介绍"></a>Dex2OAT 介绍</h2><p>作者: Ranshen_Cervine ，本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>许可协议，转载请注明出处。</p>
 <p>Dex2OAT 是Android操作系统中的一个过程，负责将应用程序的DEX（Dalvik Executable）文件转换成OAT（Android Runtime, ART的优化后的应用程序格式）格式。这个过程主要发生在应用安装时或系统更新时，是Android Runtime (ART)的一部分，用于提高应用的执行效率。</p>
-<h2 id="Android在4-4-KitKat-版本引入了ART，作为Dalvik虚拟机的替代，目的是提供更高效的应用程序执行。Dalvik使用即时-JIT-编译，而ART采用预先-AOT-Ahead-Of-Time-编译。这意味着在应用安装的时候，DEX文件就已经被编译成机器码，保存为OAT文件，这样应用在运行时就不需要再进行编译，从而提高了执行效率。-基本概念"><a href="#Android在4-4-KitKat-版本引入了ART，作为Dalvik虚拟机的替代，目的是提供更高效的应用程序执行。Dalvik使用即时-JIT-编译，而ART采用预先-AOT-Ahead-Of-Time-编译。这意味着在应用安装的时候，DEX文件就已经被编译成机器码，保存为OAT文件，这样应用在运行时就不需要再进行编译，从而提高了执行效率。-基本概念" class="headerlink" title="Android在4.4 (KitKat)版本引入了ART，作为Dalvik虚拟机的替代，目的是提供更高效的应用程序执行。Dalvik使用即时(JIT)编译，而ART采用预先(AOT, Ahead-Of-Time)编译。这意味着在应用安装的时候，DEX文件就已经被编译成机器码，保存为OAT文件，这样应用在运行时就不需要再进行编译，从而提高了执行效率。### 基本概念"></a>Android在4.4 (KitKat)版本引入了ART，作为Dalvik虚拟机的替代，目的是提供更高效的应用程序执行。Dalvik使用即时(JIT)编译，而ART采用预先(AOT, Ahead-Of-Time)编译。这意味着在应用安装的时候，DEX文件就已经被编译成机器码，保存为OAT文件，这样应用在运行时就不需要再进行编译，从而提高了执行效率。<br>### 基本概念</h2><p>在深入了解Dex2OAT之前，需要先明白一些基本概念，包括DEX文件、OAT文件以及ART运行时环境。</p>
+<p>Android在4.4 (KitKat)版本引入了ART，作为Dalvik虚拟机的替代，目的是提供更高效的应用程序执行。Dalvik使用即时(JIT)编译，而ART采用预先(AOT, Ahead-Of-Time)编译。这意味着在应用安装的时候，DEX文件就已经被编译成机器码，保存为OAT文件，这样应用在运行时就不需要再进行编译，从而提高了执行效率。</p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><hr>
+<p>在深入了解Dex2OAT之前，需要先明白一些基本概念，包括DEX文件、OAT文件以及ART运行时环境。</p>
 <h4 id="DEX文件（Dalvik-Executable）"><a href="#DEX文件（Dalvik-Executable）" class="headerlink" title="DEX文件（Dalvik Executable）"></a>DEX文件（Dalvik Executable）</h4><p>DEX文件是Android应用包（APK）中包含的一种格式文件，用于存储编译后的应用代码。它是为了适应Android平台的特殊需要而设计的，与传统的Java字节码文件（.class文件）相比，DEX文件具有更小的存储空间需求。在Android 4.4及之前版本中，Android运行时环境是基于Dalvik虚拟机的，它直接执行DEX文件中的代码。</p>
 <h4 id="OAT文件（Android-Runtime-ART）"><a href="#OAT文件（Android-Runtime-ART）" class="headerlink" title="OAT文件（Android Runtime, ART）"></a>OAT文件（Android Runtime, ART）</h4><p>OAT文件是DEX文件的进一步编译形式，它是在设备上针对特定硬件优化的编译代码。从Android 5.0（Lollipop）开始，默认的运行时环境变为了ART（Android Runtime），ART通过提前（Ahead-Of-Time，AOT）编译DEX文件到OAT文件来提高应用的执行效率。这意味着，在应用安装时，DEX文件会被编译成OAT文件，使得应用在运行时可以直接执行这些优化后的机器代码，从而减少了JIT（Just-In-Time）编译的需求和运行时的性能开销。</p>
 <h4 id="ART运行时环境"><a href="#ART运行时环境" class="headerlink" title="ART运行时环境"></a>ART运行时环境</h4><p>ART是Android 5.0及以上版本中的一个新运行时环境，它取代了Dalvik作为Android的核心虚拟机。ART带来了显著的性能改进和优化，包括AOT编译、更好的垃圾收集机制、更高效的应用启动时间和运行时性能。与Dalvik相比，ART通过使用AOT编译技术减少了应用的响应时间和运行时开销，但这也意味着应用安装时间会有所增加，因为DEX到OAT的编译过程是在应用安装时完成的。</p>
