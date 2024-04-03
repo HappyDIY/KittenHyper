@@ -16,22 +16,23 @@
   <meta name="author" content="Ranshen_Cervine">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Android 引导花絮本文由 Ranshen_Cervine翻译，原文为 Android Booting Shenanigans 术语 rootdir：根目录(&#x2F;)。所有文件&#x2F;文件夹&#x2F;文件系统都存储在rootdir下或挂载在rootdir下。在Android上，文件系统可能是rootfs或system分区。 initramfs：Android引导镜像中的一个部分，Linux内">
+    <meta name="description" content="Android Booting ShenanigansTerminologies rootdir: the root directory (&#x2F;). All files&#x2F;folders&#x2F;filesystems are stored in or mounted under rootdir. On Android, the filesystem may be either rootf">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android 引导花絮">
-<meta property="og:url" content="https://kittenhyper.gitee.io/2024/04/03/Android%20%E5%BC%95%E5%AF%BC%E8%8A%B1%E7%B5%AE/index.html">
+<meta property="og:title" content="Android Booting Shenanigans">
+<meta property="og:url" content="https://kittenhyper.gitee.io/2024/04/03/Android%20Booting%20Shenanigans/index.html">
 <meta property="og:site_name" content="KittenHyper">
-<meta property="og:description" content="Android 引导花絮本文由 Ranshen_Cervine翻译，原文为 Android Booting Shenanigans 术语 rootdir：根目录(&#x2F;)。所有文件&#x2F;文件夹&#x2F;文件系统都存储在rootdir下或挂载在rootdir下。在Android上，文件系统可能是rootfs或system分区。 initramfs：Android引导镜像中的一个部分，Linux内">
+<meta property="og:description" content="Android Booting ShenanigansTerminologies rootdir: the root directory (&#x2F;). All files&#x2F;folders&#x2F;filesystems are stored in or mounted under rootdir. On Android, the filesystem may be either rootf">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-03T07:01:00.000Z">
-<meta property="article:modified_time" content="2024-04-03T07:29:51.448Z">
+<meta property="article:published_time" content="2024-04-03T06:59:00.000Z">
+<meta property="article:modified_time" content="2024-04-03T10:04:49.986Z">
 <meta property="article:author" content="Ranshen_Cervine">
 <meta property="article:tag" content="Module">
+<meta property="article:tag" content="en-US">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Android 引导花絮 - KittenHyper</title>
+  <title>Android Booting Shenanigans - KittenHyper</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Android 引导花絮"></span>
+            <span id="subtitle" data-typed-text="Android Booting Shenanigans"></span>
           
         </div>
 
@@ -212,7 +213,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-03 15:01" pubdate>
+        <time datetime="2024-04-03 14:59" pubdate>
           2024年4月3日 下午
         </time>
       </span>
@@ -224,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          248 字
         
       </span>
     
@@ -235,7 +236,7 @@
         
         
         
-          15 分钟
+          3 分钟
         
       </span>
     
@@ -272,33 +273,32 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Android 引导花絮</h1>
+            <h1 id="seo-header">Android Booting Shenanigans</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Android-引导花絮"><a href="#Android-引导花絮" class="headerlink" title="Android 引导花絮"></a>Android 引导花絮</h1><p>本文由 Ranshen_Cervine翻译，原文为 <a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/boot.html">Android Booting Shenanigans</a></p>
-<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><ul>
-<li><strong>rootdir</strong>：根目录(<code>/</code>)。所有文件&#x2F;文件夹&#x2F;文件系统都存储在rootdir下或挂载在rootdir下。在Android上，文件系统可能是<code>rootfs</code>或<code>system</code>分区。</li>
-<li><strong><code>initramfs</code><strong>：Android引导镜像中的一个部分，Linux内核将使用它作为<code>rootfs</code>。人们也将术语</strong>ramdisk</strong>（随机存取存储器磁盘）交替使用。</li>
-<li><strong><code>recovery</code>和<code>boot</code>分区</strong>：这两个实际上非常相似：都是包含ramdisk和Linux内核（加上一些其他东西）的Android引导镜像。唯一的区别是引导<code>boot</code>分区将带我们进入Android，而<code>recovery</code>有一个最小化的独立Linux环境，用于修复和升级设备。</li>
-<li><strong>SAR</strong>：系统即根（System-as-root）。也就是说，设备使用<code>system</code>作为rootdir而不是<code>rootfs</code>。</li>
-<li><strong>A&#x2F;B, A-only</strong>：对于支持<a target="_blank" rel="noopener" href="https://source.android.com/devices/tech/ota/ab">无缝系统更新</a>的设备，它将拥有所有只读分区的两个插槽；我们称这些为<strong>A&#x2F;B设备</strong>。为了区分，非A&#x2F;B设备将被称为<strong>A-only</strong>。</li>
-<li><strong>2SI</strong>：两阶段初始化（Two Stage Init）。Android 10+启动的方式。稍后将有更多信息。</li>
+                <h1 id="Android-Booting-Shenanigans"><a href="#Android-Booting-Shenanigans" class="headerlink" title="Android Booting Shenanigans"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/boot.html">Android Booting Shenanigans</a></h1><h2 id="Terminologies"><a href="#Terminologies" class="headerlink" title="Terminologies"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/boot.html#terminologies">Terminologies</a></h2><ul>
+<li><strong>rootdir</strong>: the root directory (<code>/</code>). All files&#x2F;folders&#x2F;filesystems are stored in or mounted under rootdir. On Android, the filesystem may be either <code>rootfs</code> or the <code>system</code> partition.</li>
+<li><strong><code>initramfs</code></strong>: a section in Android’s boot image that the Linux kernel will use as <code>rootfs</code>. People also use the term <strong>ramdisk</strong> interchangeably</li>
+<li><strong><code>recovery</code> and <code>boot</code> partition</strong>: these 2 are actually very similar: both are Android boot images containing ramdisk and Linux kernel (plus some other stuff). The only difference is that booting <code>boot</code> partition will bring us to Android, while <code>recovery</code> has a minimalist self contained Linux environment for repairing and upgrading the device.</li>
+<li><strong>SAR</strong>: System-as-root. That is, the device uses <code>system</code> as rootdir instead of <code>rootfs</code></li>
+<li><strong>A&#x2F;B, A-only</strong>: For devices supporting <a target="_blank" rel="noopener" href="https://source.android.com/devices/tech/ota/ab">Seamless System Updates</a>, it will have 2 slots of all read-only partitions; we call these <strong>A&#x2F;B devices</strong>. To differentiate, non A&#x2F;B devices will be called <strong>A-only</strong></li>
+<li><strong>2SI</strong>: Two Stage Init. The way Android 10+ boots. More info later.</li>
 </ul>
-<p>以下是一些参数，用于更精确地定义设备的Android版本：</p>
+<p>Here are a few parameters to more precisely define a device’s Android version:</p>
 <ul>
-<li><strong>LV</strong>：启动版本（Launch Version）。设备<strong>首次发布</strong>时的Android版本。也就是，当设备首次上市时预装的Android版本。</li>
-<li><strong>RV</strong>：运行版本（Running Version）。设备当前运行的Android版本。</li>
+<li><strong>LV</strong>: Launch Version. The Android version the device is <strong>launched</strong> with. That is, the Android version pre-installed when the device first hit the market.</li>
+<li><strong>RV</strong>: Running Version. The Android version the device is currently running on.</li>
 </ul>
-<p>我们将使用<strong>Android API级别</strong>来代表LV和RV。API级别与Android版本之间的映射可以在<a target="_blank" rel="noopener" href="https://source.android.com/setup/start/build-numbers#platform-code-names-versions-api-levels-and-ndk-releases">此表</a>中查看。例如：Pixel XL首次发布时是Android 7.1，并且正在运行Android 10，这些参数将是<code>(LV = 25, RV = 29)</code></p>
-<h2 id="引导方法"><a href="#引导方法" class="headerlink" title="引导方法"></a>引导方法</h2><p>Android引导大致可以分为3种主要不同的方法。我们提供了一个大致的规则来确定你的设备最有可能使用哪种方法，例外情况单独列出。</p>
+<p>We will use <strong>Android API level</strong> to represent LV and RV. The mapping between API level and Android versions can be seen in <a target="_blank" rel="noopener" href="https://source.android.com/setup/start/build-numbers#platform-code-names-versions-api-levels-and-ndk-releases">this table</a>. For example: Pixel XL is released with Android 7.1, and is running Android 10, these parameters will be <code>(LV = 25, RV = 29)</code></p>
+<h2 id="Boot-Methods"><a href="#Boot-Methods" class="headerlink" title="Boot Methods"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/boot.html#boot-methods">Boot Methods</a></h2><p>Android booting can be roughly categorized into 3 major different methods. We provide a general rule of thumb to determine which method your device is most likely using, with exceptions listed separately.</p>
 <table>
 <thead>
 <tr>
-<th>方法</th>
-<th>初始rootdir</th>
-<th>最终rootdir</th>
+<th>Method</th>
+<th>Initial rootdir</th>
+<th>Final rootdir</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -318,85 +318,85 @@
 </tr>
 </tbody></table>
 <ul>
-<li><strong>方法A - 传统ramdisk</strong>：这是所有Android设备过去如何引导的（美好的旧日子）。内核使用<code>initramfs</code>作为rootdir，并执行<code>/init</code>来引导。<ul>
-<li>不符合方法B和C任何标准的设备。</li>
+<li><strong>Method A - Legacy ramdisk</strong>: This is how <em>all</em> Android devices used to boot (good old days). The kernel uses <code>initramfs</code> as rootdir, and exec <code>/init</code> to boot.<ul>
+<li>Devices that does not fall in any of Method B and C’s criteria</li>
 </ul>
 </li>
-<li><strong>方法B - 传统SAR</strong>：这种方法首次出现在Pixel 1上。内核直接将<code>system</code>分区作为rootdir并执行<code>/init</code>来引导。<ul>
-<li>设备的<code>(LV = 28)</code></li>
-<li>Google：Pixel 1和2。Pixel 3和3a在<code>(RV = 28)</code>时。</li>
-<li>OnePlus：6 - 7</li>
-<li>也许一些<code>(LV &lt; 29)</code>的Android Go设备</li>
+<li><strong>Method B - Legacy SAR</strong>: This method was first seen on Pixel 1. The kernel directly mounts the <code>system</code> partition as rootdir and exec <code>/init</code> to boot.<ul>
+<li>Devices with <code>(LV = 28)</code></li>
+<li>Google: Pixel 1 and 2. Pixel 3 and 3a when <code>(RV = 28)</code>.</li>
+<li>OnePlus: 6 - 7</li>
+<li>Maybe some <code>(LV &lt; 29)</code> Android Go devices?</li>
 </ul>
 </li>
-<li><strong>方法C - 2SI ramdisk SAR</strong>：这种方法首次出现在Pixel 3 Android 10开发者预览版上。内核使用<code>initramfs</code>作为rootdir并在<code>rootfs</code>中执行<code>/init</code>。这个<code>init</code>负责挂载<code>system</code>分区并将其用作新的rootdir，然后最终执行<code>/system/bin/init</code>来引导。<ul>
-<li>设备的<code>(LV &gt;= 29)</code></li>
-<li>设备的<code>(LV &lt; 28, RV &gt;= 29)</code>，排除那些已经使用方法B的</li>
-<li>Google：Pixel 3和3a在<code>(RV &gt;= 29)</code>时。</li>
+<li><strong>Method C - 2SI ramdisk SAR</strong>: This method was first seen on Pixel 3 Android 10 developer preview. The kernel uses <code>initramfs</code> as rootdir and exec <code>/init</code> in <code>rootfs</code>. This <code>init</code> is responsible to mount the <code>system</code> partition and use it as the new rootdir, then finally exec <code>/system/bin/init</code> to boot.<ul>
+<li>Devices with <code>(LV &gt;= 29)</code></li>
+<li>Devices with <code>(LV &lt; 28, RV &gt;= 29)</code>, excluding those that were already using Method B</li>
+<li>Google: Pixel 3 and 3a with <code>(RV &gt;= 29)</code></li>
 </ul>
 </li>
 </ul>
-<h3 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h3><p>根据在线文档，Google对SAR的定义仅考虑内核如何引导设备（上表中的<strong>初始rootdir</strong>），这意味着，只有使用<strong>方法B</strong>的设备从Google的角度来看才是<strong>官方</strong>认为的SAR设备。</p>
-<p>然而，对于Magisk来说，真正的区别在于设备在完全引导后最终使用的是什么（上表中的<strong>最终rootdir</strong>），这意味着，<strong>就Magisk的关注点而言，方法B和C都是SAR的一种形式</strong>，只是实现方式不同。本文档后面提到的SAR的每个实例都将指<strong>Magisk的定义</strong>，除非特别说明。</p>
-<p>方法C的标准有点复杂，用通俗的话说：要么你的设备足够现代化，以Android 10+发布，或者你正在一台使用方法A的设备上运行Android 10+自定义ROM。</p>
+<h3 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/boot.html#discussion">Discussion</a></h3><p>From documents online, Google’s definition of SAR only considers how the kernel boots the device (<strong>Initial rootdir</strong> in the table above), meaning that only devices using <strong>Method B</strong> is <em>officially</em> considered an SAR device from Google’s standpoint.</p>
+<p>However for Magisk, the real difference lies in what the device ends up using when fully booted (<strong>Final rootdir</strong> in the table above), meaning that <strong>as far as Magisk’s concern, both Method B and C is a form of SAR</strong>, but just implemented differently. Every instance of SAR later mentioned in this document will refer to <strong>Magisk’s definition</strong> unless specifically says otherwise.</p>
+<p>The criteria for Method C is a little complicated, in layman’s words: either your device is modern enough to launch with Android 10+, or you are running an Android 10+ custom ROM on a device that was using Method A.</p>
 <ul>
-<li>任何使用Android 10+运行的方法A设备自动使用方法C</li>
-<li><strong>方法B设备固定使用方法B</strong>，唯一的例外是Pixel 3和3a，Google对设备进行了改装，以适应新的方法。</li>
+<li>Any Method A device running Android 10+ will automatically be using Method C</li>
+<li><strong>Method B devices are stuck with Method B</strong>, with the only exception being Pixel 3 and 3a, which Google retrofitted the device to adapt the new method.</li>
 </ul>
-<p>SAR是<a target="_blank" rel="noopener" href="https://source.android.com/devices/architecture#hidl">Project Treble</a>的一个非常重要的部分，因为rootdir应该与平台绑定。这也是方法B和C伴随着<code>(LV &gt;= ver)</code>标准的原因，因为Google每年都要求所有OEM遵守更新的要求。</p>
-<h2 id="一些历史"><a href="#一些历史" class="headerlink" title="一些历史"></a>一些历史</h2><p>当Google发布第一代Pixel时，它还引入了<a target="_blank" rel="noopener" href="https://source.android.com/devices/tech/ota/ab">A&#x2F;B（无缝）系统更新</a>。由于<a target="_blank" rel="noopener" href="https://source.android.com/devices/tech/ota/ab/ab_faqs">存储大小问题</a>，与A-only相比，存在几个差异，最相关的一个是<code>recovery</code>分区的移除和recovery ramdisk合并到<code>boot</code>。</p>
-<p>让我们回到Google首次设计A&#x2F;B的时候。如果使用SAR（那时只存在引导方法B），内核不需要<code>initramfs</code>来引导Android（因为rootdir在<code>system</code>）。这意味着我们可以聪明地将recovery ramdisk（包含最小化Linux环境）塞进<code>boot</code>，移除<code>recovery</code>，并根据来自引导加载程序的信息让内核选择使用哪个rootdir（ramdisk或<code>system</code>）。</p>
-<p>随着时间从Android 7.1流逝到Android 10，Google引入了<a target="_blank" rel="noopener" href="https://source.android.com/devices/tech/ota/dynamic_partitions/implement">动态分区</a>。这对SAR来说是个坏消息，因为Linux内核不能直接理解这种新的分区格式，因此无法直接将<code>system</code>作为rootdir挂载。这时他们想出了引导方法C：总是引导到<code>initramfs</code>，让用户空间处理剩余的引导过程。这包括决定引导到Android还是recovery，或者官方称之为：<code>USES_RECOVERY_AS_BOOT</code>。</p>
-<p>一些使用A&#x2F;B的2SI现代设备还带有<code>recovery_a/_b</code>分区。这是Google标准官方支持的。这些设备将只使用boot ramdisk引导到Android，因为recovery存储在单独的分区上。</p>
-<h2 id="拼凑在一起"><a href="#拼凑在一起" class="headerlink" title="拼凑在一起"></a>拼凑在一起</h2><p>有了上述所有知识，现在我们可以将所有Android设备分为这些不同的类型：</p>
+<p>SAR is a very important part of <a target="_blank" rel="noopener" href="https://source.android.com/devices/architecture#hidl">Project Treble</a> as rootdir should be tied to the platform. This is also the reason why Method B and C comes with <code>(LV &gt;= ver)</code> criterion as Google has enforced all OEMs to comply with updated requirements every year.</p>
+<h2 id="Some-History"><a href="#Some-History" class="headerlink" title="Some History"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/boot.html#some-history">Some History</a></h2><p>When Google released the first generation Pixel, it also introduced <a target="_blank" rel="noopener" href="https://source.android.com/devices/tech/ota/ab">A&#x2F;B (Seamless) System Updates</a>. Due to <a target="_blank" rel="noopener" href="https://source.android.com/devices/tech/ota/ab/ab_faqs">storage size concerns</a>, there are several differences compared to A-only, the most relevant one being the removal of <code>recovery</code> partition and the recovery ramdisk being merged into <code>boot</code>.</p>
+<p>Let’s go back in time when Google is first designing A&#x2F;B. If using SAR (only Boot Method B exists at that time), the kernel doesn’t need <code>initramfs</code> to boot Android (because rootdir is in <code>system</code>). This mean we can be smart and just stuff the recovery ramdisk (containing the minimalist Linux environment) into <code>boot</code>, remove <code>recovery</code>, and let the kernel pick whichever rootdir to use (ramdisk or <code>system</code>) based on information from the bootloader.</p>
+<p>As time passed from Android 7.1 to Android 10, Google introduced <a target="_blank" rel="noopener" href="https://source.android.com/devices/tech/ota/dynamic_partitions/implement">Dynamic Partitions</a>. This is bad news for SAR, because the Linux kernel cannot directly understand this new partition format, thus unable to directly mount <code>system</code> as rootdir. This is when they came up with Boot Method C: always boot into <code>initramfs</code>, and let userspace handle the rest of booting. This includes deciding whether to boot into Android or recovery, or as they officially call: <code>USES_RECOVERY_AS_BOOT</code>.</p>
+<p>Some modern devices using A&#x2F;B with 2SI also comes with <code>recovery_a/_b</code> partitions. This is officially supported with Google’s standard. These devices will then only use the boot ramdisk to boot into Android as recovery is stored on a separate partition.</p>
+<h2 id="Piecing-Things-Together"><a href="#Piecing-Things-Together" class="headerlink" title="Piecing Things Together"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/boot.html#piecing-things-together">Piecing Things Together</a></h2><p>With all the knowledge above, now we can categorize all Android devices into these different types:</p>
 <table>
 <thead>
 <tr>
-<th>类型</th>
-<th>引导方法</th>
-<th>分区</th>
+<th>Type</th>
+<th>Boot Method</th>
+<th>Partition</th>
 <th>2SI</th>
-<th><code>boot</code>中的Ramdisk</th>
+<th>Ramdisk in <code>boot</code></th>
 </tr>
 </thead>
 <tbody><tr>
 <td><strong>I</strong></td>
 <td>A</td>
 <td>A-only</td>
-<td>否</td>
-<td><code>boot</code> ramdisk</td>
+<td>No</td>
+<td><code>boot</code> ramdisk</td>
 </tr>
 <tr>
 <td><strong>II</strong></td>
 <td>B</td>
 <td>A&#x2F;B</td>
-<td>任意</td>
-<td><code>recovery</code> ramdisk</td>
+<td>Any</td>
+<td><code>recovery</code> ramdisk</td>
 </tr>
 <tr>
 <td><strong>III</strong></td>
 <td>B</td>
 <td>A-only</td>
-<td>任意</td>
+<td>Any</td>
 <td><strong><em>N&#x2F;A</em></strong></td>
 </tr>
 <tr>
 <td><strong>IV</strong></td>
 <td>C</td>
-<td>任意</td>
-<td>是</td>
-<td>混合ramdisk</td>
+<td>Any</td>
+<td>Yes</td>
+<td>Hybrid ramdisk</td>
 </tr>
 </tbody></table>
-<p>这些类型按照它们首次可用的时间顺序排列。</p>
+<p>These types are ordered chronologically by the time they were first available.</p>
 <ul>
-<li><strong>类型I</strong>：好旧的传统ramdisk引导</li>
-<li><strong>类型II</strong>：传统A&#x2F;B设备。Pixel 1是这种类型的第一款设备，是第一款A&#x2F;B和SAR设备</li>
-<li><strong>类型III</strong>：2018年末至2019年的A-only设备。<strong>就Magisk而言，这是有史以来最糟糕的设备类型。</strong></li>
-<li><strong>类型IV</strong>：所有使用引导方法C的设备都是类型IV。A&#x2F;B类型IV的ramdisk可以根据来自引导加载程序的信息引导到Android或recovery；A-only类型IV的ramdisk只能引导到Android。</li>
+<li><strong>Type I</strong>: Good old legacy ramdisk boot</li>
+<li><strong>Type II</strong>: Legacy A&#x2F;B devices. Pixel 1 is the first device of this type, being both the first A&#x2F;B and SAR device</li>
+<li><strong>Type III</strong>: Late 2018 - 2019 devices that are A-only. <strong>The worst type of device to ever exist as far as Magisk is concerned.</strong></li>
+<li><strong>Type IV</strong>: All devices using Boot Method C are Type IV. A&#x2F;B Type IV ramdisk can boot into either Android or recovery based on info from bootloader; A-only Type IV ramdisk can only boot into Android.</li>
 </ul>
-<p>关于类型III设备的进一步细节：Magisk总是安装在引导镜像的ramdisk中。对于所有其他设备类型，因为它们的<code>boot</code>分区包含ramdisk，Magisk可以通过Magisk应用或在自定义恢复中刷入zip轻松安装。然而，对于类型III的设备，它们<strong>限于将Magisk安装到<code>recovery</code>分区中</strong>。Magisk在正常引导时不会起作用；相反，类型III设备的所有者必须始终重启到恢复模式以维持Magisk访问。</p>
-<p>一些类型III设备的引导加载程序仍然接受并提供手动添加到<code>boot</code>镜像的<code>initramfs</code>给内核（例如，一些小米手机），但许多设备不这样做（例如，三星S10、Note 10）。这完全取决于OEM如何实现其引导加载程序。</p>
+<p>Further details on Type III devices: Magisk is always installed in the ramdisk of a boot image. For all other device types, because their <code>boot</code> partition have ramdisk included, Magisk can be easily installed by patching boot image through the Magisk app or flash zip in custom recovery. However for Type III devices, they are <strong>limited to install Magisk into the <code>recovery</code> partition</strong>. Magisk will not function when booted normally; instead Type III device owners have to always reboot to recovery to maintain Magisk access.</p>
+<p>Some Type III devices’ bootloader will still accept and provide <code>initramfs</code> that was manually added to the <code>boot</code> image to the kernel (e.g. some Xiaomi phones), but many device don’t (e.g. Samsung S10, Note 10). It solely depends on how the OEM implements its bootloader.</p>
 
                 
               </div>
@@ -432,6 +432,8 @@
       
         <a href="/KittenHyper/tags/Module/" class="print-no-link">#Module</a>
       
+        <a href="/KittenHyper/tags/en-US/" class="print-no-link">#en-US</a>
+      
     </div>
   
 </div>
@@ -442,8 +444,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Android 引导花絮</div>
-      <div>https://kittenhyper.gitee.io/2024/04/03/Android 引导花絮/</div>
+      <div>Android Booting Shenanigans</div>
+      <div>https://kittenhyper.gitee.io/2024/04/03/Android Booting Shenanigans/</div>
     </div>
     <div class="license-meta">
       
@@ -487,9 +489,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/KittenHyper/2024/04/03/%E5%86%85%E9%83%A8%E7%BB%86%E8%8A%82/" title="内部细节">
+                      <a href="/KittenHyper/2024/04/03/Android%20%E5%BC%95%E5%AF%BC%E8%8A%B1%E7%B5%AE/" title="Android 引导花絮">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">内部细节</span>
+                        <span class="hidden-mobile">Android 引导花絮</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -497,8 +499,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/KittenHyper/2024/04/03/Android%20Booting%20Shenanigans/" title="Android Booting Shenanigans">
-                        <span class="hidden-mobile">Android Booting Shenanigans</span>
+                      <a href="/KittenHyper/2024/04/03/Internal%20Details/" title="Internal Details">
+                        <span class="hidden-mobile">Internal Details</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

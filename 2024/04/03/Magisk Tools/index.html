@@ -1,0 +1,673 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/KittenHyper/img/fluid.png">
+  <link rel="icon" href="/KittenHyper/img/HyperOS.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#1A2B3C">
+  <meta name="author" content="Ranshen_Cervine">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Magisk ToolsMagisk comes with a huge collections of tools for installation, daemons, and utilities for developers. This documentation covers the 4 binaries and all included applets. The binaries and a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Magisk Tools">
+<meta property="og:url" content="https://kittenhyper.gitee.io/2024/04/03/Magisk%20Tools/index.html">
+<meta property="og:site_name" content="KittenHyper">
+<meta property="og:description" content="Magisk ToolsMagisk comes with a huge collections of tools for installation, daemons, and utilities for developers. This documentation covers the 4 binaries and all included applets. The binaries and a">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-02T16:38:00.000Z">
+<meta property="article:modified_time" content="2024-04-03T10:00:53.356Z">
+<meta property="article:author" content="Ranshen_Cervine">
+<meta property="article:tag" content="Module">
+<meta property="article:tag" content="en-US">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Magisk Tools - KittenHyper</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/KittenHyper/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/KittenHyper/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/KittenHyper/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/KittenHyper/css/cloudedGlass.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kittenhyper.gitee.io","root":"/KittenHyper/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/KittenHyper/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/KittenHyper/js/utils.js" ></script>
+  <script  src="/KittenHyper/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/KittenHyper/">
+      <strong>KittenHyper</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/KittenHyper/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Magisk Tools"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-03 00:38" pubdate>
+          2024年4月3日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          751 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Magisk Tools</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Magisk-Tools"><a href="#Magisk-Tools" class="headerlink" title="Magisk Tools"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/tools.html">Magisk Tools</a></h1><p>Magisk comes with a huge collections of tools for installation, daemons, and utilities for developers. This documentation covers the 4 binaries and all included applets. The binaries and applets are shown below:</p>
+<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xl">magiskboot                 <span class="hljs-comment">/* binary */</span><br>magiskinit                 <span class="hljs-comment">/* binary */</span><br>magiskpolicy               <span class="hljs-comment">/* binary */</span><br><span class="hljs-function"><span class="hljs-title">supolicy</span> -&gt;</span> magiskpolicy<br>magisk                     <span class="hljs-comment">/* binary */</span><br><span class="hljs-function"><span class="hljs-title">resetprop</span> -&gt;</span> magisk<br><span class="hljs-function"><span class="hljs-title">su</span> -&gt;</span> magisk<br></code></pre></td></tr></table></figure>
+
+<h3 id="magiskboot"><a href="#magiskboot" class="headerlink" title="magiskboot"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/tools.html#magiskboot">magiskboot</a></h3><p>A tool to unpack &#x2F; repack boot images, parse &#x2F; patch &#x2F; extract cpio, patch dtb, hex patch binaries, and compress &#x2F; decompress files with multiple algorithms.</p>
+<p><code>magiskboot</code> natively supports (which means it does not rely on external tools) common compression formats including <code>gzip</code>, <code>lz4</code>, <code>lz4_legacy</code> , <code>lz4_lg</code> (<a target="_blank" rel="noopener" href="https://events.static.linuxfound.org/sites/events/files/lcjpcojp13_klee.pdf">the LG edition</a> of <code>lz4_legacy</code>, only used on LG), <code>lzma</code>, <code>xz</code>, and <code>bzip2</code>.</p>
+<p>The concept of <code>magiskboot</code> is to make boot image modification simpler. For unpacking, it parses the header and extracts all sections in the image, decompressing on-the-fly if compression is detected in any sections. For repacking, the original boot image is required so the original headers can be used, changing only the necessary entries such as section sizes and checksum. All sections will be compressed back to the original format if required. The tool also supports many CPIO and DTB operations.</p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><code class="hljs vbnet"><span class="hljs-symbol">Usage:</span> ./magiskboot &lt;action&gt; [args...]<br><br>Supported actions:<br>  unpack [-n] [-h] &lt;bootimg&gt;<br>    Unpack &lt;bootimg&gt; <span class="hljs-keyword">to</span> its individual components, <span class="hljs-keyword">each</span> component <span class="hljs-keyword">to</span><br>    a file <span class="hljs-keyword">with</span> its corresponding file name <span class="hljs-keyword">in</span> the current directory.<br>    Supported components: kernel, kernel_dtb, ramdisk.cpio, second,<br>    dtb, extra, <span class="hljs-built_in">and</span> recovery_dtbo.<br>    <span class="hljs-keyword">By</span> <span class="hljs-keyword">default</span>, <span class="hljs-keyword">each</span> component will be automatically decompressed<br>    <span class="hljs-keyword">on</span>-the-fly before writing <span class="hljs-keyword">to</span> the output file.<br>    <span class="hljs-keyword">If</span> <span class="hljs-comment">&#x27;-n&#x27; is provided, all decompression operations will be skipped;</span><br>    <span class="hljs-keyword">each</span> component will remain untouched, dumped <span class="hljs-keyword">in</span> its original format.<br>    <span class="hljs-keyword">If</span> <span class="hljs-comment">&#x27;-h&#x27; is provided, the boot image header information will be</span><br>    dumped <span class="hljs-keyword">to</span> the file <span class="hljs-comment">&#x27;header&#x27;, which can be used to modify header</span><br>    configurations during repacking.<br>    <span class="hljs-keyword">Return</span> values:<br>    <span class="hljs-number">0</span>:valid    <span class="hljs-number">1</span>:<span class="hljs-keyword">error</span>    <span class="hljs-number">2</span>:chromeos<br><br>  repack [-n] &lt;origbootimg&gt; [outbootimg]<br>    Repack boot image components <span class="hljs-keyword">using</span> files <span class="hljs-keyword">from</span> the current directory<br>    <span class="hljs-keyword">to</span> [outbootimg], <span class="hljs-built_in">or</span> <span class="hljs-comment">&#x27;new-boot.img&#x27; if not specified.</span><br>    &lt;origbootimg&gt; <span class="hljs-built_in">is</span> the original boot image used <span class="hljs-keyword">to</span> unpack the components.<br>    <span class="hljs-keyword">By</span> <span class="hljs-keyword">default</span>, <span class="hljs-keyword">each</span> component will be automatically compressed <span class="hljs-keyword">using</span> its<br>    corresponding format detected <span class="hljs-keyword">in</span> &lt;origbootimg&gt;. <span class="hljs-keyword">If</span> a component file<br>    <span class="hljs-keyword">in</span> the current directory <span class="hljs-built_in">is</span> already compressed, <span class="hljs-keyword">then</span> no addition<br>    compression will be performed <span class="hljs-keyword">for</span> that specific component.<br>    <span class="hljs-keyword">If</span> <span class="hljs-comment">&#x27;-n&#x27; is provided, all compression operations will be skipped.</span><br>    <span class="hljs-keyword">If</span> env variable PATCHVBMETAFLAG <span class="hljs-built_in">is</span> <span class="hljs-keyword">set</span> <span class="hljs-keyword">to</span> <span class="hljs-literal">true</span>, all disable flags <span class="hljs-keyword">in</span><br>    the boot image<span class="hljs-comment">&#x27;s vbmeta header will be set.</span><br><br>  verify &lt;bootimg&gt; [x509.pem]<br>    Check whether the boot image <span class="hljs-built_in">is</span> signed <span class="hljs-keyword">with</span> AVB <span class="hljs-number">1.0</span> signature.<br>    Optionally provide a certificate <span class="hljs-keyword">to</span> verify whether the image <span class="hljs-built_in">is</span><br>    signed <span class="hljs-keyword">by</span> the <span class="hljs-keyword">public</span> <span class="hljs-keyword">key</span> certificate.<br>    <span class="hljs-keyword">Return</span> value:<br>    <span class="hljs-number">0</span>:valid    <span class="hljs-number">1</span>:<span class="hljs-keyword">error</span><br><br>  sign &lt;bootimg&gt; [name] [x509.pem pk8]<br>    Sign &lt;bootimg&gt; <span class="hljs-keyword">with</span> AVB <span class="hljs-number">1.0</span> signature.<br>    Optionally provide the name <span class="hljs-keyword">of</span> the image (<span class="hljs-keyword">default</span>: <span class="hljs-comment">&#x27;/boot&#x27;).</span><br>    Optionally provide the certificate/<span class="hljs-keyword">private</span> <span class="hljs-keyword">key</span> pair <span class="hljs-keyword">for</span> signing.<br>    <span class="hljs-keyword">If</span> the certificate/<span class="hljs-keyword">private</span> <span class="hljs-keyword">key</span> pair <span class="hljs-built_in">is</span> <span class="hljs-built_in">not</span> provided, the AOSP<br>    verity <span class="hljs-keyword">key</span> bundled <span class="hljs-keyword">in</span> the executable will be used.<br><br>  extract &lt;payload.bin&gt; [partition] [outfile]<br>    Extract [partition] <span class="hljs-keyword">from</span> &lt;payload.bin&gt; <span class="hljs-keyword">to</span> [outfile].<br>    <span class="hljs-keyword">If</span> [outfile] <span class="hljs-built_in">is</span> <span class="hljs-built_in">not</span> specified, <span class="hljs-keyword">then</span> output <span class="hljs-keyword">to</span> <span class="hljs-comment">&#x27;[partition].img&#x27;.</span><br>    <span class="hljs-keyword">If</span> [partition] <span class="hljs-built_in">is</span> <span class="hljs-built_in">not</span> specified, <span class="hljs-keyword">then</span> attempt <span class="hljs-keyword">to</span> extract either<br>    <span class="hljs-comment">&#x27;init_boot&#x27; or &#x27;boot&#x27;. Which partition was chosen can be determined</span><br>    <span class="hljs-keyword">by</span> whichever <span class="hljs-comment">&#x27;init_boot.img&#x27; or &#x27;boot.img&#x27; exists.</span><br>    &lt;payload.bin&gt; can be <span class="hljs-comment">&#x27;-&#x27; to be STDIN.</span><br><br>  hexpatch &lt;file&gt; &lt;hexpattern1&gt; &lt;hexpattern2&gt;<br>    Search &lt;hexpattern1&gt; <span class="hljs-keyword">in</span> &lt;file&gt;, <span class="hljs-built_in">and</span> replace it <span class="hljs-keyword">with</span> &lt;hexpattern2&gt;<br><br>  cpio &lt;incpio&gt; [commands...]<br>    <span class="hljs-keyword">Do</span> cpio commands <span class="hljs-keyword">to</span> &lt;incpio&gt; (modifications are done <span class="hljs-keyword">in</span>-place)<br>    <span class="hljs-keyword">Each</span> command <span class="hljs-built_in">is</span> a <span class="hljs-type">single</span> argument, add quotes <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> command.<br>    Supported commands:<br>      exists ENTRY<br>        <span class="hljs-keyword">Return</span> <span class="hljs-number">0</span> <span class="hljs-keyword">if</span> ENTRY exists, <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br>      rm [-r] ENTRY<br>        Remove ENTRY, specify [-r] <span class="hljs-keyword">to</span> remove recursively<br>      mkdir MODE ENTRY<br>        Create directory ENTRY <span class="hljs-keyword">in</span> permissions MODE<br>      ln TARGET ENTRY<br>        Create a symlink <span class="hljs-keyword">to</span> TARGET <span class="hljs-keyword">with</span> the name ENTRY<br>      mv SOURCE DEST<br>        Move SOURCE <span class="hljs-keyword">to</span> DEST<br>      add MODE ENTRY INFILE<br>        Add INFILE <span class="hljs-keyword">as</span> ENTRY <span class="hljs-keyword">in</span> permissions MODE; replaces ENTRY <span class="hljs-keyword">if</span> exists<br>      extract [ENTRY OUT]<br>        Extract ENTRY <span class="hljs-keyword">to</span> OUT, <span class="hljs-built_in">or</span> extract all entries <span class="hljs-keyword">to</span> current directory<br>      test<br>        Test the cpio<span class="hljs-comment">&#x27;s status</span><br>        <span class="hljs-keyword">Return</span> value <span class="hljs-built_in">is</span> <span class="hljs-number">0</span> <span class="hljs-built_in">or</span> bitwise <span class="hljs-built_in">or</span>-ed <span class="hljs-keyword">of</span> following values:<br>        <span class="hljs-number">0</span>x1:Magisk    <span class="hljs-number">0</span>x2:unsupported<br>      patch<br>        Apply ramdisk patches<br>        Configure <span class="hljs-keyword">with</span> env variables: KEEPVERITY KEEPFORCEENCRYPT<br>      backup ORIG<br>        Create ramdisk backups <span class="hljs-keyword">from</span> ORIG<br>      restore<br>        Restore ramdisk <span class="hljs-keyword">from</span> ramdisk backup stored within incpio<br><br>  dtb &lt;file&gt; &lt;action&gt; [args...]<br>    <span class="hljs-keyword">Do</span> dtb related actions <span class="hljs-keyword">to</span> &lt;file&gt;<br>    Supported actions:<br>      print [-f]<br>        Print all contents <span class="hljs-keyword">of</span> dtb <span class="hljs-keyword">for</span> debugging<br>        Specify [-f] <span class="hljs-keyword">to</span> only print fstab nodes<br>      patch<br>        Search <span class="hljs-keyword">for</span> fstab <span class="hljs-built_in">and</span> remove verity/avb<br>        Modifications are done directly <span class="hljs-keyword">to</span> the file <span class="hljs-keyword">in</span>-place<br>        Configure <span class="hljs-keyword">with</span> env variables: KEEPVERITY<br>      test<br>        Test the fstab<span class="hljs-comment">&#x27;s status</span><br>        <span class="hljs-keyword">Return</span> values:<br>        <span class="hljs-number">0</span>:valid    <span class="hljs-number">1</span>:<span class="hljs-keyword">error</span><br><br>  split &lt;file&gt;<br>    Split image.*-dtb <span class="hljs-keyword">into</span> kernel + kernel_dtb<br><br>  sha1 &lt;file&gt;<br>    Print the SHA1 checksum <span class="hljs-keyword">for</span> &lt;file&gt;<br><br>  cleanup<br>    Cleanup the current working directory<br><br>  compress[=format] &lt;infile&gt; [outfile]<br>    Compress &lt;infile&gt; <span class="hljs-keyword">with</span> [format] <span class="hljs-keyword">to</span> [outfile].<br>    &lt;infile&gt;/[outfile] can be <span class="hljs-comment">&#x27;-&#x27; to be STDIN/STDOUT.</span><br>    <span class="hljs-keyword">If</span> [format] <span class="hljs-built_in">is</span> <span class="hljs-built_in">not</span> specified, <span class="hljs-keyword">then</span> gzip will be used.<br>    <span class="hljs-keyword">If</span> [outfile] <span class="hljs-built_in">is</span> <span class="hljs-built_in">not</span> specified, <span class="hljs-keyword">then</span> &lt;infile&gt; will be replaced<br>    <span class="hljs-keyword">with</span> another file suffixed <span class="hljs-keyword">with</span> a matching file extension.<br>    Supported formats: gzip zopfli xz lzma bzip2 lz4 lz4_legacy lz4_lg <br><br>  decompress &lt;infile&gt; [outfile]<br>    Detect format <span class="hljs-built_in">and</span> decompress &lt;infile&gt; <span class="hljs-keyword">to</span> [outfile].<br>    &lt;infile&gt;/[outfile] can be <span class="hljs-comment">&#x27;-&#x27; to be STDIN/STDOUT.</span><br>    <span class="hljs-keyword">If</span> [outfile] <span class="hljs-built_in">is</span> <span class="hljs-built_in">not</span> specified, <span class="hljs-keyword">then</span> &lt;infile&gt; will be replaced<br>    <span class="hljs-keyword">with</span> another file removing its archive format file extension.<br>    Supported formats: gzip zopfli xz lzma bzip2 lz4 lz4_legacy lz4_lg <br></code></pre></td></tr></table></figure>
+
+<h3 id="magiskinit"><a href="#magiskinit" class="headerlink" title="magiskinit"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/tools.html#magiskinit">magiskinit</a></h3><p>This binary will replace <code>init</code> in the ramdisk of a Magisk patched boot image. It is originally created for supporting devices using system-as-root, but the tool is extended to support all devices and became a crucial part of Magisk. More details can be found in the <strong>Pre-Init</strong> section in <a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/details.html#magisk-booting-process">Magisk Booting Process</a>.</p>
+<h3 id="magiskpolicy"><a href="#magiskpolicy" class="headerlink" title="magiskpolicy"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/tools.html#magiskpolicy">magiskpolicy</a></h3><p>(This tool is aliased to <code>supolicy</code> for compatibility with SuperSU’s sepolicy tool)</p>
+<p>This tool could be used for advanced developers to modify SELinux policies. In common scenarios like Linux server admins, they would directly modify the SELinux policy sources (<code>*.te</code>) and recompile the <code>sepolicy</code> binary, but here on Android we directly patch the binary file (or runtime policies).</p>
+<p>All processes spawned from the Magisk daemon, including root shells and all its forks, are running in the context <code>u:r:magisk:s0</code>. The rule used on all Magisk installed systems can be viewed as stock <code>sepolicy</code> with these patches: <code>magiskpolicy --magisk &#39;allow magisk * * *&#39;</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs python">Usage: ./magiskpolicy [--options...] [policy statements...]<br><br>Options:<br>   --<span class="hljs-built_in">help</span>            show <span class="hljs-built_in">help</span> message <span class="hljs-keyword">for</span> policy statements<br>   --load FILE       load monolithic sepolicy <span class="hljs-keyword">from</span> FILE<br>   --load-split      load <span class="hljs-keyword">from</span> precompiled sepolicy <span class="hljs-keyword">or</span> <span class="hljs-built_in">compile</span><br>                     split cil policies<br>   --<span class="hljs-built_in">compile</span>-split   <span class="hljs-built_in">compile</span> split cil policies<br>   --save FILE       dump monolithic sepolicy to FILE<br>   --live            immediately load sepolicy into the kernel<br>   --magisk          apply built-<span class="hljs-keyword">in</span> Magisk sepolicy rules<br>   --apply FILE      apply rules <span class="hljs-keyword">from</span> FILE, read <span class="hljs-keyword">and</span> parsed<br>                     line by line <span class="hljs-keyword">as</span> policy statements<br>                     (multiple --apply are allowed)<br><br>If neither --load, --load-split, nor --<span class="hljs-built_in">compile</span>-split <span class="hljs-keyword">is</span> specified,<br>it will load <span class="hljs-keyword">from</span> current live policies (/sys/fs/selinux/policy)<br><br>One policy statement should be treated <span class="hljs-keyword">as</span> one parameter;<br>this means each policy statement should be enclosed <span class="hljs-keyword">in</span> quotes.<br>Multiple policy statements can be provided <span class="hljs-keyword">in</span> a single command.<br><br>Statements has a <span class="hljs-built_in">format</span> of <span class="hljs-string">&quot;&lt;rule_name&gt; [args...]&quot;</span>.<br>Arguments labeled <span class="hljs-keyword">with</span> (^) can accept one <span class="hljs-keyword">or</span> more entries. Multiple<br>entries consist of a space separated <span class="hljs-built_in">list</span> enclosed <span class="hljs-keyword">in</span> braces (&#123;&#125;).<br>Arguments labeled <span class="hljs-keyword">with</span> (*) are the same <span class="hljs-keyword">as</span> (^), but additionally<br>support the <span class="hljs-keyword">match</span>-<span class="hljs-built_in">all</span> operator (*).<br><br>Example: <span class="hljs-string">&quot;allow &#123; s1 s2 &#125; &#123; t1 t2 &#125; class *&quot;</span><br>Will be expanded to:<br><br>allow s1 t1 <span class="hljs-keyword">class</span> &#123; <span class="hljs-built_in">all</span>-permissions-of-<span class="hljs-keyword">class</span> &#125;<br>allow s1 t2 <span class="hljs-keyword">class</span> &#123; <span class="hljs-built_in">all</span>-permissions-of-<span class="hljs-keyword">class</span> &#125;<br>allow s2 t1 <span class="hljs-keyword">class</span> &#123; <span class="hljs-built_in">all</span>-permissions-of-<span class="hljs-keyword">class</span> &#125;<br>allow s2 t2 <span class="hljs-keyword">class</span> &#123; <span class="hljs-built_in">all</span>-permissions-of-<span class="hljs-keyword">class</span> &#125;<br><br>Supported policy statements:<br><br><span class="hljs-string">&quot;allow *source_type *target_type *class *perm_set&quot;</span><br><span class="hljs-string">&quot;deny *source_type *target_type *class *perm_set&quot;</span><br><span class="hljs-string">&quot;auditallow *source_type *target_type *class *perm_set&quot;</span><br><span class="hljs-string">&quot;dontaudit *source_type *target_type *class *perm_set&quot;</span><br><br><span class="hljs-string">&quot;allowxperm *source_type *target_type *class operation xperm_set&quot;</span><br><span class="hljs-string">&quot;auditallowxperm *source_type *target_type *class operation xperm_set&quot;</span><br><span class="hljs-string">&quot;dontauditxperm *source_type *target_type *class operation xperm_set&quot;</span><br>- The only supported operation <span class="hljs-keyword">is</span> <span class="hljs-string">&#x27;ioctl&#x27;</span><br>- xperm_set <span class="hljs-built_in">format</span> <span class="hljs-keyword">is</span> either <span class="hljs-string">&#x27;low-high&#x27;</span>, <span class="hljs-string">&#x27;value&#x27;</span>, <span class="hljs-keyword">or</span> <span class="hljs-string">&#x27;*&#x27;</span>.<br>  <span class="hljs-string">&#x27;*&#x27;</span> will be treated <span class="hljs-keyword">as</span> <span class="hljs-string">&#x27;0x0000-0xFFFF&#x27;</span>.<br>  All values should be written <span class="hljs-keyword">in</span> hexadecimal.<br><br><span class="hljs-string">&quot;permissive ^type&quot;</span><br><span class="hljs-string">&quot;enforce ^type&quot;</span><br><br><span class="hljs-string">&quot;typeattribute ^type ^attribute&quot;</span><br><br><span class="hljs-string">&quot;type type_name ^(attribute)&quot;</span><br>- Argument <span class="hljs-string">&#x27;attribute&#x27;</span> <span class="hljs-keyword">is</span> optional, default to <span class="hljs-string">&#x27;domain&#x27;</span><br><br><span class="hljs-string">&quot;attribute attribute_name&quot;</span><br><br><span class="hljs-string">&quot;type_transition source_type target_type class default_type (object_name)&quot;</span><br>- Argument <span class="hljs-string">&#x27;object_name&#x27;</span> <span class="hljs-keyword">is</span> optional<br><br><span class="hljs-string">&quot;type_change source_type target_type class default_type&quot;</span><br><span class="hljs-string">&quot;type_member source_type target_type class default_type&quot;</span><br><br><span class="hljs-string">&quot;genfscon fs_name partial_path fs_context&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="magisk"><a href="#magisk" class="headerlink" title="magisk"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/tools.html#magisk">magisk</a></h3><p>When the magisk binary is called with the name <code>magisk</code>, it works as a utility tool with many helper functions and the entry points for several Magisk services.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs sql">Usage: magisk [applet [arguments]...]<br>   <span class="hljs-keyword">or</span>: magisk [options]...<br><br>Options:<br>   <span class="hljs-operator">-</span>c                        print <span class="hljs-keyword">current</span> <span class="hljs-type">binary</span> version<br>   <span class="hljs-operator">-</span>v                        print <span class="hljs-keyword">running</span> daemon version<br>   <span class="hljs-operator">-</span>V                        print <span class="hljs-keyword">running</span> daemon version code<br>   <span class="hljs-comment">--list                    list all available applets</span><br>   <span class="hljs-comment">--remove-modules [-n]     remove all modules, reboot if -n is not provided</span><br>   <span class="hljs-comment">--install-module ZIP      install a module zip file</span><br><br>Advanced Options (Internal APIs):<br>   <span class="hljs-comment">--daemon                  manually start magisk daemon</span><br>   <span class="hljs-comment">--stop                    remove all magisk changes and stop daemon</span><br>   <span class="hljs-comment">--[init trigger]          callback on init triggers. Valid triggers:</span><br>                             post<span class="hljs-operator">-</span>fs<span class="hljs-operator">-</span>data, service, boot<span class="hljs-operator">-</span>complete, zygote<span class="hljs-operator">-</span>restart<br>   <span class="hljs-comment">--unlock-blocks           set BLKROSET flag to OFF for all block devices</span><br>   <span class="hljs-comment">--restorecon              restore selinux context on Magisk files</span><br>   <span class="hljs-comment">--clone-attr SRC DEST     clone permission, owner, and selinux context</span><br>   <span class="hljs-comment">--clone SRC DEST          clone SRC to DEST</span><br>   <span class="hljs-comment">--sqlite SQL              exec SQL commands to Magisk database</span><br>   <span class="hljs-comment">--path                    print Magisk tmpfs mount path</span><br>   <span class="hljs-comment">--denylist ARGS           denylist config CLI</span><br>   <span class="hljs-comment">--preinit-device          resolve a device to store preinit files</span><br><br>Available applets:<br>    su, resetprop<br><br>Usage: magisk <span class="hljs-comment">--denylist [action [arguments...] ]</span><br>Actions:<br>   status          <span class="hljs-keyword">Return</span> the enforcement status<br>   enable          Enable denylist enforcement<br>   disable         Disable denylist enforcement<br>   <span class="hljs-keyword">add</span> PKG [PROC]  <span class="hljs-keyword">Add</span> a <span class="hljs-keyword">new</span> target <span class="hljs-keyword">to</span> the denylist<br>   rm PKG [PROC]   Remove target(s) <span class="hljs-keyword">from</span> the denylist<br>   ls              Print the <span class="hljs-keyword">current</span> denylist<br>   <span class="hljs-keyword">exec</span> CMDs...    <span class="hljs-keyword">Execute</span> commands <span class="hljs-keyword">in</span> isolated mount<br>                   namespace <span class="hljs-keyword">and</span> do <span class="hljs-keyword">all</span> unmounts<br></code></pre></td></tr></table></figure>
+
+<h3 id="su"><a href="#su" class="headerlink" title="su"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/tools.html#su">su</a></h3><p>An applet of <code>magisk</code>, the MagiskSU entry point. Good old <code>su</code> command.</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs awk">Usage: su [options] [-] [user [argument...]]<br><br>Options:<br>  -c, --command COMMAND         Pass COMMAND to the invoked shell<br>  -g, --group GROUP             Specify the primary group<br>  -G, --supp-group GROUP        Specify a supplementary group.<br>                                The first specified supplementary group is also used<br>                                as a primary group <span class="hljs-keyword">if</span> the option -g is not specified.<br>  -Z, --context CONTEXT         Change SELinux context<br>  -t, --target PID              PID to take mount namespace from<br>  -h, --help                    Display this help message and <span class="hljs-keyword">exit</span><br>  -, -l, --login                Pretend the shell to be a login shell<br>  -m, -p,<br>  --preserve-environment        Preserve the entire environment<br>  -s, --shell SHELL             Use SHELL instead of the default <span class="hljs-regexp">/system/</span>bin/sh<br>  -v, --version                 Display version number and <span class="hljs-keyword">exit</span><br>  -V                            Display version code and <span class="hljs-keyword">exit</span><br>  -mm, -M,<br>  --mount-master                Force run <span class="hljs-keyword">in</span> the global mount namespace<br></code></pre></td></tr></table></figure>
+
+<h3 id="resetprop"><a href="#resetprop" class="headerlink" title="resetprop"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/tools.html#resetprop">resetprop</a></h3><p>An applet of <code>magisk</code>. An advanced system property manipulation utility. Check the <a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/details.html#resetprop">Resetprop Details</a> for more background information.</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs vim">Usage: resetprop [flags] [<span class="hljs-keyword">options</span>...]<br><br>Options:<br>   -h, --<span class="hljs-keyword">help</span>        show this message<br>   (<span class="hljs-keyword">no</span> arguments)    <span class="hljs-keyword">print</span> <span class="hljs-keyword">all</span> properties<br>   NAME              <span class="hljs-built_in">get</span> property<br>   NAME VALUE        <span class="hljs-keyword">set</span> property entry NAME with VALUE<br>   --<span class="hljs-keyword">file</span> FILE       load props from FILE<br>   --<span class="hljs-keyword">delete</span> NAME     <span class="hljs-keyword">delete</span> property<br><br>Flags:<br>   -v      <span class="hljs-keyword">print</span> <span class="hljs-keyword">verbose</span> output <span class="hljs-keyword">to</span> stderr<br>   -n      <span class="hljs-keyword">set</span> props without going through property_service<br>           (this flag <span class="hljs-keyword">only</span> affects setprop)<br>   -<span class="hljs-keyword">p</span>      <span class="hljs-keyword">read</span>/<span class="hljs-keyword">write</span> props from/<span class="hljs-keyword">to</span> persistent storage<br>           (this flag <span class="hljs-keyword">only</span> affects getprop <span class="hljs-built_in">and</span> delprop)<br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/KittenHyper/categories/Magisk-Document/" class="category-chain-item">Magisk Document</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/KittenHyper/tags/Module/" class="print-no-link">#Module</a>
+      
+        <a href="/KittenHyper/tags/en-US/" class="print-no-link">#en-US</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Magisk Tools</div>
+      <div>https://kittenhyper.gitee.io/2024/04/03/Magisk Tools/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Ranshen_Cervine</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/KittenHyper/2024/04/03/Magisk%20%E5%B7%A5%E5%85%B7/" title="Magisk 工具">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Magisk 工具</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/KittenHyper/2024/04/03/%E5%BC%80%E5%8F%91%E8%80%85%E6%8C%87%E5%8D%97/" title="开发者指南">
+                        <span class="hidden-mobile">开发者指南</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="nofollow noopener"><span>本博客所有文章均采用[CC BY-NC-SA 4.0]许可协议，转载请注明出处。</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/KittenHyper/js/events.js" ></script>
+<script  src="/KittenHyper/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/KittenHyper/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/KittenHyper/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/KittenHyper/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

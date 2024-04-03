@@ -16,22 +16,23 @@
   <meta name="author" content="Ranshen_Cervine">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Android 引导花絮本文由 Ranshen_Cervine翻译，原文为 Android Booting Shenanigans 术语 rootdir：根目录(&#x2F;)。所有文件&#x2F;文件夹&#x2F;文件系统都存储在rootdir下或挂载在rootdir下。在Android上，文件系统可能是rootfs或system分区。 initramfs：Android引导镜像中的一个部分，Linux内">
+    <meta name="description" content="Building and DevelopmentSetup Environment Supported platforms: Linux x64 macOS x64 (Intel) macOS arm64 (Apple Silicon) Windows x64   Windows only: Enable developer mode. This is required because we ne">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android 引导花絮">
-<meta property="og:url" content="https://kittenhyper.gitee.io/2024/04/03/Android%20%E5%BC%95%E5%AF%BC%E8%8A%B1%E7%B5%AE/index.html">
+<meta property="og:title" content="Building and Development">
+<meta property="og:url" content="https://kittenhyper.gitee.io/2024/04/03/Building%20and%20Development/index.html">
 <meta property="og:site_name" content="KittenHyper">
-<meta property="og:description" content="Android 引导花絮本文由 Ranshen_Cervine翻译，原文为 Android Booting Shenanigans 术语 rootdir：根目录(&#x2F;)。所有文件&#x2F;文件夹&#x2F;文件系统都存储在rootdir下或挂载在rootdir下。在Android上，文件系统可能是rootfs或system分区。 initramfs：Android引导镜像中的一个部分，Linux内">
+<meta property="og:description" content="Building and DevelopmentSetup Environment Supported platforms: Linux x64 macOS x64 (Intel) macOS arm64 (Apple Silicon) Windows x64   Windows only: Enable developer mode. This is required because we ne">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-03T07:01:00.000Z">
-<meta property="article:modified_time" content="2024-04-03T07:29:51.448Z">
+<meta property="article:published_time" content="2024-04-02T16:23:00.000Z">
+<meta property="article:modified_time" content="2024-04-03T09:59:58.083Z">
 <meta property="article:author" content="Ranshen_Cervine">
 <meta property="article:tag" content="Module">
+<meta property="article:tag" content="en-US">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Android 引导花絮 - KittenHyper</title>
+  <title>Building and Development - KittenHyper</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Android 引导花絮"></span>
+            <span id="subtitle" data-typed-text="Building and Development"></span>
           
         </div>
 
@@ -212,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-03 15:01" pubdate>
-          2024年4月3日 下午
+        <time datetime="2024-04-03 00:23" pubdate>
+          2024年4月3日 凌晨
         </time>
       </span>
     
@@ -224,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          132 字
         
       </span>
     
@@ -235,7 +236,7 @@
         
         
         
-          15 分钟
+          2 分钟
         
       </span>
     
@@ -272,131 +273,69 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Android 引导花絮</h1>
+            <h1 id="seo-header">Building and Development</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Android-引导花絮"><a href="#Android-引导花絮" class="headerlink" title="Android 引导花絮"></a>Android 引导花絮</h1><p>本文由 Ranshen_Cervine翻译，原文为 <a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/boot.html">Android Booting Shenanigans</a></p>
-<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><ul>
-<li><strong>rootdir</strong>：根目录(<code>/</code>)。所有文件&#x2F;文件夹&#x2F;文件系统都存储在rootdir下或挂载在rootdir下。在Android上，文件系统可能是<code>rootfs</code>或<code>system</code>分区。</li>
-<li><strong><code>initramfs</code><strong>：Android引导镜像中的一个部分，Linux内核将使用它作为<code>rootfs</code>。人们也将术语</strong>ramdisk</strong>（随机存取存储器磁盘）交替使用。</li>
-<li><strong><code>recovery</code>和<code>boot</code>分区</strong>：这两个实际上非常相似：都是包含ramdisk和Linux内核（加上一些其他东西）的Android引导镜像。唯一的区别是引导<code>boot</code>分区将带我们进入Android，而<code>recovery</code>有一个最小化的独立Linux环境，用于修复和升级设备。</li>
-<li><strong>SAR</strong>：系统即根（System-as-root）。也就是说，设备使用<code>system</code>作为rootdir而不是<code>rootfs</code>。</li>
-<li><strong>A&#x2F;B, A-only</strong>：对于支持<a target="_blank" rel="noopener" href="https://source.android.com/devices/tech/ota/ab">无缝系统更新</a>的设备，它将拥有所有只读分区的两个插槽；我们称这些为<strong>A&#x2F;B设备</strong>。为了区分，非A&#x2F;B设备将被称为<strong>A-only</strong>。</li>
-<li><strong>2SI</strong>：两阶段初始化（Two Stage Init）。Android 10+启动的方式。稍后将有更多信息。</li>
-</ul>
-<p>以下是一些参数，用于更精确地定义设备的Android版本：</p>
-<ul>
-<li><strong>LV</strong>：启动版本（Launch Version）。设备<strong>首次发布</strong>时的Android版本。也就是，当设备首次上市时预装的Android版本。</li>
-<li><strong>RV</strong>：运行版本（Running Version）。设备当前运行的Android版本。</li>
-</ul>
-<p>我们将使用<strong>Android API级别</strong>来代表LV和RV。API级别与Android版本之间的映射可以在<a target="_blank" rel="noopener" href="https://source.android.com/setup/start/build-numbers#platform-code-names-versions-api-levels-and-ndk-releases">此表</a>中查看。例如：Pixel XL首次发布时是Android 7.1，并且正在运行Android 10，这些参数将是<code>(LV = 25, RV = 29)</code></p>
-<h2 id="引导方法"><a href="#引导方法" class="headerlink" title="引导方法"></a>引导方法</h2><p>Android引导大致可以分为3种主要不同的方法。我们提供了一个大致的规则来确定你的设备最有可能使用哪种方法，例外情况单独列出。</p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>初始rootdir</th>
-<th>最终rootdir</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>A</strong></td>
-<td><code>rootfs</code></td>
-<td><code>rootfs</code></td>
-</tr>
-<tr>
-<td><strong>B</strong></td>
-<td><code>system</code></td>
-<td><code>system</code></td>
-</tr>
-<tr>
-<td><strong>C</strong></td>
-<td><code>rootfs</code></td>
-<td><code>system</code></td>
-</tr>
-</tbody></table>
-<ul>
-<li><strong>方法A - 传统ramdisk</strong>：这是所有Android设备过去如何引导的（美好的旧日子）。内核使用<code>initramfs</code>作为rootdir，并执行<code>/init</code>来引导。<ul>
-<li>不符合方法B和C任何标准的设备。</li>
+                <h1 id="Building-and-Development"><a href="#Building-and-Development" class="headerlink" title="Building and Development"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/build.html">Building and Development</a></h1><h2 id="Setup-Environment"><a href="#Setup-Environment" class="headerlink" title="Setup Environment"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/build.html#setup-environment">Setup Environment</a></h2><ul>
+<li>Supported platforms:<ul>
+<li>Linux x64</li>
+<li>macOS x64 (Intel)</li>
+<li>macOS arm64 (Apple Silicon)</li>
+<li>Windows x64</li>
 </ul>
 </li>
-<li><strong>方法B - 传统SAR</strong>：这种方法首次出现在Pixel 1上。内核直接将<code>system</code>分区作为rootdir并执行<code>/init</code>来引导。<ul>
-<li>设备的<code>(LV = 28)</code></li>
-<li>Google：Pixel 1和2。Pixel 3和3a在<code>(RV = 28)</code>时。</li>
-<li>OnePlus：6 - 7</li>
-<li>也许一些<code>(LV &lt; 29)</code>的Android Go设备</li>
+<li>Windows only: Enable <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development">developer mode</a>. This is required because we need symbolic link support.</li>
+<li>Install Python 3.8+:<ul>
+<li>On Unix, install python3 using your favorite package manager</li>
+<li>On Windows, download and install the latest Python version on the <a target="_blank" rel="noopener" href="https://www.python.org/downloads/windows/">official website</a>.<br>  Make sure to select <strong>“Add Python to PATH”</strong> during installation.</li>
+<li>(Optional on Windows): Run <code>pip install colorama</code> to install the <code>colorama</code> python package</li>
 </ul>
 </li>
-<li><strong>方法C - 2SI ramdisk SAR</strong>：这种方法首次出现在Pixel 3 Android 10开发者预览版上。内核使用<code>initramfs</code>作为rootdir并在<code>rootfs</code>中执行<code>/init</code>。这个<code>init</code>负责挂载<code>system</code>分区并将其用作新的rootdir，然后最终执行<code>/system/bin/init</code>来引导。<ul>
-<li>设备的<code>(LV &gt;= 29)</code></li>
-<li>设备的<code>(LV &lt; 28, RV &gt;= 29)</code>，排除那些已经使用方法B的</li>
-<li>Google：Pixel 3和3a在<code>(RV &gt;= 29)</code>时。</li>
+<li>Install Git:<ul>
+<li>On Unix, install git with your favorite package manager</li>
+<li>On Windows, download the install the latest Git version on the <a target="_blank" rel="noopener" href="https://git-scm.com/download/win">official website</a>.<br>  Make sure to <strong>“Enable symbolic links”</strong> during installation.</li>
 </ul>
 </li>
+<li>Install Android Studio and follow the instructions and go through the initial setup.</li>
+<li>Set environment variable <code>ANDROID_SDK_ROOT</code> to the Android SDK folder. This path can be found in Android Studio settings.</li>
+<li>Setup JDK:<ul>
+<li>The recommended option is to set environment variable <code>ANDROID_STUDIO</code> to the path where your Android Studio is installed. The build script will automatically find and use the bundled JDK.</li>
+<li>You can also setup JDK 17 yourself, but this guide will not cover the instructions.</li>
 </ul>
-<h3 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h3><p>根据在线文档，Google对SAR的定义仅考虑内核如何引导设备（上表中的<strong>初始rootdir</strong>），这意味着，只有使用<strong>方法B</strong>的设备从Google的角度来看才是<strong>官方</strong>认为的SAR设备。</p>
-<p>然而，对于Magisk来说，真正的区别在于设备在完全引导后最终使用的是什么（上表中的<strong>最终rootdir</strong>），这意味着，<strong>就Magisk的关注点而言，方法B和C都是SAR的一种形式</strong>，只是实现方式不同。本文档后面提到的SAR的每个实例都将指<strong>Magisk的定义</strong>，除非特别说明。</p>
-<p>方法C的标准有点复杂，用通俗的话说：要么你的设备足够现代化，以Android 10+发布，或者你正在一台使用方法A的设备上运行Android 10+自定义ROM。</p>
+</li>
+<li>Clone sources: <code>git clone --recurse-submodules https://github.com/topjohnwu/Magisk.git</code></li>
+<li>Run <code>./build.py ndk</code> to let the script download and install NDK for you</li>
+</ul>
+<h2 id="Building"><a href="#Building" class="headerlink" title="Building"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/build.html#building">Building</a></h2><ul>
+<li>To build everything and create the final Magisk APK, run <code>./build.py all</code>.</li>
+<li>You can also build specific sub-components; call <code>build.py</code> to see your options.<br>  For each action, use <code>-h</code> to access help (e.g. <code>./build.py binary -h</code>)</li>
+<li>Configure the build by using <code>config.prop</code>. A sample <code>config.prop.sample</code> is provided.</li>
+</ul>
+<h2 id="IDE-Support"><a href="#IDE-Support" class="headerlink" title="IDE Support"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/build.html#ide-support">IDE Support</a></h2><ul>
+<li>The repository can be directly opened with Android Studio as a project.</li>
+<li>The Kotlin, Java, C++, and C code in the project should be properly supported in Android Studio out of the box.</li>
+<li>Run <code>./build.py binary</code> before working on native code, as some generated code is only created during the build process.</li>
+</ul>
+<h3 id="Developing-Rust-in-Android-Studio"><a href="#Developing-Rust-in-Android-Studio" class="headerlink" title="Developing Rust in Android Studio"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/build.html#developing-rust-in-android-studio">Developing Rust in Android Studio</a></h3><p>Because the Magisk NDK package, <a target="_blank" rel="noopener" href="https://github.com/topjohnwu/ondk">ONDK</a> (the one installed with <code>./build.py ndk</code>), contains a fully self contained Clang + Rust toolchain, building the Magisk project alone does not require configuring toolchains. However, due to the way the IntelliJ Rust plugin works, you’ll have to go through some additional setup to make Android Studio work with Magisk’s Rust codebase:</p>
 <ul>
-<li>任何使用Android 10+运行的方法A设备自动使用方法C</li>
-<li><strong>方法B设备固定使用方法B</strong>，唯一的例外是Pixel 3和3a，Google对设备进行了改装，以适应新的方法。</li>
+<li>Install <a target="_blank" rel="noopener" href="https://rustup.rs/">rustup</a>, the official Rust toolchain manager</li>
+<li>Link the ONDK Rust toolchain and set it as default:</li>
 </ul>
-<p>SAR是<a target="_blank" rel="noopener" href="https://source.android.com/devices/architecture#hidl">Project Treble</a>的一个非常重要的部分，因为rootdir应该与平台绑定。这也是方法B和C伴随着<code>(LV &gt;= ver)</code>标准的原因，因为Google每年都要求所有OEM遵守更新的要求。</p>
-<h2 id="一些历史"><a href="#一些历史" class="headerlink" title="一些历史"></a>一些历史</h2><p>当Google发布第一代Pixel时，它还引入了<a target="_blank" rel="noopener" href="https://source.android.com/devices/tech/ota/ab">A&#x2F;B（无缝）系统更新</a>。由于<a target="_blank" rel="noopener" href="https://source.android.com/devices/tech/ota/ab/ab_faqs">存储大小问题</a>，与A-only相比，存在几个差异，最相关的一个是<code>recovery</code>分区的移除和recovery ramdisk合并到<code>boot</code>。</p>
-<p>让我们回到Google首次设计A&#x2F;B的时候。如果使用SAR（那时只存在引导方法B），内核不需要<code>initramfs</code>来引导Android（因为rootdir在<code>system</code>）。这意味着我们可以聪明地将recovery ramdisk（包含最小化Linux环境）塞进<code>boot</code>，移除<code>recovery</code>，并根据来自引导加载程序的信息让内核选择使用哪个rootdir（ramdisk或<code>system</code>）。</p>
-<p>随着时间从Android 7.1流逝到Android 10，Google引入了<a target="_blank" rel="noopener" href="https://source.android.com/devices/tech/ota/dynamic_partitions/implement">动态分区</a>。这对SAR来说是个坏消息，因为Linux内核不能直接理解这种新的分区格式，因此无法直接将<code>system</code>作为rootdir挂载。这时他们想出了引导方法C：总是引导到<code>initramfs</code>，让用户空间处理剩余的引导过程。这包括决定引导到Android还是recovery，或者官方称之为：<code>USES_RECOVERY_AS_BOOT</code>。</p>
-<p>一些使用A&#x2F;B的2SI现代设备还带有<code>recovery_a/_b</code>分区。这是Google标准官方支持的。这些设备将只使用boot ramdisk引导到Android，因为recovery存储在单独的分区上。</p>
-<h2 id="拼凑在一起"><a href="#拼凑在一起" class="headerlink" title="拼凑在一起"></a>拼凑在一起</h2><p>有了上述所有知识，现在我们可以将所有Android设备分为这些不同的类型：</p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>引导方法</th>
-<th>分区</th>
-<th>2SI</th>
-<th><code>boot</code>中的Ramdisk</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>I</strong></td>
-<td>A</td>
-<td>A-only</td>
-<td>否</td>
-<td><code>boot</code> ramdisk</td>
-</tr>
-<tr>
-<td><strong>II</strong></td>
-<td>B</td>
-<td>A&#x2F;B</td>
-<td>任意</td>
-<td><code>recovery</code> ramdisk</td>
-</tr>
-<tr>
-<td><strong>III</strong></td>
-<td>B</td>
-<td>A-only</td>
-<td>任意</td>
-<td><strong><em>N&#x2F;A</em></strong></td>
-</tr>
-<tr>
-<td><strong>IV</strong></td>
-<td>C</td>
-<td>任意</td>
-<td>是</td>
-<td>混合ramdisk</td>
-</tr>
-</tbody></table>
-<p>这些类型按照它们首次可用的时间顺序排列。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dart"># Link the ONDK toolchain <span class="hljs-keyword">with</span> the name <span class="hljs-string">&quot;magisk&quot;</span><br>rustup toolchain link magisk <span class="hljs-string">&quot;<span class="hljs-subst">$ANDROID_SDK_ROOT</span>/ndk/magisk/toolchains/rust&quot;</span><br># <span class="hljs-built_in">Set</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">default</span><br>rustup <span class="hljs-keyword">default</span> magisk<br></code></pre></td></tr></table></figure>
+
 <ul>
-<li><strong>类型I</strong>：好旧的传统ramdisk引导</li>
-<li><strong>类型II</strong>：传统A&#x2F;B设备。Pixel 1是这种类型的第一款设备，是第一款A&#x2F;B和SAR设备</li>
-<li><strong>类型III</strong>：2018年末至2019年的A-only设备。<strong>就Magisk而言，这是有史以来最糟糕的设备类型。</strong></li>
-<li><strong>类型IV</strong>：所有使用引导方法C的设备都是类型IV。A&#x2F;B类型IV的ramdisk可以根据来自引导加载程序的信息引导到Android或recovery；A-only类型IV的ramdisk只能引导到Android。</li>
+<li>Install the <a target="_blank" rel="noopener" href="https://www.jetbrains.com/rust/">Intellij Rust plugin</a> in Android Studio</li>
+<li>In Preferences &gt; Languages &amp; Frameworks &gt; Rust, set <code>$ANDROID_SDK_ROOT/ndk/magisk/toolchains/rust/bin</code> as the toolchain location</li>
+<li>Open <code>native/src/Cargo.toml</code>, and select “Attach” in the “No Cargo projects found” banner</li>
 </ul>
-<p>关于类型III设备的进一步细节：Magisk总是安装在引导镜像的ramdisk中。对于所有其他设备类型，因为它们的<code>boot</code>分区包含ramdisk，Magisk可以通过Magisk应用或在自定义恢复中刷入zip轻松安装。然而，对于类型III的设备，它们<strong>限于将Magisk安装到<code>recovery</code>分区中</strong>。Magisk在正常引导时不会起作用；相反，类型III设备的所有者必须始终重启到恢复模式以维持Magisk访问。</p>
-<p>一些类型III设备的引导加载程序仍然接受并提供手动添加到<code>boot</code>镜像的<code>initramfs</code>给内核（例如，一些小米手机），但许多设备不这样做（例如，三星S10、Note 10）。这完全取决于OEM如何实现其引导加载程序。</p>
+<h2 id="Signing-and-Distribution"><a href="#Signing-and-Distribution" class="headerlink" title="Signing and Distribution"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/build.html#signing-and-distribution">Signing and Distribution</a></h2><ul>
+<li>In release builds, the certificate of the key signing the Magisk APK will be used by Magisk’s root daemon as a reference to reject and forcefully uninstall any non-matching Magisk apps to protect users from malicious and unverified Magisk APKs.</li>
+<li>To do any development on Magisk itself, switch to an <strong>official debug build and reinstall Magisk</strong> to turn off the signature check.</li>
+<li>To distribute your own Magisk builds signed with your own keys, set your signing configs in <code>config.prop</code>.</li>
+<li>Check <a target="_blank" rel="noopener" href="https://developer.android.com/studio/publish/app-signing.html#generate-key">Google’s Documentation</a> for more details on generating your own key.</li>
+</ul>
 
                 
               </div>
@@ -432,6 +371,8 @@
       
         <a href="/KittenHyper/tags/Module/" class="print-no-link">#Module</a>
       
+        <a href="/KittenHyper/tags/en-US/" class="print-no-link">#en-US</a>
+      
     </div>
   
 </div>
@@ -442,8 +383,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Android 引导花絮</div>
-      <div>https://kittenhyper.gitee.io/2024/04/03/Android 引导花絮/</div>
+      <div>Building and Development</div>
+      <div>https://kittenhyper.gitee.io/2024/04/03/Building and Development/</div>
     </div>
     <div class="license-meta">
       
@@ -487,9 +428,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/KittenHyper/2024/04/03/%E5%86%85%E9%83%A8%E7%BB%86%E8%8A%82/" title="内部细节">
+                      <a href="/KittenHyper/2024/04/03/%E6%9E%84%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91/" title="构建与开发">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">内部细节</span>
+                        <span class="hidden-mobile">构建与开发</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -497,8 +438,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/KittenHyper/2024/04/03/Android%20Booting%20Shenanigans/" title="Android Booting Shenanigans">
-                        <span class="hidden-mobile">Android Booting Shenanigans</span>
+                      <a href="/KittenHyper/2024/04/01/Dex2OAT%20%E4%BB%8B%E7%BB%8D/" title="Dex2OAT 介绍">
+                        <span class="hidden-mobile">Dex2OAT 介绍</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

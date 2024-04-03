@@ -1,0 +1,763 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/KittenHyper/img/fluid.png">
+  <link rel="icon" href="/KittenHyper/img/HyperOS.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#1A2B3C">
+  <meta name="author" content="Ranshen_Cervine">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Developer GuidesBusyBoxMagisk ships with a feature complete BusyBox binary (including full SELinux support). The executable is located at &#x2F;data&#x2F;adb&#x2F;magisk&#x2F;busybox. Magisk’s BusyBox supports runtime to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Building and Development">
+<meta property="og:url" content="https://kittenhyper.gitee.io/2024/04/03/Developer%20Guides/index.html">
+<meta property="og:site_name" content="KittenHyper">
+<meta property="og:description" content="Developer GuidesBusyBoxMagisk ships with a feature complete BusyBox binary (including full SELinux support). The executable is located at &#x2F;data&#x2F;adb&#x2F;magisk&#x2F;busybox. Magisk’s BusyBox supports runtime to">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-02T16:31:00.000Z">
+<meta property="article:modified_time" content="2024-04-03T10:00:16.191Z">
+<meta property="article:author" content="Ranshen_Cervine">
+<meta property="article:tag" content="Module">
+<meta property="article:tag" content="en-US">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Building and Development - KittenHyper</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/KittenHyper/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/KittenHyper/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/KittenHyper/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/KittenHyper/css/cloudedGlass.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kittenhyper.gitee.io","root":"/KittenHyper/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/KittenHyper/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/KittenHyper/js/utils.js" ></script>
+  <script  src="/KittenHyper/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/KittenHyper/">
+      <strong>KittenHyper</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/KittenHyper/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Building and Development"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-03 00:31" pubdate>
+          2024年4月3日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          742 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Building and Development</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Developer-Guides"><a href="#Developer-Guides" class="headerlink" title="Developer Guides"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html">Developer Guides</a></h1><h2 id="BusyBox"><a href="#BusyBox" class="headerlink" title="BusyBox"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#busybox">BusyBox</a></h2><p>Magisk ships with a feature complete BusyBox binary (including full SELinux support). The executable is located at <code>/data/adb/magisk/busybox</code>. Magisk’s BusyBox supports runtime toggle-able “ASH Standalone Shell Mode”. What this standalone mode means is that when running in the <code>ash</code> shell of BusyBox, every single command will directly use the applet within BusyBox, regardless of what is set as <code>PATH</code>. For example, commands like <code>ls</code>, <code>rm</code>, <code>chmod</code> will <strong>NOT</strong> use what is in <code>PATH</code> (in the case of Android by default it will be <code>/system/bin/ls</code>, <code>/system/bin/rm</code>, and <code>/system/bin/chmod</code> respectively), but will instead directly call internal BusyBox applets. This makes sure that scripts always run in a predictable environment and always have the full suite of commands no matter which Android version it is running on. To force a command <em>not</em> to use BusyBox, you have to call the executable with full paths.</p>
+<p>Every single shell script running in the context of Magisk will be executed in BusyBox’s <code>ash</code> shell with standalone mode enabled. For what is relevant to 3rd party developers, this includes all boot scripts and module installation scripts.</p>
+<p>For those who want to use this “Standalone Mode” feature outside of Magisk, there are 2 ways to enable it:</p>
+<ol>
+<li>Set environment variable <code>ASH_STANDALONE</code> to <code>1</code><br> Example: <code>ASH_STANDALONE=1 /data/adb/magisk/busybox sh &lt;script&gt;</code></li>
+<li>Toggle with command-line options:<br> <code>/data/adb/magisk/busybox sh -o standalone &lt;script&gt;</code></li>
+</ol>
+<p>To make sure all subsequent <code>sh</code> shell executed also runs in standalone mode, option 1 is the preferred method (and this is what Magisk and the Magisk app internally use) as environment variables are inherited down to child processes.</p>
+<h2 id="Magisk-Modules"><a href="#Magisk-Modules" class="headerlink" title="Magisk Modules"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#magisk-modules">Magisk Modules</a></h2><p>A Magisk module is a folder placed in <code>/data/adb/modules</code> with the structure below:</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs elm">/data/adb/modules<br>├── .<br>├── .<br>|<br>├── $<span class="hljs-type">MODID</span>                  &lt;-<span class="hljs-comment">-- The folder is named with the ID of the module</span><br>│   │<br>│   │      *** <span class="hljs-type">Module</span> <span class="hljs-type">Identity</span> ***<br>│   │<br>│   ├── <span class="hljs-keyword">module</span>.prop         &lt;-<span class="hljs-comment">-- This file stores the metadata of the module</span><br>│   │<br>│   │      *** <span class="hljs-type">Main</span> <span class="hljs-type">Contents</span> ***<br>│   │<br>│   ├── system              &lt;-<span class="hljs-comment">-- This folder will be mounted if skip_mount does not exist</span><br>│   │   ├── ...<br>│   │   ├── ...<br>│   │   └── ...<br>│   │<br>│   ├── zygisk              &lt;-<span class="hljs-comment">-- This folder contains the module&#x27;s Zygisk native libraries</span><br>│   │   ├── arm64-v8a.so<br>│   │   ├── armeabi-v7a.so<br>│   │   ├── x86.so<br>│   │   ├── x86_64.so<br>│   │   └── unloaded        &lt;-<span class="hljs-comment">-- If exists, the native libraries are incompatible</span><br>│   │<br>│   │      *** <span class="hljs-type">Status</span> <span class="hljs-type">Flags</span> ***<br>│   │<br>│   ├── skip_mount          &lt;-<span class="hljs-comment">-- If exists, Magisk will NOT mount your system folder</span><br>│   ├── disable             &lt;-<span class="hljs-comment">-- If exists, the module will be disabled</span><br>│   ├── remove              &lt;-<span class="hljs-comment">-- If exists, the module will be removed next reboot</span><br>│   │<br>│   │      *** <span class="hljs-type">Optional</span> <span class="hljs-type">Files</span> ***<br>│   │<br>│   ├── post-fs-data.sh     &lt;-<span class="hljs-comment">-- This script will be executed in post-fs-data</span><br>│   ├── service.sh          &lt;-<span class="hljs-comment">-- This script will be executed in late_start service</span><br>|   ├── uninstall.sh        &lt;-<span class="hljs-comment">-- This script will be executed when Magisk removes your module</span><br>│   ├── system.prop         &lt;-<span class="hljs-comment">-- Properties in this file will be loaded as system properties by resetprop</span><br>│   ├── sepolicy.rule       &lt;-<span class="hljs-comment">-- Additional custom sepolicy rules</span><br>│   │<br>│   │      *** <span class="hljs-type">Auto</span> <span class="hljs-type">Generated</span>, <span class="hljs-type">DO</span> <span class="hljs-type">NOT</span> <span class="hljs-type">MANUALLY</span> <span class="hljs-type">CREATE</span> <span class="hljs-type">OR</span> <span class="hljs-type">MODIFY</span> ***<br>│   │<br>│   ├── vendor              &lt;-<span class="hljs-comment">-- A symlink to $MODID/system/vendor</span><br>│   ├── product             &lt;-<span class="hljs-comment">-- A symlink to $MODID/system/product</span><br>│   ├── system_ext          &lt;-<span class="hljs-comment">-- A symlink to $MODID/system/system_ext</span><br>│   │<br>│   │      *** <span class="hljs-type">Any</span> additional files / folders are allowed ***<br>│   │<br>│   ├── ...<br>│   └── ...<br>|<br>├── another_module<br>│   ├── .<br>│   └── .<br>├── .<br>├── .<br></code></pre></td></tr></table></figure>
+
+<h4 id="module-prop"><a href="#module-prop" class="headerlink" title="module.prop"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#moduleprop">module.prop</a></h4><p>This is the <strong>strict</strong> format of <code>module.prop</code></p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">id</span><span class="hljs-operator">=</span>&lt;string&gt;<br><span class="hljs-attribute">name</span><span class="hljs-operator">=</span>&lt;string&gt;<br><span class="hljs-attribute">version</span><span class="hljs-operator">=</span>&lt;string&gt;<br><span class="hljs-attribute">versionCode</span><span class="hljs-operator">=</span>&lt;int&gt;<br><span class="hljs-attribute">author</span><span class="hljs-operator">=</span>&lt;string&gt;<br><span class="hljs-attribute">description</span><span class="hljs-operator">=</span>&lt;string&gt;<br><span class="hljs-attribute">updateJson</span><span class="hljs-operator">=</span>&lt;url&gt; (optional)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>id</code> has to match this regular expression: <code>^[a-zA-Z][a-zA-Z0-9._-]+$</code><br>  ex: ✓ <code>a_module</code>, ✓ <code>a.module</code>, ✓ <code>module-101</code>, ✗ <code>a module</code>, ✗ <code>1_module</code>, ✗ <code>-a-module</code><br>  This is the <strong>unique identifier</strong> of your module. You should not change it once published.</li>
+<li><code>versionCode</code> has to be an <strong>integer</strong>. This is used to compare versions</li>
+<li><code>updateJson</code> should point to a URL that downloads a JSON to provide info so the Magisk app can update the module.</li>
+<li>Others that weren’t mentioned above can be any <strong>single line</strong> string.</li>
+<li>Make sure to use the <code>UNIX (LF)</code> line break type and not the <code>Windows (CR+LF)</code> or <code>Macintosh (CR)</code>.</li>
+</ul>
+<p>Update JSON format:</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs qml">&#123;<br>    <span class="hljs-string">&quot;version&quot;</span>: <span class="hljs-built_in">string</span>,<br>    <span class="hljs-string">&quot;versionCode&quot;</span>: <span class="hljs-built_in">int</span>,<br>    <span class="hljs-string">&quot;zipUrl&quot;</span>: <span class="hljs-built_in">url</span>,<br>    <span class="hljs-string">&quot;changelog&quot;</span>: <span class="hljs-built_in">url</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="Shell-scripts-sh"><a href="#Shell-scripts-sh" class="headerlink" title="Shell scripts (*.sh)"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#shell-scripts-sh">Shell scripts (<code>*.sh</code>)</a></h4><p>Please read the <a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#boot-scripts">Boot Scripts</a> section to understand the difference between <code>post-fs-data.sh</code> and <code>service.sh</code>. For most module developers, <code>service.sh</code> should be good enough if you just need to run a boot script. If you need to wait for boot completed, you can use <code>resetprop -w sys.boot_completed 0</code>.</p>
+<p>In all scripts of your module, please use <code>MODDIR=$&#123;0%/*&#125;</code> to get your module’s base directory path; do <strong>NOT</strong> hardcode your module path in scripts. If Zygisk is enabled, the environment variable <code>ZYGISK_ENABLED</code> will be set to <code>1</code>.</p>
+<h4 id="The-system-folder"><a href="#The-system-folder" class="headerlink" title="The system folder"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#the-system-folder">The <code>system</code> folder</a></h4><p>All files you want to replace&#x2F;inject should be placed in this folder. This folder will be recursively merged into the real <code>/system</code>; that is: existing files in the real <code>/system</code> will be replaced by the one in the module’s <code>system</code>, and new files in the module’s <code>system</code> will be added to the real <code>/system</code>.</p>
+<p>If you place a file named <code>.replace</code> in any of the folders, instead of merging its contents, that folder will directly replace the one in the real system. This can be very handy for swapping out an entire folder.</p>
+<p>If you want to replace files in <code>/vendor</code>, <code>/product</code>, or <code>/system_ext</code>, please place them under <code>system/vendor</code>, <code>system/product</code>, and <code>system/system_ext</code> respectively. Magisk will transparently handle whether these partitions are in a separate partition or not.</p>
+<h4 id="Zygisk"><a href="#Zygisk" class="headerlink" title="Zygisk"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#zygisk">Zygisk</a></h4><p>Zygisk is a feature of Magisk that allows advanced module developers to run code directly in every Android applications’ processes before they are specialized and running. For more details about the Zygisk API and building a Zygisk module, please checkout the <a target="_blank" rel="noopener" href="https://github.com/topjohnwu/zygisk-module-sample">Zygisk Module Sample</a> project.</p>
+<h4 id="system-prop"><a href="#system-prop" class="headerlink" title="system.prop"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#systemprop">system.prop</a></h4><p>This file follows the same format as <code>build.prop</code>. Each line comprises of <code>[key]=[value]</code>.</p>
+<h4 id="sepolicy-rule"><a href="#sepolicy-rule" class="headerlink" title="sepolicy.rule"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#sepolicyrule">sepolicy.rule</a></h4><p>If your module requires some additional sepolicy patches, please add those rules into this file. Each line in this file will be treated as a policy statement. For more details about how a policy statement is formatted, please check <a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/tools.html#magiskpolicy">magiskpolicy</a>’s documentation.</p>
+<h2 id="Magisk-Module-Installer"><a href="#Magisk-Module-Installer" class="headerlink" title="Magisk Module Installer"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#magisk-module-installer">Magisk Module Installer</a></h2><p>A Magisk module installer is a Magisk module packaged in a zip file that can be flashed in the Magisk app or custom recoveries such as TWRP. The simplest Magisk module installer is just a Magisk module packed as a zip file, in addition to the following files:</p>
+<ul>
+<li><code>update-binary</code>: Download the latest <a target="_blank" rel="noopener" href="https://github.com/topjohnwu/Magisk/blob/master/scripts/module_installer.sh">module_installer.sh</a> and rename&#x2F;copy that script as <code>update-binary</code></li>
+<li><code>updater-script</code>: This file should only contain the string <code>#MAGISK</code></li>
+</ul>
+<p>The module installer script will setup the environment, extract the module files from the zip file to the correct location, then finalizes the installation process, which should be good enough for most simple Magisk modules.</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">module.zip<br>│<br>├── META-INF<br>│   └── com<br>│       └── google<br>│           └── <span class="hljs-keyword">android</span><br><span class="hljs-keyword"></span>│               ├── update-<span class="hljs-keyword">binary </span>     &lt;--- The module_installer.<span class="hljs-keyword">sh </span>you downloaded<br>│               └── updater-<span class="hljs-keyword">script </span>    &lt;--- <span class="hljs-keyword">Should </span>only contain the string <span class="hljs-string">&quot;#MAGISK&quot;</span><br>│<br>├── customize.<span class="hljs-keyword">sh </span>                      &lt;--- (Optional, more details later)<br>│                                           This <span class="hljs-keyword">script </span>will <span class="hljs-keyword">be </span>sourced <span class="hljs-keyword">by </span>update-<span class="hljs-keyword">binary</span><br><span class="hljs-keyword"></span>├── ...<br>├── ...  <span class="hljs-comment">/* The rest of module&#x27;s files */</span><br>│<br></code></pre></td></tr></table></figure>
+
+<h4 id="Customization"><a href="#Customization" class="headerlink" title="Customization"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#customization">Customization</a></h4><p>If you need to customize the module installation process, optionally you can create a script in the installer named <code>customize.sh</code>. This script will be <em>sourced</em> (not executed!) by the module installer script after all files are extracted and default permissions and secontext are applied. This is very useful if your module require additional setup based on the device ABI, or you need to set special permissions&#x2F;secontext for some of your module files.</p>
+<p>If you would like to fully control and customize the installation process, declare <code>SKIPUNZIP=1</code> in <code>customize.sh</code> to skip all default installation steps. By doing so, your <code>customize.sh</code> will be responsible to install everything by itself.</p>
+<p>The <code>customize.sh</code> script runs in Magisk’s BusyBox <code>ash</code> shell with “Standalone Mode” enabled. The following variables and functions are available:</p>
+<h5 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#variables">Variables</a></h5><ul>
+<li><code>MAGISK_VER</code> (string): the version string of current installed Magisk (e.g. <code>v20.0</code>)</li>
+<li><code>MAGISK_VER_CODE</code> (int): the version code of current installed Magisk (e.g. <code>20000</code>)</li>
+<li><code>BOOTMODE</code> (bool): <code>true</code> if the module is being installed in the Magisk app</li>
+<li><code>MODPATH</code> (path): the path where your module files should be installed</li>
+<li><code>TMPDIR</code> (path): a place where you can temporarily store files</li>
+<li><code>ZIPFILE</code> (path): your module’s installation zip</li>
+<li><code>ARCH</code> (string): the CPU architecture of the device. Value is either <code>arm</code>, <code>arm64</code>, <code>x86</code>, or <code>x64</code></li>
+<li><code>IS64BIT</code> (bool): <code>true</code> if <code>$ARCH</code> is either <code>arm64</code> or <code>x64</code></li>
+<li><code>API</code> (int): the API level (Android version) of the device (e.g. <code>23</code> for Android 6.0)</li>
+</ul>
+<h5 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#functions">Functions</a></h5><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs vhdl">ui_print &lt;msg&gt;<br>    Print &lt;msg&gt; <span class="hljs-keyword">to</span> console<br>    Avoid using <span class="hljs-symbol">&#x27;echo</span>&#x27; as it will <span class="hljs-keyword">not</span> display <span class="hljs-keyword">in</span> custom recovery<span class="hljs-symbol">&#x27;s</span> console<br><br>abort &lt;msg&gt;<br>    Print <span class="hljs-literal">error</span> message &lt;msg&gt; <span class="hljs-keyword">to</span> console <span class="hljs-keyword">and</span> terminate the installation<br>    Avoid using <span class="hljs-symbol">&#x27;exit</span>&#x27; as it will skip the termination cleanup steps<br><br>set_perm &lt;target&gt; &lt;owner&gt; &lt;<span class="hljs-keyword">group</span>&gt; &lt;permission&gt; [<span class="hljs-keyword">context</span>]<br>    <span class="hljs-keyword">If</span> [<span class="hljs-keyword">context</span>] <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> specified, the <span class="hljs-keyword">default</span> <span class="hljs-keyword">is</span> <span class="hljs-string">&quot;u:object_r:system_file:s0&quot;</span><br>    This <span class="hljs-keyword">function</span> <span class="hljs-keyword">is</span> a shorthand <span class="hljs-keyword">for</span> the following commands:<br>       chown owner.<span class="hljs-keyword">group</span> target<br>       chmod permission target<br>       chcon <span class="hljs-keyword">context</span> target<br><br>set_perm_recursive &lt;directory&gt; &lt;owner&gt; &lt;<span class="hljs-keyword">group</span>&gt; &lt;dirpermission&gt; &lt;filepermission&gt; [<span class="hljs-keyword">context</span>]<br>    <span class="hljs-keyword">If</span> [<span class="hljs-keyword">context</span>] <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> specified, the <span class="hljs-keyword">default</span> <span class="hljs-keyword">is</span> <span class="hljs-string">&quot;u:object_r:system_file:s0&quot;</span><br>    This <span class="hljs-keyword">function</span> <span class="hljs-keyword">is</span> a shorthand <span class="hljs-keyword">for</span> the following psuedo code:<br>      set_perm &lt;directory&gt; owner <span class="hljs-keyword">group</span> dirpermission <span class="hljs-keyword">context</span><br>      <span class="hljs-keyword">for</span> <span class="hljs-keyword">file</span> <span class="hljs-keyword">in</span> &lt;directory&gt;:<br>        set_perm <span class="hljs-keyword">file</span> owner <span class="hljs-keyword">group</span> filepermission <span class="hljs-keyword">context</span><br>      <span class="hljs-keyword">for</span> dir <span class="hljs-keyword">in</span> &lt;directory&gt;:<br>        set_perm_recursive dir owner <span class="hljs-keyword">group</span> dirpermission <span class="hljs-keyword">context</span><br></code></pre></td></tr></table></figure>
+
+<p>For convenience, you can also declare a list of folders you want to replace in the variable name <code>REPLACE</code>. The module installer script will create the <code>.replace</code> file into the folders listed in <code>REPLACE</code>. For example:</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim">REPLACE=<span class="hljs-comment">&quot;</span><br>/<span class="hljs-built_in">system</span>/app/YouTube<br>/<span class="hljs-built_in">system</span>/app/Bloatware<br><span class="hljs-comment">&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>The list above will result in the following files being created: <code>$MODPATH/system/app/YouTube/.replace</code> and <code>$MODPATH/system/app/Bloatware/.replace</code>.</p>
+<h4 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#notes">Notes</a></h4><ul>
+<li>When your module is downloaded with the Magisk app, <code>update-binary</code> will be <strong>forcefully</strong> replaced with the latest <a target="_blank" rel="noopener" href="https://github.com/topjohnwu/Magisk/blob/master/scripts/module_installer.sh"><code>module_installer.sh</code></a>. <strong>DO NOT</strong> try to add any custom logic in <code>update-binary</code>.</li>
+<li>Due to historical reasons, <strong>DO NOT</strong> add a file named <code>install.sh</code> in your module installer zip.</li>
+<li><strong>DO NOT</strong> call <code>exit</code> at the end of <code>customize.sh</code>. The module installer script has to perform some cleanups before exiting.</li>
+</ul>
+<h2 id="Boot-Scripts"><a href="#Boot-Scripts" class="headerlink" title="Boot Scripts"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#boot-scripts">Boot Scripts</a></h2><p>In Magisk, you can run boot scripts in 2 different modes: <strong>post-fs-data</strong> and <strong>late_start service</strong> mode.</p>
+<ul>
+<li>post-fs-data mode<ul>
+<li>This stage is BLOCKING. The boot process is paused before execution is done, or 10 seconds have passed.</li>
+<li>Scripts run before any modules are mounted. This allows a module developer to dynamically adjust their modules before it gets mounted.</li>
+<li>This stage happens before Zygote is started, which pretty much means everything in Android</li>
+<li><strong>WARNING:</strong> using <code>setprop</code> will deadlock the boot process! Please use <code>resetprop -n &lt;prop_name&gt; &lt;prop_value&gt;</code> instead.</li>
+<li><strong>Only run scripts in this mode if necessary.</strong></li>
+</ul>
+</li>
+<li>late_start service mode<ul>
+<li>This stage is NON-BLOCKING. Your script runs in parallel with the rest of the booting process.</li>
+<li><strong>This is the recommended stage to run most scripts.</strong></li>
+</ul>
+</li>
+</ul>
+<p>In Magisk, there are also 2 kinds of scripts: <strong>general scripts</strong> and <strong>module scripts</strong>.</p>
+<ul>
+<li>General Scripts<ul>
+<li>Placed in <code>/data/adb/post-fs-data.d</code> or <code>/data/adb/service.d</code></li>
+<li>Only executed if the script is set as executable (<code>chmod +x script.sh</code>)</li>
+<li>Scripts in <code>post-fs-data.d</code> runs in post-fs-data mode, and scripts in <code>service.d</code> runs in late_start service mode.</li>
+<li>Modules should <strong>NOT</strong> add general scripts during installation</li>
+</ul>
+</li>
+<li>Module Scripts<ul>
+<li>Placed in the module’s own folder</li>
+<li>Only executed if the module is enabled</li>
+<li><code>post-fs-data.sh</code> runs in post-fs-data mode, and <code>service.sh</code> runs in late_start service mode.</li>
+</ul>
+</li>
+</ul>
+<p>All boot scripts will run in Magisk’s BusyBox <code>ash</code> shell with “Standalone Mode” enabled.</p>
+<h2 id="Root-Directory-Overlay-System"><a href="#Root-Directory-Overlay-System" class="headerlink" title="Root Directory Overlay System"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#root-directory-overlay-system">Root Directory Overlay System</a></h2><p>Since <code>/</code> is read-only on system-as-root devices, Magisk provides an overlay system to enable developers to replace files in rootdir or add new <code>*.rc</code> scripts. This feature is designed mostly for custom kernel developers.</p>
+<p>Overlay files shall be placed in the <code>overlay.d</code> folder in boot image ramdisk, and they follow these rules:</p>
+<ol>
+<li>Each <code>*.rc</code> file (except for <code>init.rc</code>) in <code>overlay.d</code> will be read and concatenated <strong>AFTER</strong> <code>init.rc</code> if it does not exist in the root directory, otherwise it will <strong>REPLACE</strong> the existing one.</li>
+<li>Existing files can be replaced by files located at the same relative path</li>
+<li>Files that correspond to a non-existing file will be ignored</li>
+</ol>
+<p>To add additional files which you can refer to in your custom <code>*.rc</code> scripts, add them into <code>overlay.d/sbin</code>. The 3 rules above do not apply to anything in this folder; instead, they will be directly copied to Magisk’s internal <code>tmpfs</code> directory (which used to always be <code>/sbin</code>).</p>
+<p>Starting from Android 11, the <code>/sbin</code> folder may no longer exists, and in that scenario, Magisk uses <code>/debug_ramdisk</code> instead. Every occurrence of the pattern <code>$&#123;MAGISKTMP&#125;</code> in your <code>*.rc</code> scripts will be replaced with the Magisk <code>tmpfs</code> folder when <code>magiskinit</code> injects it into <code>init.rc</code>. On pre Android 11 devices, <code>$&#123;MAGISKTMP&#125;</code> will simply be replaced with <code>/sbin</code>, so <strong>NEVER</strong> hardcode <code>/sbin</code> in the <code>*.rc</code> scripts when referencing these additional files.</p>
+<p>Here is an example of how to setup <code>overlay.d</code> with a custom <code>*.rc</code> script:</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-title">ramdisk</span><br>│<br>├── overlay.d<br>│   ├── sbin<br>│   │   ├── libfoo.ko      &lt;-<span class="hljs-comment">-- These 2 files will be copied</span><br>│   │   └── myscript.sh    &lt;-<span class="hljs-comment">-- into Magisk&#x27;s tmpfs directory</span><br>│   ├── custom.rc          &lt;-<span class="hljs-comment">-- This file will be injected into init.rc</span><br>│   ├── res<br>│   │   └── random.png     &lt;-<span class="hljs-comment">-- This file will replace /res/random.png</span><br>│   └── new_file           &lt;-<span class="hljs-comment">-- This file will be ignored because</span><br>│                               /new_file does not exist<br>├── res<br>│   └── random.png         &lt;-<span class="hljs-comment">-- This file will be replaced by</span><br>│                               /overlay.d/res/random.png<br>├── ...<br>├── ...  /* <span class="hljs-type">The</span> rest <span class="hljs-keyword">of</span> initramfs files */<br>│<br></code></pre></td></tr></table></figure>
+
+<p>Here is an example of the <code>custom.rc</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Use $&#123;MAGISKTMP&#125; to refer to Magisk&#x27;s tmpfs directory</span><br><br>on early-init<br>    setprop sys.example.foo bar<br>    insmod <span class="hljs-variable">$&#123;MAGISKTMP&#125;</span>/libfoo.ko<br>    start myservice<br><br>service myservice <span class="hljs-variable">$&#123;MAGISKTMP&#125;</span>/myscript.sh<br>    oneshot<br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/KittenHyper/categories/Magisk-Document/" class="category-chain-item">Magisk Document</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/KittenHyper/tags/Module/" class="print-no-link">#Module</a>
+      
+        <a href="/KittenHyper/tags/en-US/" class="print-no-link">#en-US</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Building and Development</div>
+      <div>https://kittenhyper.gitee.io/2024/04/03/Developer Guides/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Ranshen_Cervine</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/KittenHyper/2024/04/03/%E5%BC%80%E5%8F%91%E8%80%85%E6%8C%87%E5%8D%97/" title="开发者指南">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">开发者指南</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/KittenHyper/2024/04/03/%E6%9E%84%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91/" title="构建与开发">
+                        <span class="hidden-mobile">构建与开发</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="nofollow noopener"><span>本博客所有文章均采用[CC BY-NC-SA 4.0]许可协议，转载请注明出处。</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/KittenHyper/js/events.js" ></script>
+<script  src="/KittenHyper/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/KittenHyper/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/KittenHyper/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/KittenHyper/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
