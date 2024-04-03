@@ -1,0 +1,1034 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/KittenHyper/img/fluid.png">
+  <link rel="icon" href="/KittenHyper/img/HyperOS.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#1A2B3C">
+  <meta name="author" content="Ranshen_Cervine">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="HyperOS marble.xml 解释作者: Ranshen_Cervine ，本文采用CC BY-NC-SA 4.0许可协议，转载请注明出处。 在Android设备的product分区下的\etc\device_features\目录中，针对特定机型代号的.xml文件包含了该设备的一系列特定功能和配置的标志。这些.xml文件通常用于定义该设备支持的特定硬件或软件功能，以便系统和应用程序可以根">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HyperOS marble.xml 解释">
+<meta property="og:url" content="https://kittenhyper.gitee.io/2024/04/04/HyperOS%20marble.xml%20%E8%A7%A3%E9%87%8A/index.html">
+<meta property="og:site_name" content="KittenHyper">
+<meta property="og:description" content="HyperOS marble.xml 解释作者: Ranshen_Cervine ，本文采用CC BY-NC-SA 4.0许可协议，转载请注明出处。 在Android设备的product分区下的\etc\device_features\目录中，针对特定机型代号的.xml文件包含了该设备的一系列特定功能和配置的标志。这些.xml文件通常用于定义该设备支持的特定硬件或软件功能，以便系统和应用程序可以根">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-03T17:54:00.000Z">
+<meta property="article:modified_time" content="2024-04-03T18:05:55.289Z">
+<meta property="article:author" content="Ranshen_Cervine">
+<meta property="article:tag" content="HyperOS">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>HyperOS marble.xml 解释 - KittenHyper</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/KittenHyper/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/KittenHyper/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/KittenHyper/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/KittenHyper/css/cloudedGlass.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kittenhyper.gitee.io","root":"/KittenHyper/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/KittenHyper/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/KittenHyper/js/utils.js" ></script>
+  <script  src="/KittenHyper/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/KittenHyper/">
+      <strong>KittenHyper</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/KittenHyper/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/KittenHyper/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="HyperOS marble.xml 解释"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-04 01:54" pubdate>
+          2024年4月4日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          49 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">HyperOS marble.xml 解释</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="HyperOS-marble-xml-解释"><a href="#HyperOS-marble-xml-解释" class="headerlink" title="HyperOS marble.xml 解释"></a>HyperOS marble.xml 解释</h2><p>作者: Ranshen_Cervine ，本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>许可协议，转载请注明出处。</p>
+<p>在Android设备的<code>product</code>分区下的<code>\etc\device_features\</code>目录中，针对特定机型代号的<code>.xml</code>文件包含了该设备的一系列特定功能和配置的标志。这些<code>.xml</code>文件通常用于定义该设备支持的特定硬件或软件功能，以便系统和应用程序可以根据这些配置来调整其行为和功能。文件中的布尔值（即<code>true</code>或<code>false</code>）用于开启或关闭某项功能。<br>例如，一个名为<code>&lt;机型代号&gt;.xml</code>的文件可能会包含如下内容: </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">features</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">feature</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;supports_fingerprint&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">feature</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;has_nfc&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;false&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">feature</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;supports_fast_charging&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span><br>    <span class="hljs-comment">&lt;!-- 其他特性配置 --&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">features</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>这里，每个<code>&lt;feature&gt;</code>标签定义了一个特定的设备功能，<code>name</code>属性指定了该功能的名称，而<code>value</code>属性则指定了该功能是否被支持（<code>true</code>表示支持，<code>false</code>表示不支持）。以下是这些配置可能包含的一些常见类型: </p>
+<ul>
+<li><strong>硬件支持</strong>: 如指纹识别(<code>supports_fingerprint</code>)、NFC(<code>has_nfc</code>)、快速充电(<code>supports_fast_charging</code>)等，这些配置项告诉应用设备是否具备某项硬件功能。</li>
+<li><strong>软件功能</strong>: 如某些定制的用户界面特性、专有的应用程序功能等，这些功能可能只在特定的设备上可用。</li>
+<li><strong>性能优化</strong>: 有时候这些配置文件也用于标识特定的性能优化参数，比如对图像处理或音频处理的特定优化。</li>
+<li><strong>设备特性</strong>: 比如屏幕尺寸、分辨率等信息，这对于应用能够最佳地适配不同设备尤其重要。</li>
+</ul>
+<p>通过这种方式，Android系统和第三方应用可以根据设备的具体能力和配置来调整自身的行为，以提供更加个性化和优化的用户体验。这种机制使得Android设备能够在保持系统级兼容性的同时，为不同的硬件配置和制造商定制提供了高度的灵活性。</p>
+<p><code>xml</code> 代码 <a href="https://kittenhyper.gitee.io/2024/04/04/HyperOS%20marble.xml/">HyperOS marble.xml</a></p>
+<h3 id="屏幕和显示技术"><a href="#屏幕和显示技术" class="headerlink" title="屏幕和显示技术"></a>屏幕和显示技术</h3><hr>
+<ol>
+<li><strong>LPTO屏幕与AOD</strong>:  <code>is_aod_need_grayscale</code>指出设备在AOD模式下不需要转为灰度模式，适用于LPTO屏幕技术，以节省电量。</li>
+<li><strong>智能帧率调整</strong>: <ul>
+<li><code>support_smart_fps</code>表明设备支持智能帧率调整。</li>
+<li><code>smart_fps_value</code>为120Hz，表明智能调整目标帧率。</li>
+<li><code>fpsList</code>包含120Hz和60Hz，显示支持的帧率选项，用于根据内容自动或手动选择最优帧率。</li>
+</ul>
+</li>
+<li><strong>屏幕分辨率</strong>: <ul>
+<li><code>display_width</code>为3200像素，表明高分辨率屏幕。</li>
+</ul>
+</li>
+<li><strong>Always On Display (AOD)</strong>: <ul>
+<li><code>support_aod</code>证明支持AOD，显示时间、通知等信息。</li>
+</ul>
+</li>
+<li><strong>边缘抑制技术</strong>: <ul>
+<li><code>support_edgesuppression_with_sensor</code>表示支持通过传感器减少误触。</li>
+</ul>
+</li>
+<li><strong>低亮度FOD优化</strong>: <ul>
+<li><code>support_low_brightness_fod</code>表明在低亮度条件下不支持FOD显示优化。</li>
+</ul>
+</li>
+<li><strong>纸张模式与眼护功能</strong>: <ul>
+<li><code>support_paper_eyecare</code>支持纸张模式，减少眼睛疲劳。</li>
+</ul>
+</li>
+<li><strong>显示专家模式</strong>: <ul>
+<li><code>support_display_expert_mode</code>提供屏幕显示参数的详细调整。</li>
+</ul>
+</li>
+<li><strong>自适应亮度优化</strong>: <ul>
+<li><code>support_autobrightness_optimize</code>根据应用类型优化自适应亮度。</li>
+</ul>
+</li>
+<li><strong>圆角屏幕设计</strong>: <ul>
+<li><code>support_round_corner</code>指出屏幕采用圆角设计。</li>
+</ul>
+</li>
+<li><strong>暗模式通知</strong>: <ul>
+<li><code>support_dark_mode_notify</code>支持将暗模式状态通知给显示特性。</li>
+</ul>
+</li>
+<li><strong>高分辨率显示</strong>: <ul>
+<li><code>support_high_resolution</code>重申了支持高分辨率。</li>
+</ul>
+</li>
+<li><strong>屏幕优化技术</strong>: <ul>
+<li><code>support_screen_optimize</code>表明支持屏幕优化技术，如色彩校正、自适应亮度等。</li>
+</ul>
+</li>
+<li><strong>纸张模式动画</strong>: <ul>
+<li><code>support_papermode_animation</code>和<code>is_compatible_paper_and_screen_effect</code>涉及纸张模式的动画效果和与其他屏幕效果的兼容性。</li>
+</ul>
+</li>
+<li><strong>仅支持键码跳转</strong>: <ul>
+<li><code>is_only_support_keycode_goto</code>设备仅支持通过键码进行页面跳转，提供是否支持常亮显示的布尔值。</li>
+</ul>
+</li>
+</ol>
+<h3 id="硬件支持"><a href="#硬件支持" class="headerlink" title="硬件支持"></a>硬件支持</h3><hr>
+<ol>
+<li><strong>设备特性确认</strong>: <ul>
+<li><code>is_pad</code>: 确认设备是否为平板电脑，此处为<code>false</code>。</li>
+<li><code>is_xiaomi</code>与<code>is_xiaomi_device</code>: 均为<code>true</code>，确认设备属于小米品牌。</li>
+<li><code>is_hongmi</code>: 确认设备是否为红米系列，此处为<code>false</code>。</li>
+</ul>
+</li>
+<li><strong>处理器与硬件供应商</strong>: <ul>
+<li><code>is_mediatek</code>: 确认是否使用联发科处理器，为<code>false</code>。</li>
+<li><code>vendor</code>: 处理器供应商为<code>qcom</code>，即高通，明确指出使用的是高通处理器。</li>
+</ul>
+</li>
+<li><strong>硬件支持功能</strong>: <ul>
+<li><code>support_torch</code>: 支持手电筒，为<code>true</code>。</li>
+<li><code>support_steps_provider</code>: 支持计步功能，为<code>true</code>。</li>
+<li><code>support_erase_external_storage</code>: 支持清除外部存储功能，为<code>true</code>。</li>
+<li><code>support_android_flashlight</code>: 支持Android标准手电筒控制接口，为<code>true</code>。</li>
+<li><code>support_cit</code>: 支持小米的CIT(Comprehensive Inspection Test)硬件测试模式，为<code>true</code>。</li>
+</ul>
+</li>
+<li><strong>游戏与性能特性</strong>: <ul>
+<li><code>enable_miui_lite</code>: 是否启用MIUI Lite版，为<code>false</code>。</li>
+<li><code>support_mi_game_macro</code>: 支持游戏宏，为<code>true</code>。</li>
+</ul>
+</li>
+<li><strong>存储特性</strong>: <ul>
+<li><code>support_dual_sd_card</code>: 是否支持双SD卡，为<code>false</code>。</li>
+<li><code>support_emulated_storage</code>: 支持模拟存储功能，为<code>true</code>。</li>
+</ul>
+</li>
+<li><strong>高级硬件特性</strong>: <ul>
+<li><strong>NFC功能</strong>:  <code>support_nfc</code>为<code>true</code>，标明支持近场通信。</li>
+<li><strong>WiFi性能</strong>:  <code>support_wifi_low_latency_mode</code>表示支持低延迟WiFi模式，<code>support_network_rps_mode</code>表示支持网络接收侧缩放，均为<code>true</code>。</li>
+</ul>
+</li>
+<li><strong>音频与蓝牙技术</strong>: <ul>
+<li><code>support_audio_share</code>: 支持音频共享，为<code>true</code>。</li>
+<li><code>support_bluetooth_fast_connect</code>: 支持蓝牙快速连接，为<code>true</code>。</li>
+</ul>
+</li>
+</ol>
+<h3 id="摄像头和多媒体"><a href="#摄像头和多媒体" class="headerlink" title="摄像头和多媒体"></a>摄像头和多媒体</h3><hr>
+<ol>
+<li><strong>摄像头功能支持</strong>: <ul>
+<li><code>support_realtime_manual_exposure_time</code>: 设备支持实时手动曝光时间调整，设置为<code>true</code>，对摄影爱好者而言，这项功能可以提供更多控制灵活性。</li>
+<li><code>camera_is_support_portrait_front</code>: 支持前置摄像头人像模式，为<code>true</code>，意味着用户可以使用前置摄像头拍摄具有背景虚化效果的人像照片。</li>
+<li><code>support_3d_face_beauty</code>: 支持3D面部美化，为<code>true</code>，提供更为精细和自然的面部美化效果。</li>
+<li><code>support_super_resolution</code>: 支持超分辨率拍摄，为<code>true</code>，这允许摄像头在拍照时提高图片的细节和清晰度。</li>
+<li><code>support_front_flash</code>: 前置摄像头支持闪光灯，为<code>true</code>，在低光环境下改善自拍照片质量。</li>
+<li><code>support_front_bokeh</code>: 支持前置摄像头背景虚化（即人像模式），为<code>true</code>。</li>
+<li><code>support_front_beauty_mfnr</code>: 前置摄像头支持面部美化与多帧降噪技术，为<code>true</code>，确保低光环境下的自拍清晰且美观。</li>
+<li><code>is_support_optical_zoom</code>: 设备支持光学变焦，为<code>true</code>，能够在不降低图片质量的情况下拉近拍摄对象。</li>
+<li><code>is_support_portrait</code>: 支持人像模式，为<code>true</code>，允许用户拍摄背景虚化的照片以突出主体。</li>
+</ul>
+</li>
+<li><strong>多媒体和摄像头额外功能</strong>: <ul>
+<li><code>support_camera_burst_shoot</code>: 支持连拍功能，为<code>true</code>，适用于捕捉动态场景或确保不错过关键瞬间。</li>
+<li><code>support_camera_4k_quality</code>: 支持4K视频录制，为<code>true</code>，提供高清晰度视频拍摄能力。</li>
+<li><code>support_camera_skin_beauty</code>: 支持摄像头皮肤美化功能，为<code>true</code>，用于改善肖像照片中人物皮肤的视觉效果。</li>
+<li><code>support_camera_age_detection</code>: 支持年龄检测，为<code>true</code>，可能用于美化应用中，根据检测到的年龄调整美化效果。</li>
+<li><code>support_camera_water_mark</code>: 支持相机水印功能，为<code>true</code>，可以在照片上添加日期、时间或其他标记。</li>
+</ul>
+</li>
+<li><strong>视频和录音特性</strong>: <ul>
+<li><code>support_video_hfr_mode</code>: 支持高帧率（HFR）视频模式，为<code>false</code>，这意味着设备可能不支持超高帧率的视频录制，这在某些高速动作捕捉场景中可能受限。</li>
+<li><code>support_inner_record</code>: 支持内部声音录制，为<code>1</code>，这在录制屏幕内容或游戏过程中非常有用，可以直接录制系统内部的音频输出。</li>
+</ul>
+</li>
+</ol>
+<h3 id="网络和连接"><a href="#网络和连接" class="headerlink" title="网络和连接"></a>网络和连接</h3><hr>
+<ol>
+<li><strong>网络连接能力</strong>: <ul>
+<li><code>support_voip_record</code>: 支持VoIP录音，为<code>true</code>，允许用户在进行VoIP通话（如通过Skype、WhatsApp等应用）时录制通话内容。</li>
+<li><code>support_new_silentmode</code>: 支持新静音模式，为<code>true</code>，提高了用户在需要时控制设备通知和铃声的灵活性。</li>
+</ul>
+</li>
+<li><strong>WiFi和网络优化</strong>: <ul>
+<li><code>support_wifi_low_latency_mode</code>: 支持WiFi低延迟模式，为<code>true</code>，这对于需要快速响应的应用，如在线游戏和视频通话，非常有用。</li>
+<li><code>support_network_rps_mode</code>: 支持网络接收方缩放(RPS)，为<code>true</code>，这有助于提升多核CPU处理网络流量的效率，从而改善网络性能。</li>
+</ul>
+</li>
+<li><strong>高级网络特性</strong>: <ul>
+<li><code>support_nvdia_wifi_display</code>: 支持NVIDIA WiFi显示，为<code>false</code>，这意味着设备可能不支持使用NVIDIA技术进行无线显示传输的特定功能。</li>
+<li><code>support_wapi</code>: 支持WAPI（WLAN Authentication and Privacy Infrastructure），为<code>true</code>，这是中国特有的无线网络安全标准，表明设备在中国市场使用无线网络时具备良好的兼容性。</li>
+</ul>
+</li>
+<li><strong>NFC和其他无线技术</strong>: <ul>
+<li><code>support_nfc</code>: 支持NFC（近场通信），为<code>true</code>，允许设备进行接触式支付、数据传输等。</li>
+<li><code>support_se_route</code>: 支持安全元件（SE）路由，为<code>true</code>，这关系到NFC支付和其他需要安全认证的NFC应用的功能。</li>
+</ul>
+</li>
+<li><strong>GPS和定位技术</strong>: <ul>
+<li><code>support_dual_gps</code>: 支持双GPS，为<code>true</code>，意味着设备可以同时使用美国GPS和俄罗斯GLONASS系统，或其他组合，以提高定位的准确性和速度。</li>
+<li><code>support_agps</code>、<code>support_agps_paras</code>、<code>support_agps_roaming</code>: 这些配置项均涉及对辅助GPS（A-GPS）的支持，增强了在网络环境下的快速定位能力。其中，<code>support_agps_roaming</code>为<code>false</code>，可能意味着在数据漫游状态下，A-GPS功能受到限制。</li>
+</ul>
+</li>
+</ol>
+<h3 id="音频和蓝牙"><a href="#音频和蓝牙" class="headerlink" title="音频和蓝牙"></a>音频和蓝牙</h3><hr>
+<ol>
+<li><strong>音频特性</strong>: <ul>
+<li><code>support_videobox_display_effect</code>: 支持视频盒子显示效果，为<code>true</code>，这可能指的是设备能够针对视频播放进行特殊的音频处理或增强效果。</li>
+<li><code>is_support_video_tool_box</code>: 支持视频工具箱，为<code>true</code>，这意味着设备可能提供了一套工具或设置，用于优化或调整视频播放时的音频体验。</li>
+<li><code>support_audio_share</code>: 支持音频分享，为<code>true</code>，允许用户将音乐或其他音频内容与他人共享，而不仅限于自己听。</li>
+<li><code>support_qcom_sound</code>: 支持高通音效，为<code>true</code>，表明设备利用高通的音频技术来提升音质。</li>
+<li><code>support_24bit_record</code>: 支持24位录音，为<code>true</code>，提供更高的录音质量，这对于需要高质量音频录制的用户非常重要。</li>
+</ul>
+</li>
+<li><strong>蓝牙功能</strong>: <ul>
+<li><code>support_bluetooth_boost</code>: 支持蓝牙加速，为<code>true</code>，可能意味着设备有能力在需要时提高蓝牙传输的速度或稳定性。</li>
+<li><code>bluetooth_boost_value</code>: 蓝牙加速值设置为<code>0x000011C0</code>，这个具体值可能与设备使用的加速技术或策略有关。</li>
+<li><code>support_bluetooth_fast_connect</code>: 支持蓝牙快速连接，为<code>true</code>，这可以减少设备连接蓝牙设备时的等待时间，提高用户体验。</li>
+<li><code>support_fm</code>: 支持FM广播，为<code>false</code>，表明设备没有内置FM收音机功能。</li>
+<li><code>btdebug_enabled</code>: 蓝牙调试启用，为<code>true</code>，可能用于开发或故障诊断过程中。</li>
+<li><code>support_lhdc_offload</code>: 支持LHDC解码卸载，为<code>true</code>，LHDC（Low Latency High-Definition Audio Codec）是一种高清低延迟音频编解码器，卸载支持意味着设备可以处理高质量的音频流，同时减轻CPU的负担。</li>
+</ul>
+</li>
+<li><strong>高级蓝牙音频特性</strong>: <ul>
+<li><code>support_a2dp_latency</code>: 支持A2DP低延迟，为<code>true</code>，这对于确保音视频同步非常关键，尤其是在观看视频或玩游戏时通过蓝牙耳机听声音。</li>
+<li><code>support_adv_audio_unicast</code>、<code>support_adv_audio_bca</code>和<code>support_adv_audio_bcs</code>: 这些配置涉及高级音频广播和单播支持，均为<code>false</code>，表明设备不支持这些较新的蓝牙音频广播技术。</li>
+</ul>
+</li>
+</ol>
+<h3 id="传感器和生物识别技术"><a href="#传感器和生物识别技术" class="headerlink" title="传感器和生物识别技术"></a>传感器和生物识别技术</h3><hr>
+<ol>
+<li><strong>生物识别技术</strong>: <ul>
+<li><code>front_fingerprint_sensor</code>: 表明设备配备了前置指纹传感器，此处为<code>false</code>，意味着设备可能使用了后置或屏下指纹识别技术。</li>
+<li><code>is_support_fingerprint_tap</code>: 支持通过指纹传感器进行轻触操作，为<code>true</code>，这可能用于快速唤醒设备或快捷启动应用。</li>
+<li><code>support_tap_fingerprint_sensor_to_home</code>: 支持通过指纹传感器轻触返回主屏幕，为<code>false</code>。</li>
+<li><code>support_heartbeat_rate</code>: 设备支持通过传感器测量心率，为<code>true</code>，这一功能对于健康追踪和健身应用特别有用。</li>
+</ul>
+</li>
+<li><strong>其他传感器</strong>: <ul>
+<li><code>sensor_has_latency</code>: 指示传感器是否具有延迟，为<code>true</code>。这个配置可能与传感器数据处理或传感器自身的性能有关。</li>
+<li><code>support_hall_sensor</code>: 设备支持霍尔传感器，为<code>true</code>。霍尔传感器常用于检测翻盖式保护套的开合状态。</li>
+<li><code>support_ir</code>: 支持红外（IR）功能，为<code>true</code>，允许设备通过红外进行遥控其他电子设备，如电视和空调。</li>
+</ul>
+</li>
+<li><strong>生物识别和安全</strong>: <ul>
+<li><code>fp_nav_event_name_list</code>: 提供了指纹导航功能相关的事件名列表，这可能用于自定义指纹传感器的导航动作。</li>
+<li><code>support_psensor_pocket_mode</code>: 支持口袋模式下的接近传感器功能，为<code>false</code>，意味着设备可能不会在被放入口袋时自动锁屏。</li>
+</ul>
+</li>
+<li><strong>定制和兼容性</strong>: <ul>
+<li><code>support_rotate_calibrate</code>: 支持罗盘校准，为<code>true</code>，这有助于在使用地图或导航应用时提高方向的准确性。</li>
+</ul>
+</li>
+</ol>
+<h3 id="系统和性能"><a href="#系统和性能" class="headerlink" title="系统和性能"></a>系统和性能</h3><hr>
+<ol>
+<li><strong>系统应用与服务</strong>: <ul>
+<li><code>system_data_packagename_list</code>和<code>system_data_path_list</code>: 这些配置项列出了预装在系统分区中的应用包名及其路径。包括了小米服务、扫描仪、游戏中心、天气应用、笔记、指南针、计算器、电子邮件客户端等，这些预装应用的存在对提供基本的用户体验和增值服务至关重要。</li>
+</ul>
+</li>
+<li><strong>全局卸载能力</strong>: <ul>
+<li><code>global_uninstallable_system_packagename_list</code>: 列出了即便是系统级应用也允许用户卸载的应用包名。这反映了小米在为用户提供更大自主性和优化设备存储空间方面所做的努力。</li>
+</ul>
+</li>
+<li><strong>系统性能优化</strong>: <ul>
+<li><code>support_sign_verify_in_cust</code>: 表示设备支持在CUST分区进行签名验证的功能，为<code>true</code>。这涉及到系统更新和应用安装过程中的安全性验证，是确保设备安全的一个重要功能。</li>
+</ul>
+</li>
+<li><strong>Telephony特性</strong>: <ul>
+<li><code>support_voip_record</code>和<code>support_new_silentmode</code>: 这些配置项表明设备支持VoIP通话记录和新的静音模式功能。这对于需要在应用中实现电话录音或寻求更灵活的静音选项的用户来说，非常有用。</li>
+</ul>
+</li>
+<li><strong>Audio配置</strong>: <ul>
+<li><code>support_videobox_display_effect</code>和<code>is_support_video_tool_box</code>: 展示了设备对于视频播放时音频效果的增强支持，如视频工具箱中可能包含的音频均衡器和场景优化功能。</li>
+</ul>
+</li>
+<li><strong>蓝牙与连接</strong>: <ul>
+<li><code>support_bluetooth_fast_connect</code>: 支持快速蓝牙连接，为<code>true</code>，这可以减少设备与蓝牙耳机或其他蓝牙设备配对所需的时间。</li>
+<li><code>support_fm</code>: 指示设备是否支持FM广播，为<code>false</code>，表明这款设备可能没有内置的FM接收器。</li>
+</ul>
+</li>
+<li><strong>显示与用户界面</strong>: <ul>
+<li><code>support_smart_fps</code>: 支持智能帧率调整，为<code>true</code>。这意味着设备能够根据当前屏幕内容动态调整刷新率，以平衡性能和电池寿命。</li>
+</ul>
+</li>
+</ol>
+<h3 id="显示和用户界面"><a href="#显示和用户界面" class="headerlink" title="显示和用户界面"></a>显示和用户界面</h3><hr>
+<ol>
+<li><strong>屏幕显示优化</strong>: <ul>
+<li><code>support_round_corner</code>: 支持圆角屏幕，为<code>true</code>。这表明设备屏幕的四角设计为圆角，这是现代智能手机设计的一部分，能够提供更舒适的视觉体验。</li>
+<li><code>support_screen_optimize</code>: 支持屏幕优化，为<code>true</code>。这可能涉及到调整屏幕色彩、亮度、对比度等，以提供更适合用户眼睛的显示效果。</li>
+</ul>
+</li>
+<li><strong>色彩管理与模式</strong>: <ul>
+<li><code>support_dark_mode_notify</code>: 支持暗模式通知，为<code>true</code>。这意味着设备能够根据应用或系统的暗模式设置调整通知栏和其他系统元素的颜色主题。</li>
+<li><code>support_screen_paper_mode</code>: 支持纸张模式，为<code>true</code>。纸张模式旨在模拟阅读纸质书籍的体验，通过调整屏幕色温和对比度，减少视觉疲劳。</li>
+</ul>
+</li>
+<li><strong>智能帧率调整</strong>: <ul>
+<li><code>support_smart_fps</code>和<code>smart_fps_value</code>，再次提到了支持智能帧率调整的特性，目标帧率为120Hz。此功能可根据内容动态调整屏幕刷新率，以平衡性能和电源消耗。</li>
+</ul>
+</li>
+<li><strong>视觉增强技术</strong>: <ul>
+<li><code>support_display_expert_mode</code>: 支持显示专家模式，为<code>true</code>。这允许用户进入高级设置，自定义色彩配置、色温和饱和度等，满足专业用户对色彩管理的需求。</li>
+</ul>
+</li>
+<li><strong>辅助功能与交互</strong>: <ul>
+<li><code>support_gesture_wakeup</code>: 支持手势唤醒，为<code>true</code>。这项功能允许用户通过特定的手势，如双击屏幕，来唤醒设备，提高操作便利性。</li>
+<li><code>support_screen_key_swap</code>: 支持屏幕键位交换，为<code>false</code>。这通常用于可自定义导航键顺序的设备，此处未启用表示设备可能使用固定的导航键布局。</li>
+</ul>
+</li>
+<li><strong>亮度与背光控制</strong>: <ul>
+<li><code>support_low_flicker_backlight</code>: 支持低闪烁背光，为<code>false</code>。低闪烁背光技术可以减少屏幕闪烁，减轻视觉疲劳。</li>
+</ul>
+</li>
+</ol>
+<h3 id="特殊功能"><a href="#特殊功能" class="headerlink" title="特殊功能"></a>特殊功能</h3><hr>
+<ol>
+<li><strong>AI功能和智能辅助</strong>: <ul>
+<li><code>support_ai_task</code>: 表示设备是否支持AI任务处理，配置为<code>false</code>，表明该设备可能不支持通过专用的AI处理器或软件优化来执行智能任务处理，如AI摄影、AI语音助手等。</li>
+</ul>
+</li>
+<li><strong>游戏增强技术</strong>: <ul>
+<li><code>support_mi_game_macro</code>: 支持小米游戏宏功能，为<code>true</code>，允许用户在游戏中记录一系列操作，并通过简单的触发来自动执行这些操作，从而优化游戏体验和操作效率。</li>
+</ul>
+</li>
+<li><strong>系统级优化与特性</strong>: <ul>
+<li><code>support_extreme_battery_saver</code>: 支持极限省电模式，为<code>false</code>。这表明该设备可能没有提供极端条件下进一步延长电池寿命的专门省电模式。</li>
+<li><code>support_ota_validate</code>: 支持OTA更新验证，为<code>true</code>。这意味着在进行系统更新时，设备能够验证更新包的真实性和完整性，确保更新的安全性。</li>
+</ul>
+</li>
+<li><strong>连接和共享</strong>: <ul>
+<li><code>support_nfc</code>: 再次确认设备支持NFC功能，为<code>true</code>，这不仅支持近场支付，还可能支持标签读写、设备配对等NFC相关功能。</li>
+<li><code>support_wifi_low_latency_mode</code>: 支持WiFi低延迟模式，为<code>true</code>，优化在线游戏和高清视频流的连接稳定性和速度。</li>
+</ul>
+</li>
+<li><strong>隐私和安全性</strong>: <ul>
+<li><code>support_data_encryption</code>: 此项表明设备支持数据加密，虽然在提供的XML片段中未直接提及，但作为特殊功能之一，现代智能设备通常会内置硬件级或软件级的数据加密能力来保护用户数据的安全性。</li>
+</ul>
+</li>
+<li><strong>健康与便利性功能</strong>: <ul>
+<li><code>support_heartbeat_rate</code>: 支持心率检测，为<code>true</code>，这表明设备配备了可以测量用户心率的传感器，有助于健康监测和健身追踪。</li>
+<li><code>support_screen_optimize</code>: 支持屏幕优化技术，为<code>true</code>，旨在减少眼睛疲劳，提升长时间阅读或观看的舒适度。</li>
+</ul>
+</li>
+</ol>
+<h3 id="存储和备份"><a href="#存储和备份" class="headerlink" title="存储和备份"></a>存储和备份</h3><hr>
+<ol>
+<li><strong>内置存储优化</strong>: <ul>
+<li><code>support_emulated_storage</code>: 设备支持模拟存储功能，配置为<code>true</code>。模拟存储（Emulated Storage）允许操作系统创建一个分区模拟SD卡的效果，这有助于更好地管理和保护用户数据，同时提供统一的存储解决方案。</li>
+</ul>
+</li>
+<li><strong>SD卡支持</strong>: <ul>
+<li><code>support_dual_sd_card</code>: 表明设备是否支持双SD卡功能，配置为<code>false</code>。这意味着设备可能只有单个外部存储卡槽或不提供外部存储扩展功能。</li>
+<li><code>support_internal_sdcard</code>: 设备是否支持内置SD卡，配置为<code>false</code>，指出所有存储空间都是设备内部的，没有采用可拆卸的SD卡作为内部存储。</li>
+</ul>
+</li>
+<li><strong>备份与恢复功能</strong>: <ul>
+<li>尽管在提供的XML片段中没有直接提及特定的备份与恢复配置项，现代智能设备通常通过集成的云服务或系统工具支持数据备份与恢复。设备可能支持通过MIUI的云服务备份应用数据、照片、联系人等，以及通过设置中的备份与重置功能进行本地备份和恢复。</li>
+</ul>
+</li>
+<li><strong>存储安全性</strong>: <ul>
+<li><code>support_device_encrypt</code>: 表明设备支持设备加密功能，配置为<code>true</code>。设备加密是保护用户数据安全的重要功能，它确保存储在设备上的数据在未经授权的情况下无法访问。</li>
+</ul>
+</li>
+<li><strong>存储空间管理</strong>: <ul>
+<li>设备可能集成了文件管理器应用，提供用户友好的界面来管理存储空间，查看存储使用情况，以及清理不必要的文件和缓存，虽然这些功能在XML片段中未明确提及。</li>
+</ul>
+</li>
+</ol>
+<h3 id="电源管理"><a href="#电源管理" class="headerlink" title="电源管理"></a>电源管理</h3><hr>
+<ol>
+<li><strong>电池容量和充电</strong>: <ul>
+<li><code>battery_capacity_typ</code>: 此项指定了设备的典型电池容量，配置为<code>5000</code>毫安时。</li>
+</ul>
+</li>
+<li><strong>省电模式和电源优化</strong>: <ul>
+<li><code>support_extreme_battery_saver</code>: 指示设备是否支持极限省电模式，配置为<code>false</code>。虽然此设备不支持极限省电模式，但设备可能包含其他标准的省电策略和优化措施，以延长电池寿命和使用时间。</li>
+<li>在提供的XML片段中，没有直接提及其他特定的省电模式或电源管理技术。然而，现代智能设备通常通过操作系统级的电源管理功能，如后台应用限制、自动亮度调节、以及休眠策略等，来优化电源消耗。</li>
+</ul>
+</li>
+<li><strong>电源消耗监控</strong>: <ul>
+<li>尽管在提供的XML片段中没有明确列出，现代设备通常配备有电源消耗监控工具，允许用户查看和管理不同应用和硬件组件的电源使用情况。通过系统设置中的电池使用情况分析，用户可以识别和限制高电量消耗的应用，从而进一步优化电池续航。</li>
+</ul>
+</li>
+</ol>
+<h3 id="安全性和隐私"><a href="#安全性和隐私" class="headerlink" title="安全性和隐私"></a>安全性和隐私</h3><hr>
+<ol>
+<li><strong>设备加密与安全启动</strong>: <ul>
+<li><code>support_device_encrypt</code>: 指示设备支持数据加密，配置为<code>true</code>。这表明设备在存储层面实现了数据加密，保护用户数据不被未经授权访问。</li>
+<li>尽管XML片段中未直接提及，现代智能设备通常还支持安全启动（Secure Boot）机制，确保设备启动过程中只加载和执行经过验证的软件，防止恶意软件在系统层面造成破坏。</li>
+</ul>
+</li>
+<li><strong>应用权限与隐私控制</strong>: <ul>
+<li><code>support_provision_app_permission</code>: 设备是否在初始化设定中支持应用权限详细展示，配置为<code>true</code>。这意味着用户在设备首次设置过程中，可以更清晰地看到各应用请求的权限，从而做出更加明智的决定，增强隐私保护。</li>
+<li><code>support_main_xiaoai</code>: 暗示了设备集成了小米的人工智能助手小爱同学的支持，此配置项为<code>true</code>。虽然这并不直接关联到安全性或隐私，但AI助手通常会涉及到语音数据处理和用户习惯学习，因此与用户隐私紧密相关，需确保相应数据处理符合隐私保护标准。</li>
+</ul>
+</li>
+<li><strong>网络安全和数据保护</strong>: <ul>
+<li><code>support_wapi</code>: 支持WAPI（WLAN Authentication and Privacy Infrastructure），配置为<code>true</code>。这是中国特有的无线网络安全标准，强调了设备在无线通信方面的安全性和数据保护。</li>
+</ul>
+</li>
+<li><strong>生物识别技术安全</strong>: <ul>
+<li>生物识别技术，如指纹识别和面部解锁，在提高设备使用便利性的同时，也涉及到用户的生物信息保护。尽管在提供的XML片段中未详细说明，但现代设备在生物识别数据的存储和处理上采取了高度安全的措施，例如使用专用安全芯片存储生物识别数据，以及限制生物识别数据的访问和使用范围。</li>
+</ul>
+</li>
+</ol>
+<h3 id="其他特性"><a href="#其他特性" class="headerlink" title="其他特性"></a>其他特性</h3><hr>
+<ol>
+<li><strong>动态分区支持</strong>: <ul>
+<li><code>dynamic_partition_list</code>: 列出了支持动态分区的分区列表，这是Android 10及以后版本引入的特性，允许系统在OTA更新时更灵活地调整分区大小。</li>
+</ul>
+</li>
+<li><strong>日志分区和系统维护</strong>: <ul>
+<li><code>log_partition_list</code>: 提及了设备中用于存储各种日志的分区，如崩溃日志（<code>minidump</code>）、系统崩溃历史（<code>crash_history</code>）等。这些信息对于开发者诊断问题和系统维护至关重要。</li>
+</ul>
+</li>
+<li><strong>分区名称路径</strong>: <ul>
+<li><code>partition_name_path</code>: 指定了分区名称到设备路径的映射，这对于执行底层系统操作和维护任务非常重要。</li>
+</ul>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/KittenHyper/categories/HyperOS/" class="category-chain-item">HyperOS</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/KittenHyper/tags/HyperOS/" class="print-no-link">#HyperOS</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>HyperOS marble.xml 解释</div>
+      <div>https://kittenhyper.gitee.io/2024/04/04/HyperOS marble.xml 解释/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Ranshen_Cervine</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月4日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/KittenHyper/2024/04/04/HyperOS%20marble.xml/" title="HyperOS marble.xml">
+                        <span class="hidden-mobile">HyperOS marble.xml</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="nofollow noopener"><span>本博客所有文章均采用[CC BY-NC-SA 4.0]许可协议，转载请注明出处。</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/KittenHyper/js/events.js" ></script>
+<script  src="/KittenHyper/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/KittenHyper/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/KittenHyper/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/KittenHyper/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
