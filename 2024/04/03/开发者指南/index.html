@@ -16,15 +16,15 @@
   <meta name="author" content="Ranshen_Cervine">
   <meta name="keywords" content="">
   
-    <meta name="description" content="开发者指南本文由 Ranshen_Cervine翻译，原文为 Developer Guides BusyBox Magisk附带了一个功能齐全的BusyBox二进制文件（包括完整的SELinux支持）。可执行文件位于&#x2F;data&#x2F;adb&#x2F;magisk&#x2F;busybox。Magisk的BusyBox支持运行时可切换的“ASH独立Shell模式”。这个独立模式意味着，当在BusyBox的ash shell">
+    <meta name="description" content="开发者指南本文由 Ranshen_Cervine翻译，原文为 Developer Guides BusyBoxMagisk附带了一个功能齐全的BusyBox二进制文件（包括完整的SELinux支持）。可执行文件位于&#x2F;data&#x2F;adb&#x2F;magisk&#x2F;busybox。Magisk的BusyBox支持运行时可切换的“ASH独立Shell模式”。这个独立模式意味着，当在BusyBox的ash shell中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开发者指南">
 <meta property="og:url" content="https://kittenhyper.gitee.io/2024/04/03/%E5%BC%80%E5%8F%91%E8%80%85%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="KittenHyper">
-<meta property="og:description" content="开发者指南本文由 Ranshen_Cervine翻译，原文为 Developer Guides BusyBox Magisk附带了一个功能齐全的BusyBox二进制文件（包括完整的SELinux支持）。可执行文件位于&#x2F;data&#x2F;adb&#x2F;magisk&#x2F;busybox。Magisk的BusyBox支持运行时可切换的“ASH独立Shell模式”。这个独立模式意味着，当在BusyBox的ash shell">
+<meta property="og:description" content="开发者指南本文由 Ranshen_Cervine翻译，原文为 Developer Guides BusyBoxMagisk附带了一个功能齐全的BusyBox二进制文件（包括完整的SELinux支持）。可执行文件位于&#x2F;data&#x2F;adb&#x2F;magisk&#x2F;busybox。Magisk的BusyBox支持运行时可切换的“ASH独立Shell模式”。这个独立模式意味着，当在BusyBox的ash shell中">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-02T16:35:00.000Z">
-<meta property="article:modified_time" content="2024-04-03T07:24:20.291Z">
+<meta property="article:modified_time" content="2024-04-03T07:31:42.824Z">
 <meta property="article:author" content="Ranshen_Cervine">
 <meta property="article:tag" content="Module">
 <meta name="twitter:card" content="summary_large_image">
@@ -278,8 +278,7 @@
               <div class="markdown-body">
                 
                 <h1 id="开发者指南"><a href="#开发者指南" class="headerlink" title="开发者指南"></a>开发者指南</h1><p>本文由 Ranshen_Cervine翻译，原文为 <a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html">Developer Guides</a></p>
-<h2 id="BusyBox"><a href="#BusyBox" class="headerlink" title="BusyBox"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#busybox">BusyBox</a></h2><hr>
-<p>Magisk附带了一个功能齐全的BusyBox二进制文件（包括完整的SELinux支持）。可执行文件位于<code>/data/adb/magisk/busybox</code>。Magisk的BusyBox支持运行时可切换的“ASH独立Shell模式”。这个独立模式意味着，当在BusyBox的<code>ash</code> shell中运行时，每个命令都将直接使用BusyBox内的小程序，无论<code>PATH</code>设置为什么。例如，像<code>ls</code>、<code>rm</code>、<code>chmod</code>这样的命令将<strong>不会</strong>使用<code>PATH</code>中的（在Android中默认情况下分别是<code>/system/bin/ls</code>、<code>/system/bin/rm</code>和<code>/system/bin/chmod</code>），而是直接调用内部的BusyBox小程序。这确保了脚本始终在可预测的环境中运行，并且无论在哪个Android版本上都拥有完整的命令集。要强制命令不使用BusyBox，你必须使用完整路径调用可执行文件。</p>
+<h2 id="BusyBox"><a href="#BusyBox" class="headerlink" title="BusyBox"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#busybox">BusyBox</a></h2><p>Magisk附带了一个功能齐全的BusyBox二进制文件（包括完整的SELinux支持）。可执行文件位于<code>/data/adb/magisk/busybox</code>。Magisk的BusyBox支持运行时可切换的“ASH独立Shell模式”。这个独立模式意味着，当在BusyBox的<code>ash</code> shell中运行时，每个命令都将直接使用BusyBox内的小程序，无论<code>PATH</code>设置为什么。例如，像<code>ls</code>、<code>rm</code>、<code>chmod</code>这样的命令将<strong>不会</strong>使用<code>PATH</code>中的（在Android中默认情况下分别是<code>/system/bin/ls</code>、<code>/system/bin/rm</code>和<code>/system/bin/chmod</code>），而是直接调用内部的BusyBox小程序。这确保了脚本始终在可预测的环境中运行，并且无论在哪个Android版本上都拥有完整的命令集。要强制命令不使用BusyBox，你必须使用完整路径调用可执行文件。</p>
 <p>在Magisk的上下文中运行的每个shell脚本都将在启用独立模式的BusyBox的<code>ash</code> shell中执行。对于第三方开发者而言，这包括所有启动脚本和模块安装脚本。</p>
 <p>对于那些想在Magisk外部使用这个“独立模式”功能的人，有两种启用它的方法：</p>
 <ol>
@@ -287,8 +286,7 @@
 <li>使用命令行选项切换：<br> <code>/data/adb/magisk/busybox sh -o standalone &lt;script&gt;</code></li>
 </ol>
 <p>为确保所有后续执行的<code>sh</code> shell也以独立模式运行，方法1是首选方法（这也是Magisk及其应用内部使用的），因为环境变量会被继承到子进程。</p>
-<h2 id="Magisk模块"><a href="#Magisk模块" class="headerlink" title="Magisk模块"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#magisk-modules">Magisk模块</a></h2><hr>
-<p>Magisk模块是一个放置在<code>/data/adb/modules</code>下的文件夹，具有以下结构：</p>
+<h2 id="Magisk模块"><a href="#Magisk模块" class="headerlink" title="Magisk模块"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#magisk-modules">Magisk模块</a></h2><p>Magisk模块是一个放置在<code>/data/adb/modules</code>下的文件夹，具有以下结构：</p>
 <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs elm">/data/adb/modules<br>├── .<br>├── .<br>|<br>├── $<span class="hljs-type">MODID</span>                  &lt;-<span class="hljs-comment">-- 文件夹以模块的ID命名</span><br>│   │<br>│   │      *** 模块标识 ***<br>│   │<br>│   ├── <span class="hljs-keyword">module</span>.prop         &lt;-<span class="hljs-comment">-- 此文件存储模块的元数据</span><br>│   │<br>│   │      *** 主要内容 ***<br>│   │<br>│   ├── system              &lt;-<span class="hljs-comment">-- 如果不存在skip_mount，则此文件夹将被挂载</span><br>│   │   ├── ...<br>│   │   ├── ...<br>│   │   └── ...<br>│   │<br>│   ├── zygisk              &lt;-<span class="hljs-comment">-- 此文件夹包含模块的Zygisk本地库</span><br>│   │   ├── arm64-v8a.so<br>│   │   ├── armeabi-v7a.so<br>│   │   ├── x86.so<br>│   │   ├── x86_64.so<br>│   │   └── unloaded        &lt;-<span class="hljs-comment">-- 如果存在，表示本地库不兼容</span><br>│   │<br>│   │      *** 状态标志 ***<br>│   │<br>│   ├── skip_mount          &lt;-<span class="hljs-comment">-- 如果存在，Magisk将不会挂载你的system文件夹</span><br>│   ├── disable             &lt;-<span class="hljs-comment">-- 如果存在，模块将被禁用</span><br>│   ├── remove              &lt;-<span class="hljs-comment">-- 如果存在，模块将在下次重启时被移除</span><br>│   │<br>│   │      *** 可选文件 ***<br>│   │<br>│   ├── post-fs-data.sh     &lt;-<span class="hljs-comment">-- 此脚本将在post-fs-data中执行</span><br>│   ├── service.sh          &lt;-<span class="hljs-comment">-- 此脚本将在late_start服务中执行</span><br>|   ├── uninstall.sh        &lt;<br><span class="hljs-comment">--- 当Magisk移除你的模块时执行此脚本</span><br>│   ├── system.prop         &lt;-<span class="hljs-comment">-- 此文件中的属性将被resetprop加载为系统属性</span><br>│   ├── sepolicy.rule       &lt;-<span class="hljs-comment">-- 附加的自定义sepolicy规则</span><br>│   │<br>│   │      *** 自动生成，不要手动创建或修改 ***<br>│   │<br>│   ├── vendor              &lt;-<span class="hljs-comment">-- 一个指向$MODID/system/vendor的符号链接</span><br>│   ├── product             &lt;-<span class="hljs-comment">-- 一个指向$MODID/system/product的符号链接</span><br>│   ├── system_ext          &lt;-<span class="hljs-comment">-- 一个指向$MODID/system/system_ext的符号链接</span><br>│   │<br>│   │      *** 允许任何附加的文件/文件夹 ***<br>│   │<br>│   ├── ...<br>│   └── ...<br>|<br>├── another_module<br>│   ├── .<br>│   └── .<br>├── .<br>├── .<br></code></pre></td></tr></table></figure>
 
 <h4 id="module-prop"><a href="#module-prop" class="headerlink" title="module.prop"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#moduleprop">module.prop</a></h4><p>这是<code>module.prop</code>的<strong>严格</strong>格式</p>
@@ -312,8 +310,7 @@
 <h4 id="Zygisk"><a href="#Zygisk" class="headerlink" title="Zygisk"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#zygisk">Zygisk</a></h4><p>Zygisk是Magisk的一个功能，允许高级模块开发者在每个Android应用程序的进程中直接运行代码，然后它们被专门化并运行。有关Zygisk API和构建Zygisk模块的更多详细信息，请查看<a target="_blank" rel="noopener" href="https://github.com/topjohnwu/zygisk-module-sample">Zygisk Module Sample</a>项目。</p>
 <h4 id="system-prop"><a href="#system-prop" class="headerlink" title="system.prop"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#systemprop">system.prop</a></h4><p>此文件遵循与<code>build.prop</code>相同的格式。每行包含<code>[key]=[value]</code>。</p>
 <h4 id="sepolicy-rule"><a href="#sepolicy-rule" class="headerlink" title="sepolicy.rule"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#sepolicyrule">sepolicy.rule</a></h4><p>如果你的模块需要一些额外的sepolicy补丁，请将这些规则添加到此文件中。此文件中的每行将被视为一条策略声明。有关策略声明格式的更多详细信息，请查看<a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/tools.html#magiskpolicy">magiskpolicy</a>的文档。</p>
-<h2 id="Magisk模块安装器"><a href="#Magisk模块安装器" class="headerlink" title="Magisk模块安装器"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#magisk-module-installer">Magisk模块安装器</a></h2><hr>
-<p>Magisk模块安装器是一个打包在zip文件中的Magisk模块，可以在Magisk应用或自定义恢复中刷入，如TWRP。最简单的Magisk模块安装器只是一个作为zip文件打包的Magisk模块，外加以下文件：</p>
+<h2 id="Magisk模块安装器"><a href="#Magisk模块安装器" class="headerlink" title="Magisk模块安装器"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#magisk-module-installer">Magisk模块安装器</a></h2><p>Magisk模块安装器是一个打包在zip文件中的Magisk模块，可以在Magisk应用或自定义恢复中刷入，如TWRP。最简单的Magisk模块安装器只是一个作为zip文件打包的Magisk模块，外加以下文件：</p>
 <ul>
 <li><code>update-binary</code>：下载最新的<a target="_blank" rel="noopener" href="https://github.com/topjohnwu/Magisk/blob/master/scripts/module_installer.sh">module_installer.sh</a>并重命名&#x2F;复制该脚本为<code>update-binary</code></li>
 <li><code>updater-script</code>：此文件应仅包含字符串<code>#MAGISK</code></li>
@@ -349,8 +346,7 @@
 <li>由于历史原因，<strong>不要</strong>在你的模块安装器zip中添加名为<code>install.sh</code>的文件。</li>
 <li><strong>不要</strong>在<code>customize.sh</code>的末尾调用<code>exit</code>。模块安装脚本必须在退出前执行一些清理工作。</li>
 </ul>
-<h2 id="启动脚本"><a href="#启动脚本" class="headerlink" title="启动脚本"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#boot-scripts">启动脚本</a></h2><hr>
-<p>在Magisk中，你可以在两种不同模式下运行启动脚本：<strong>post-fs-data</strong>和<strong>late_start service</strong>模式。</p>
+<h2 id="启动脚本"><a href="#启动脚本" class="headerlink" title="启动脚本"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#boot-scripts">启动脚本</a></h2><p>在Magisk中，你可以在两种不同模式下运行启动脚本：<strong>post-fs-data</strong>和<strong>late_start service</strong>模式。</p>
 <ul>
 <li>post-fs-data模式<ul>
 <li>此阶段是阻塞的。在执行完成或过去10秒之前，启动过程被暂停。</li>
@@ -385,8 +381,7 @@
 </li>
 </ul>
 <p>所有启动脚本都将在启用“独立模式”的Magisk BusyBox <code>ash</code> shell中运行。</p>
-<h2 id="根目录覆盖系统"><a href="#根目录覆盖系统" class="headerlink" title="根目录覆盖系统"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#root-directory-overlay-system">根目录覆盖系统</a></h2><hr>
-<p>由于在system-as-root设备上<code>/</code>是只读的，Magisk提供了一个覆盖系统，使开发者能够替换rootdir中的文件或添加新的<code>*.rc</code>脚本。此功能主要为自定义内核开发者设计。</p>
+<h2 id="根目录覆盖系统"><a href="#根目录覆盖系统" class="headerlink" title="根目录覆盖系统"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#root-directory-overlay-system">根目录覆盖系统</a></h2><p>由于在system-as-root设备上<code>/</code>是只读的，Magisk提供了一个覆盖系统，使开发者能够替换rootdir中的文件或添加新的<code>*.rc</code>脚本。此功能主要为自定义内核开发者设计。</p>
 <p>覆盖文件应放在启动映像ramdisk的<code>overlay.d</code>文件夹中，并遵循这些规则：</p>
 <ol>
 <li><code>overlay.d</code>中的每个<code>*.rc</code>文件（除了<code>init.rc</code>）将在<code>init.rc</code>之后<strong>读取</strong>和<strong>连接</strong>，如果它不存在于根目录中，否则它将<strong>替换</strong>现有的一个。</li>

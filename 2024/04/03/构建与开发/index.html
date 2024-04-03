@@ -16,15 +16,15 @@
   <meta name="author" content="Ranshen_Cervine">
   <meta name="keywords" content="">
   
-    <meta name="description" content="构建与开发本文由 Ranshen_Cervine翻译，原文为 Building and Development 设置环境  支持的平台： Linux x64 macOS x64（Intel） macOS arm64（Apple 芯片） Windows x64   仅限Windows：启用开发者模式。这是必需的，因为我们需要符号链接支持。 安装Python 3.8+： 在Unix上，使用您喜欢的包管">
+    <meta name="description" content="构建与开发本文由 Ranshen_Cervine翻译，原文为 Building and Development 设置环境 支持的平台： Linux x64 macOS x64（Intel） macOS arm64（Apple 芯片） Windows x64   仅限Windows：启用开发者模式。这是必需的，因为我们需要符号链接支持。 安装Python 3.8+： 在Unix上，使用您喜欢的包管理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="构建与开发">
 <meta property="og:url" content="https://kittenhyper.gitee.io/2024/04/03/%E6%9E%84%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91/index.html">
 <meta property="og:site_name" content="KittenHyper">
-<meta property="og:description" content="构建与开发本文由 Ranshen_Cervine翻译，原文为 Building and Development 设置环境  支持的平台： Linux x64 macOS x64（Intel） macOS arm64（Apple 芯片） Windows x64   仅限Windows：启用开发者模式。这是必需的，因为我们需要符号链接支持。 安装Python 3.8+： 在Unix上，使用您喜欢的包管">
+<meta property="og:description" content="构建与开发本文由 Ranshen_Cervine翻译，原文为 Building and Development 设置环境 支持的平台： Linux x64 macOS x64（Intel） macOS arm64（Apple 芯片） Windows x64   仅限Windows：启用开发者模式。这是必需的，因为我们需要符号链接支持。 安装Python 3.8+： 在Unix上，使用您喜欢的包管理">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-02T16:24:00.000Z">
-<meta property="article:modified_time" content="2024-04-03T07:23:24.304Z">
+<meta property="article:modified_time" content="2024-04-03T07:31:27.861Z">
 <meta property="article:author" content="Ranshen_Cervine">
 <meta property="article:tag" content="Module">
 <meta name="twitter:card" content="summary_large_image">
@@ -278,8 +278,7 @@
               <div class="markdown-body">
                 
                 <h1 id="构建与开发"><a href="#构建与开发" class="headerlink" title="构建与开发"></a>构建与开发</h1><p>本文由 Ranshen_Cervine翻译，原文为 <a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/build.html">Building and Development</a></p>
-<h2 id="设置环境"><a href="#设置环境" class="headerlink" title="设置环境"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/build.html#setup-environment">设置环境</a></h2><hr>
-<ul>
+<h2 id="设置环境"><a href="#设置环境" class="headerlink" title="设置环境"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/build.html#setup-environment">设置环境</a></h2><ul>
 <li>支持的平台：<ul>
 <li>Linux x64</li>
 <li>macOS x64（Intel）</li>
@@ -309,14 +308,12 @@
 <li>克隆源代码：<code>git clone --recurse-submodules https://github.com/topjohnwu/Magisk.git</code></li>
 <li>运行<code>./build.py ndk</code>让脚本为您下载并安装NDK</li>
 </ul>
-<h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/build.html#building">构建</a></h2><hr>
-<ul>
+<h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/build.html#building">构建</a></h2><ul>
 <li>要构建所有内容并创建最终的Magisk APK，请运行<code>./build.py all</code>。</li>
 <li>您也可以构建特定的子组件；调用<code>build.py</code>查看您的选项。<br>  对于每个操作，使用<code>-h</code>访问帮助（例如<code>./build.py binary -h</code>）</li>
 <li>使用<code>config.prop</code>配置构建。提供了一个示例<code>config.prop.sample</code>。</li>
 </ul>
-<h2 id="IDE-支持"><a href="#IDE-支持" class="headerlink" title="IDE 支持"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/build.html#ide-support">IDE 支持</a></h2><hr>
-<ul>
+<h2 id="IDE-支持"><a href="#IDE-支持" class="headerlink" title="IDE 支持"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/build.html#ide-support">IDE 支持</a></h2><ul>
 <li>该仓库可以直接以项目的形式用Android Studio打开。</li>
 <li>项目中的Kotlin、Java、C++和C代码应该能够在Android Studio中直接支持。</li>
 <li>在处理原生代码前运行<code>./build.py binary</code>，因为一些生成的代码仅在构建过程中创建。</li>
@@ -333,8 +330,7 @@
 <li>在偏好设置 &gt; 语言与框架 &gt; Rust 中，将<code>$ANDROID_SDK_ROOT/ndk/magisk/toolchains/rust/bin</code>设置为工具链位置</li>
 <li>打开<code>native/src/Cargo.toml</code>，并在“未找到Cargo项目”横幅中选择“附加”</li>
 </ul>
-<h2 id="签名与分发"><a href="#签名与分发" class="headerlink" title="签名与分发"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/build.html#signing-and-distribution">签名与分发</a></h2><hr>
-<ul>
+<h2 id="签名与分发"><a href="#签名与分发" class="headerlink" title="签名与分发"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/build.html#signing-and-distribution">签名与分发</a></h2><ul>
 <li>在发布构建中，签署Magisk APK的密钥的证书将被Magisk的根守护程序用作参考，以拒绝并强制卸载任何不匹配的Magisk应用，以保护用户免受恶意和未验证的Magisk APKs的影响。</li>
 <li>要对Magisk本身进行任何开发，请切换到<strong>官方调试构建并重新安装 Magisk</strong> 以关闭签名检查。</li>
 <li>要使用您自己的密钥签名您自己的Magisk构建，请在<code>config.prop</code>中设置您的签名配置。</li>
