@@ -16,15 +16,15 @@
   <meta name="author" content="Ranshen_Cervine">
   <meta name="keywords" content="">
   
-    <meta name="description" content="开发者指南本文由 Ranshen_Cervine翻译，原文为 Developer Guides## BusyBoxMagisk附带了一个功能齐全的BusyBox二进制文件（包括完整的SELinux支持）。可执行文件位于&#x2F;data&#x2F;adb&#x2F;magisk&#x2F;busybox。Magisk的BusyBox支持运行时可切换的“ASH独立Shell模式”。这个独立模式意味着，当在BusyBox的ash shel">
+    <meta name="description" content="开发者指南本文由 Ranshen_Cervine翻译，原文为 Developer Guides BusyBox Magisk附带了一个功能齐全的BusyBox二进制文件（包括完整的SELinux支持）。可执行文件位于&#x2F;data&#x2F;adb&#x2F;magisk&#x2F;busybox。Magisk的BusyBox支持运行时可切换的“ASH独立Shell模式”。这个独立模式意味着，当在BusyBox的ash shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开发者指南">
 <meta property="og:url" content="https://kittenhyper.gitee.io/2024/04/03/%E5%BC%80%E5%8F%91%E8%80%85%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="KittenHyper">
-<meta property="og:description" content="开发者指南本文由 Ranshen_Cervine翻译，原文为 Developer Guides## BusyBoxMagisk附带了一个功能齐全的BusyBox二进制文件（包括完整的SELinux支持）。可执行文件位于&#x2F;data&#x2F;adb&#x2F;magisk&#x2F;busybox。Magisk的BusyBox支持运行时可切换的“ASH独立Shell模式”。这个独立模式意味着，当在BusyBox的ash shel">
+<meta property="og:description" content="开发者指南本文由 Ranshen_Cervine翻译，原文为 Developer Guides BusyBox Magisk附带了一个功能齐全的BusyBox二进制文件（包括完整的SELinux支持）。可执行文件位于&#x2F;data&#x2F;adb&#x2F;magisk&#x2F;busybox。Magisk的BusyBox支持运行时可切换的“ASH独立Shell模式”。这个独立模式意味着，当在BusyBox的ash shell">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-02T16:35:00.000Z">
-<meta property="article:modified_time" content="2024-04-03T07:04:47.546Z">
+<meta property="article:modified_time" content="2024-04-03T07:24:20.291Z">
 <meta property="article:author" content="Ranshen_Cervine">
 <meta property="article:tag" content="Module">
 <meta name="twitter:card" content="summary_large_image">
@@ -277,7 +277,9 @@
             
               <div class="markdown-body">
                 
-                <h1 id="开发者指南"><a href="#开发者指南" class="headerlink" title="开发者指南"></a>开发者指南</h1><h2 id="本文由-Ranshen-Cervine翻译，原文为-Developer-Guides-BusyBox"><a href="#本文由-Ranshen-Cervine翻译，原文为-Developer-Guides-BusyBox" class="headerlink" title="本文由 Ranshen_Cervine翻译，原文为 Developer Guides## BusyBox"></a>本文由 Ranshen_Cervine翻译，原文为 <a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html">Developer Guides</a><br>## <a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#busybox">BusyBox</a></h2><p>Magisk附带了一个功能齐全的BusyBox二进制文件（包括完整的SELinux支持）。可执行文件位于<code>/data/adb/magisk/busybox</code>。Magisk的BusyBox支持运行时可切换的“ASH独立Shell模式”。这个独立模式意味着，当在BusyBox的<code>ash</code> shell中运行时，每个命令都将直接使用BusyBox内的小程序，无论<code>PATH</code>设置为什么。例如，像<code>ls</code>、<code>rm</code>、<code>chmod</code>这样的命令将<strong>不会</strong>使用<code>PATH</code>中的（在Android中默认情况下分别是<code>/system/bin/ls</code>、<code>/system/bin/rm</code>和<code>/system/bin/chmod</code>），而是直接调用内部的BusyBox小程序。这确保了脚本始终在可预测的环境中运行，并且无论在哪个Android版本上都拥有完整的命令集。要强制命令不使用BusyBox，你必须使用完整路径调用可执行文件。</p>
+                <h1 id="开发者指南"><a href="#开发者指南" class="headerlink" title="开发者指南"></a>开发者指南</h1><p>本文由 Ranshen_Cervine翻译，原文为 <a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html">Developer Guides</a></p>
+<h2 id="BusyBox"><a href="#BusyBox" class="headerlink" title="BusyBox"></a><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/guides.html#busybox">BusyBox</a></h2><hr>
+<p>Magisk附带了一个功能齐全的BusyBox二进制文件（包括完整的SELinux支持）。可执行文件位于<code>/data/adb/magisk/busybox</code>。Magisk的BusyBox支持运行时可切换的“ASH独立Shell模式”。这个独立模式意味着，当在BusyBox的<code>ash</code> shell中运行时，每个命令都将直接使用BusyBox内的小程序，无论<code>PATH</code>设置为什么。例如，像<code>ls</code>、<code>rm</code>、<code>chmod</code>这样的命令将<strong>不会</strong>使用<code>PATH</code>中的（在Android中默认情况下分别是<code>/system/bin/ls</code>、<code>/system/bin/rm</code>和<code>/system/bin/chmod</code>），而是直接调用内部的BusyBox小程序。这确保了脚本始终在可预测的环境中运行，并且无论在哪个Android版本上都拥有完整的命令集。要强制命令不使用BusyBox，你必须使用完整路径调用可执行文件。</p>
 <p>在Magisk的上下文中运行的每个shell脚本都将在启用独立模式的BusyBox的<code>ash</code> shell中执行。对于第三方开发者而言，这包括所有启动脚本和模块安装脚本。</p>
 <p>对于那些想在Magisk外部使用这个“独立模式”功能的人，有两种启用它的方法：</p>
 <ol>
@@ -487,9 +489,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/KittenHyper/2024/04/03/Magisk%20%E6%96%87%E6%A1%A3/" title="Magisk 文档">
+                      <a href="/KittenHyper/2024/04/03/Magisk%20%E5%B7%A5%E5%85%B7/" title="Magisk 工具">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Magisk 文档</span>
+                        <span class="hidden-mobile">Magisk 工具</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
