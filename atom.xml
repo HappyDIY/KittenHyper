@@ -3,11 +3,11 @@
   <title>KittenHyper</title>
   
   
-  <link href="https://kittenhyper.gitee.io/atom.xml" rel="self"/>
+  <link href="https://kittenhyper.github.io/atom.xml" rel="self"/>
   
-  <link href="https://kittenhyper.gitee.io/"/>
+  <link href="https://kittenhyper.github.io/"/>
   <updated>2024-04-03T18:05:55.289Z</updated>
-  <id>https://kittenhyper.gitee.io/</id>
+  <id>https://kittenhyper.github.io/</id>
   
   <author>
     <name>Ranshen_Cervine</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>HyperOS marble.xml 解释</title>
-    <link href="https://kittenhyper.gitee.io/2024/04/04/HyperOS%20marble.xml%20%E8%A7%A3%E9%87%8A/"/>
-    <id>https://kittenhyper.gitee.io/2024/04/04/HyperOS%20marble.xml%20%E8%A7%A3%E9%87%8A/</id>
+    <link href="https://kittenhyper.github.io/2024/04/04/HyperOS%20marble.xml%20%E8%A7%A3%E9%87%8A/"/>
+    <id>https://kittenhyper.github.io/2024/04/04/HyperOS%20marble.xml%20%E8%A7%A3%E9%87%8A/</id>
     <published>2024-04-03T17:54:00.000Z</published>
     <updated>2024-04-03T18:05:55.289Z</updated>
     
@@ -33,17 +33,17 @@
     
     
     
-    <category term="HyperOS" scheme="https://kittenhyper.gitee.io/categories/HyperOS/"/>
+    <category term="HyperOS" scheme="https://kittenhyper.github.io/categories/HyperOS/"/>
     
     
-    <category term="HyperOS" scheme="https://kittenhyper.gitee.io/tags/HyperOS/"/>
+    <category term="HyperOS" scheme="https://kittenhyper.github.io/tags/HyperOS/"/>
     
   </entry>
   
   <entry>
     <title>HyperOS marble.xml</title>
-    <link href="https://kittenhyper.gitee.io/2024/04/04/HyperOS%20marble.xml/"/>
-    <id>https://kittenhyper.gitee.io/2024/04/04/HyperOS%20marble.xml/</id>
+    <link href="https://kittenhyper.github.io/2024/04/04/HyperOS%20marble.xml/"/>
+    <id>https://kittenhyper.github.io/2024/04/04/HyperOS%20marble.xml/</id>
     <published>2024-04-03T17:06:00.000Z</published>
     <updated>2024-04-03T18:12:58.571Z</updated>
     
@@ -57,17 +57,17 @@
     
     
     
-    <category term="HyperOS" scheme="https://kittenhyper.gitee.io/categories/HyperOS/"/>
+    <category term="HyperOS" scheme="https://kittenhyper.github.io/categories/HyperOS/"/>
     
     
-    <category term="HyperOS" scheme="https://kittenhyper.gitee.io/tags/HyperOS/"/>
+    <category term="HyperOS" scheme="https://kittenhyper.github.io/tags/HyperOS/"/>
     
   </entry>
   
   <entry>
     <title>内部细节</title>
-    <link href="https://kittenhyper.gitee.io/2024/04/03/%E5%86%85%E9%83%A8%E7%BB%86%E8%8A%82/"/>
-    <id>https://kittenhyper.gitee.io/2024/04/03/%E5%86%85%E9%83%A8%E7%BB%86%E8%8A%82/</id>
+    <link href="https://kittenhyper.github.io/2024/04/03/%E5%86%85%E9%83%A8%E7%BB%86%E8%8A%82/"/>
+    <id>https://kittenhyper.github.io/2024/04/03/%E5%86%85%E9%83%A8%E7%BB%86%E8%8A%82/</id>
     <published>2024-04-03T07:03:00.000Z</published>
     <updated>2024-04-03T07:31:57.214Z</updated>
     
@@ -81,17 +81,17 @@
     
     
     
-    <category term="Magisk Document" scheme="https://kittenhyper.gitee.io/categories/Magisk-Document/"/>
+    <category term="Magisk Document" scheme="https://kittenhyper.github.io/categories/Magisk-Document/"/>
     
     
-    <category term="Module" scheme="https://kittenhyper.gitee.io/tags/Module/"/>
+    <category term="Module" scheme="https://kittenhyper.github.io/tags/Module/"/>
     
   </entry>
   
   <entry>
     <title>Android 引导花絮</title>
-    <link href="https://kittenhyper.gitee.io/2024/04/03/Android%20%E5%BC%95%E5%AF%BC%E8%8A%B1%E7%B5%AE/"/>
-    <id>https://kittenhyper.gitee.io/2024/04/03/Android%20%E5%BC%95%E5%AF%BC%E8%8A%B1%E7%B5%AE/</id>
+    <link href="https://kittenhyper.github.io/2024/04/03/Android%20%E5%BC%95%E5%AF%BC%E8%8A%B1%E7%B5%AE/"/>
+    <id>https://kittenhyper.github.io/2024/04/03/Android%20%E5%BC%95%E5%AF%BC%E8%8A%B1%E7%B5%AE/</id>
     <published>2024-04-03T07:01:00.000Z</published>
     <updated>2024-04-03T07:29:51.448Z</updated>
     
@@ -105,17 +105,17 @@
     
     
     
-    <category term="Magisk Document" scheme="https://kittenhyper.gitee.io/categories/Magisk-Document/"/>
+    <category term="Magisk Document" scheme="https://kittenhyper.github.io/categories/Magisk-Document/"/>
     
     
-    <category term="Module" scheme="https://kittenhyper.gitee.io/tags/Module/"/>
+    <category term="Module" scheme="https://kittenhyper.github.io/tags/Module/"/>
     
   </entry>
   
   <entry>
     <title>Android Booting Shenanigans</title>
-    <link href="https://kittenhyper.gitee.io/2024/04/03/Android%20Booting%20Shenanigans/"/>
-    <id>https://kittenhyper.gitee.io/2024/04/03/Android%20Booting%20Shenanigans/</id>
+    <link href="https://kittenhyper.github.io/2024/04/03/Android%20Booting%20Shenanigans/"/>
+    <id>https://kittenhyper.github.io/2024/04/03/Android%20Booting%20Shenanigans/</id>
     <published>2024-04-03T06:59:00.000Z</published>
     <updated>2024-04-03T10:04:49.986Z</updated>
     
@@ -129,19 +129,19 @@
     
     
     
-    <category term="Magisk Document" scheme="https://kittenhyper.gitee.io/categories/Magisk-Document/"/>
+    <category term="Magisk Document" scheme="https://kittenhyper.github.io/categories/Magisk-Document/"/>
     
     
-    <category term="Module" scheme="https://kittenhyper.gitee.io/tags/Module/"/>
+    <category term="Module" scheme="https://kittenhyper.github.io/tags/Module/"/>
     
-    <category term="en-US" scheme="https://kittenhyper.gitee.io/tags/en-US/"/>
+    <category term="en-US" scheme="https://kittenhyper.github.io/tags/en-US/"/>
     
   </entry>
   
   <entry>
     <title>Internal Details</title>
-    <link href="https://kittenhyper.gitee.io/2024/04/03/Internal%20Details/"/>
-    <id>https://kittenhyper.gitee.io/2024/04/03/Internal%20Details/</id>
+    <link href="https://kittenhyper.github.io/2024/04/03/Internal%20Details/"/>
+    <id>https://kittenhyper.github.io/2024/04/03/Internal%20Details/</id>
     <published>2024-04-03T06:17:00.000Z</published>
     <updated>2024-04-03T10:00:28.529Z</updated>
     
@@ -155,19 +155,19 @@
     
     
     
-    <category term="Magisk Document" scheme="https://kittenhyper.gitee.io/categories/Magisk-Document/"/>
+    <category term="Magisk Document" scheme="https://kittenhyper.github.io/categories/Magisk-Document/"/>
     
     
-    <category term="Module" scheme="https://kittenhyper.gitee.io/tags/Module/"/>
+    <category term="Module" scheme="https://kittenhyper.github.io/tags/Module/"/>
     
-    <category term="en-US" scheme="https://kittenhyper.gitee.io/tags/en-US/"/>
+    <category term="en-US" scheme="https://kittenhyper.github.io/tags/en-US/"/>
     
   </entry>
   
   <entry>
     <title>Magisk 工具</title>
-    <link href="https://kittenhyper.gitee.io/2024/04/03/Magisk%20%E5%B7%A5%E5%85%B7/"/>
-    <id>https://kittenhyper.gitee.io/2024/04/03/Magisk%20%E5%B7%A5%E5%85%B7/</id>
+    <link href="https://kittenhyper.github.io/2024/04/03/Magisk%20%E5%B7%A5%E5%85%B7/"/>
+    <id>https://kittenhyper.github.io/2024/04/03/Magisk%20%E5%B7%A5%E5%85%B7/</id>
     <published>2024-04-03T06:12:00.000Z</published>
     <updated>2024-04-03T07:30:08.851Z</updated>
     
@@ -181,17 +181,17 @@
     
     
     
-    <category term="Magisk Document" scheme="https://kittenhyper.gitee.io/categories/Magisk-Document/"/>
+    <category term="Magisk Document" scheme="https://kittenhyper.github.io/categories/Magisk-Document/"/>
     
     
-    <category term="Module" scheme="https://kittenhyper.gitee.io/tags/Module/"/>
+    <category term="Module" scheme="https://kittenhyper.github.io/tags/Module/"/>
     
   </entry>
   
   <entry>
     <title>Magisk Tools</title>
-    <link href="https://kittenhyper.gitee.io/2024/04/03/Magisk%20Tools/"/>
-    <id>https://kittenhyper.gitee.io/2024/04/03/Magisk%20Tools/</id>
+    <link href="https://kittenhyper.github.io/2024/04/03/Magisk%20Tools/"/>
+    <id>https://kittenhyper.github.io/2024/04/03/Magisk%20Tools/</id>
     <published>2024-04-02T16:38:00.000Z</published>
     <updated>2024-04-03T10:00:53.356Z</updated>
     
@@ -205,19 +205,19 @@
     
     
     
-    <category term="Magisk Document" scheme="https://kittenhyper.gitee.io/categories/Magisk-Document/"/>
+    <category term="Magisk Document" scheme="https://kittenhyper.github.io/categories/Magisk-Document/"/>
     
     
-    <category term="Module" scheme="https://kittenhyper.gitee.io/tags/Module/"/>
+    <category term="Module" scheme="https://kittenhyper.github.io/tags/Module/"/>
     
-    <category term="en-US" scheme="https://kittenhyper.gitee.io/tags/en-US/"/>
+    <category term="en-US" scheme="https://kittenhyper.github.io/tags/en-US/"/>
     
   </entry>
   
   <entry>
     <title>开发者指南</title>
-    <link href="https://kittenhyper.gitee.io/2024/04/03/%E5%BC%80%E5%8F%91%E8%80%85%E6%8C%87%E5%8D%97/"/>
-    <id>https://kittenhyper.gitee.io/2024/04/03/%E5%BC%80%E5%8F%91%E8%80%85%E6%8C%87%E5%8D%97/</id>
+    <link href="https://kittenhyper.github.io/2024/04/03/%E5%BC%80%E5%8F%91%E8%80%85%E6%8C%87%E5%8D%97/"/>
+    <id>https://kittenhyper.github.io/2024/04/03/%E5%BC%80%E5%8F%91%E8%80%85%E6%8C%87%E5%8D%97/</id>
     <published>2024-04-02T16:35:00.000Z</published>
     <updated>2024-04-03T10:20:53.860Z</updated>
     
@@ -231,17 +231,17 @@
     
     
     
-    <category term="Magisk Document" scheme="https://kittenhyper.gitee.io/categories/Magisk-Document/"/>
+    <category term="Magisk Document" scheme="https://kittenhyper.github.io/categories/Magisk-Document/"/>
     
     
-    <category term="Module" scheme="https://kittenhyper.gitee.io/tags/Module/"/>
+    <category term="Module" scheme="https://kittenhyper.github.io/tags/Module/"/>
     
   </entry>
   
   <entry>
     <title>Building and Development</title>
-    <link href="https://kittenhyper.gitee.io/2024/04/03/Developer%20Guides/"/>
-    <id>https://kittenhyper.gitee.io/2024/04/03/Developer%20Guides/</id>
+    <link href="https://kittenhyper.github.io/2024/04/03/Developer%20Guides/"/>
+    <id>https://kittenhyper.github.io/2024/04/03/Developer%20Guides/</id>
     <published>2024-04-02T16:31:00.000Z</published>
     <updated>2024-04-03T10:00:16.191Z</updated>
     
@@ -255,19 +255,19 @@
     
     
     
-    <category term="Magisk Document" scheme="https://kittenhyper.gitee.io/categories/Magisk-Document/"/>
+    <category term="Magisk Document" scheme="https://kittenhyper.github.io/categories/Magisk-Document/"/>
     
     
-    <category term="Module" scheme="https://kittenhyper.gitee.io/tags/Module/"/>
+    <category term="Module" scheme="https://kittenhyper.github.io/tags/Module/"/>
     
-    <category term="en-US" scheme="https://kittenhyper.gitee.io/tags/en-US/"/>
+    <category term="en-US" scheme="https://kittenhyper.github.io/tags/en-US/"/>
     
   </entry>
   
   <entry>
     <title>构建与开发</title>
-    <link href="https://kittenhyper.gitee.io/2024/04/03/%E6%9E%84%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91/"/>
-    <id>https://kittenhyper.gitee.io/2024/04/03/%E6%9E%84%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91/</id>
+    <link href="https://kittenhyper.github.io/2024/04/03/%E6%9E%84%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91/"/>
+    <id>https://kittenhyper.github.io/2024/04/03/%E6%9E%84%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91/</id>
     <published>2024-04-02T16:24:00.000Z</published>
     <updated>2024-04-03T07:31:27.861Z</updated>
     
@@ -281,17 +281,17 @@
     
     
     
-    <category term="Magisk Document" scheme="https://kittenhyper.gitee.io/categories/Magisk-Document/"/>
+    <category term="Magisk Document" scheme="https://kittenhyper.github.io/categories/Magisk-Document/"/>
     
     
-    <category term="Module" scheme="https://kittenhyper.gitee.io/tags/Module/"/>
+    <category term="Module" scheme="https://kittenhyper.github.io/tags/Module/"/>
     
   </entry>
   
   <entry>
     <title>Building and Development</title>
-    <link href="https://kittenhyper.gitee.io/2024/04/03/Building%20and%20Development/"/>
-    <id>https://kittenhyper.gitee.io/2024/04/03/Building%20and%20Development/</id>
+    <link href="https://kittenhyper.github.io/2024/04/03/Building%20and%20Development/"/>
+    <id>https://kittenhyper.github.io/2024/04/03/Building%20and%20Development/</id>
     <published>2024-04-02T16:23:00.000Z</published>
     <updated>2024-04-03T09:59:58.083Z</updated>
     
@@ -305,19 +305,19 @@
     
     
     
-    <category term="Magisk Document" scheme="https://kittenhyper.gitee.io/categories/Magisk-Document/"/>
+    <category term="Magisk Document" scheme="https://kittenhyper.github.io/categories/Magisk-Document/"/>
     
     
-    <category term="Module" scheme="https://kittenhyper.gitee.io/tags/Module/"/>
+    <category term="Module" scheme="https://kittenhyper.github.io/tags/Module/"/>
     
-    <category term="en-US" scheme="https://kittenhyper.gitee.io/tags/en-US/"/>
+    <category term="en-US" scheme="https://kittenhyper.github.io/tags/en-US/"/>
     
   </entry>
   
   <entry>
     <title>Dex2OAT 介绍</title>
-    <link href="https://kittenhyper.gitee.io/2024/04/01/Dex2OAT%20%E4%BB%8B%E7%BB%8D/"/>
-    <id>https://kittenhyper.gitee.io/2024/04/01/Dex2OAT%20%E4%BB%8B%E7%BB%8D/</id>
+    <link href="https://kittenhyper.github.io/2024/04/01/Dex2OAT%20%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://kittenhyper.github.io/2024/04/01/Dex2OAT%20%E4%BB%8B%E7%BB%8D/</id>
     <published>2024-04-01T08:12:00.000Z</published>
     <updated>2024-04-03T06:19:32.621Z</updated>
     
@@ -331,17 +331,17 @@
     
     
     
-    <category term="Android ROM" scheme="https://kittenhyper.gitee.io/categories/Android-ROM/"/>
+    <category term="Android ROM" scheme="https://kittenhyper.github.io/categories/Android-ROM/"/>
     
     
-    <category term="Dex2OAT" scheme="https://kittenhyper.gitee.io/tags/Dex2OAT/"/>
+    <category term="Dex2OAT" scheme="https://kittenhyper.github.io/tags/Dex2OAT/"/>
     
   </entry>
   
   <entry>
     <title>卸载模块和备份字库</title>
-    <link href="https://kittenhyper.gitee.io/2024/03/28/%E5%8D%B8%E8%BD%BD%E6%A8%A1%E5%9D%97%E5%92%8C%E5%A4%87%E4%BB%BD%E5%AD%97%E5%BA%93/"/>
-    <id>https://kittenhyper.gitee.io/2024/03/28/%E5%8D%B8%E8%BD%BD%E6%A8%A1%E5%9D%97%E5%92%8C%E5%A4%87%E4%BB%BD%E5%AD%97%E5%BA%93/</id>
+    <link href="https://kittenhyper.github.io/2024/03/28/%E5%8D%B8%E8%BD%BD%E6%A8%A1%E5%9D%97%E5%92%8C%E5%A4%87%E4%BB%BD%E5%AD%97%E5%BA%93/"/>
+    <id>https://kittenhyper.github.io/2024/03/28/%E5%8D%B8%E8%BD%BD%E6%A8%A1%E5%9D%97%E5%92%8C%E5%A4%87%E4%BB%BD%E5%AD%97%E5%BA%93/</id>
     <published>2024-03-28T06:30:00.000Z</published>
     <updated>2024-04-03T18:10:28.551Z</updated>
     
@@ -355,17 +355,17 @@
     
     
     
-    <category term="Magisk" scheme="https://kittenhyper.gitee.io/categories/Magisk/"/>
+    <category term="Magisk" scheme="https://kittenhyper.github.io/categories/Magisk/"/>
     
     
-    <category term="Mudule" scheme="https://kittenhyper.gitee.io/tags/Mudule/"/>
+    <category term="Mudule" scheme="https://kittenhyper.github.io/tags/Mudule/"/>
     
   </entry>
   
   <entry>
     <title>KittenHyper 下载链接</title>
-    <link href="https://kittenhyper.gitee.io/2024/03/19/KittenHyper%20%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5/"/>
-    <id>https://kittenhyper.gitee.io/2024/03/19/KittenHyper%20%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5/</id>
+    <link href="https://kittenhyper.github.io/2024/03/19/KittenHyper%20%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5/"/>
+    <id>https://kittenhyper.github.io/2024/03/19/KittenHyper%20%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5/</id>
     <published>2024-03-19T05:05:00.000Z</published>
     <updated>2024-04-01T07:53:02.708Z</updated>
     
@@ -385,8 +385,8 @@
   
   <entry>
     <title>HyperOS build.prop 详细说明</title>
-    <link href="https://kittenhyper.gitee.io/2024/02/05/HyperOS%20build.prop%20%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E/"/>
-    <id>https://kittenhyper.gitee.io/2024/02/05/HyperOS%20build.prop%20%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E/</id>
+    <link href="https://kittenhyper.github.io/2024/02/05/HyperOS%20build.prop%20%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E/"/>
+    <id>https://kittenhyper.github.io/2024/02/05/HyperOS%20build.prop%20%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E/</id>
     <published>2024-02-05T14:24:00.000Z</published>
     <updated>2024-04-04T17:26:10.215Z</updated>
     
@@ -400,17 +400,17 @@
     
     
     
-    <category term="HyperOS" scheme="https://kittenhyper.gitee.io/categories/HyperOS/"/>
+    <category term="HyperOS" scheme="https://kittenhyper.github.io/categories/HyperOS/"/>
     
     
-    <category term="HyperOS" scheme="https://kittenhyper.gitee.io/tags/HyperOS/"/>
+    <category term="HyperOS" scheme="https://kittenhyper.github.io/tags/HyperOS/"/>
     
   </entry>
   
   <entry>
     <title>Android 更新后操作</title>
-    <link href="https://kittenhyper.gitee.io/2024/02/03/Android%20%E6%9B%B4%E6%96%B0%E5%90%8E%E6%93%8D%E4%BD%9C/"/>
-    <id>https://kittenhyper.gitee.io/2024/02/03/Android%20%E6%9B%B4%E6%96%B0%E5%90%8E%E6%93%8D%E4%BD%9C/</id>
+    <link href="https://kittenhyper.github.io/2024/02/03/Android%20%E6%9B%B4%E6%96%B0%E5%90%8E%E6%93%8D%E4%BD%9C/"/>
+    <id>https://kittenhyper.github.io/2024/02/03/Android%20%E6%9B%B4%E6%96%B0%E5%90%8E%E6%93%8D%E4%BD%9C/</id>
     <published>2024-02-03T10:52:00.000Z</published>
     <updated>2024-04-03T18:10:01.856Z</updated>
     
@@ -424,17 +424,17 @@
     
     
     
-    <category term="Android ROM" scheme="https://kittenhyper.gitee.io/categories/Android-ROM/"/>
+    <category term="Android ROM" scheme="https://kittenhyper.github.io/categories/Android-ROM/"/>
     
     
-    <category term="ROM" scheme="https://kittenhyper.gitee.io/tags/ROM/"/>
+    <category term="ROM" scheme="https://kittenhyper.github.io/tags/ROM/"/>
     
   </entry>
   
   <entry>
     <title>HyperOS 移植教程</title>
-    <link href="https://kittenhyper.gitee.io/2024/01/31/HyperOS%20%E7%A7%BB%E6%A4%8D%E6%95%99%E7%A8%8B/"/>
-    <id>https://kittenhyper.gitee.io/2024/01/31/HyperOS%20%E7%A7%BB%E6%A4%8D%E6%95%99%E7%A8%8B/</id>
+    <link href="https://kittenhyper.github.io/2024/01/31/HyperOS%20%E7%A7%BB%E6%A4%8D%E6%95%99%E7%A8%8B/"/>
+    <id>https://kittenhyper.github.io/2024/01/31/HyperOS%20%E7%A7%BB%E6%A4%8D%E6%95%99%E7%A8%8B/</id>
     <published>2024-01-31T04:38:00.000Z</published>
     <updated>2024-04-01T07:50:54.437Z</updated>
     
@@ -448,12 +448,12 @@
     
     
     
-    <category term="HyperOS" scheme="https://kittenhyper.gitee.io/categories/HyperOS/"/>
+    <category term="HyperOS" scheme="https://kittenhyper.github.io/categories/HyperOS/"/>
     
     
-    <category term="HyperOS" scheme="https://kittenhyper.gitee.io/tags/HyperOS/"/>
+    <category term="HyperOS" scheme="https://kittenhyper.github.io/tags/HyperOS/"/>
     
-    <category term="移植" scheme="https://kittenhyper.gitee.io/tags/%E7%A7%BB%E6%A4%8D/"/>
+    <category term="移植" scheme="https://kittenhyper.github.io/tags/%E7%A7%BB%E6%A4%8D/"/>
     
   </entry>
   
